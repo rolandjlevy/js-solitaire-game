@@ -13,9 +13,17 @@
 .block {
   width: calc(var(--block-size) * 1px);
   height: calc(var(--block-size) * 1px);
-  background: linear-gradient(45deg, grey, lightgrey);
+  background: linear-gradient(45deg, grey, lightgrey, #f9f9f9);
+}
+
+.block.active {
+  background: linear-gradient(45deg, #54bb00, #86ec00, #e5ff00);
 }
 
 .blank {
   background: #f9f9f9;
+}
+
+.available {
+  background: #ffdddd;
 }

@@ -1,0 +1,16 @@
+:root {
+  --block-size: 50;
+  --row-length: 7;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: calc(var(--block-size) * 1px * var(--row-length));
+}
+
+.block {
+  width: calc(var(--block-size) * 1px);
+  height: calc(var(--block-size) * 1px);
+  background: linear-gradient(45deg, grey, lightgrey);
+}

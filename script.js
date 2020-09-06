@@ -14,24 +14,44 @@ while (index < rl * rl) {
   block.div.id = index + 1;
   block.x = index % rl + 1;
   block.y = Math.floor(index / rl) + 1;
-  if ((index % rl < 2 || index % rl >= rl - 2) 
-    && (Math.floor(index / rl) < 2 || Math.floor(index / rl) >= rl - 2)) {
-    block.div.classList.add('blank');
-    block.blank = true;
-  }
-  if (index % rl == Math.floor(rl / 2) && Math.floor(index / rl) == Math.floor(rowLength / 2)) {
+  block.blank = false;
+  block.available = false;
+  if (isAvailable(index, rowLength)) {
     block.div.classList.add('available');
     block.available = true;
   }
-  block.div.addEventListener('click', (e) => {
-    const block = e.target;
-    block.classList.toggle('active');
-    const { blank, available, x, y } = block;
-    console.log(block.id, { blank, available, x, y });
-  });
+  if (isBlank(index, rowLength)) {
+    block.div.classList.add('blank');
+    block.blank = true;
+  } else {
+    const marble = document.createElement('div');
+    block.available ? marble.classList.add('marble-hole') : marble.classList.add('marble');
+    block.div.appendChild(marble);
+  }
   container.appendChild(block.div);
   blocks.push(block);
   index++;
 }
 
-console.log({blocks})
+function isBlank(i, rl) {
+  return (i % rl < 2 || i % rl >= rl - 2) && (Math.floor(i / rl) < 2 || Math.floor(i / rl) >= rl - 2);
+}
+
+function isAvailable(i, rl) {
+  return i % rl == Math.floor(rl / 2) && Math.floor(i / rl) == Math.floor(rl / 2);
+}
+
+function isValidMove(block) {
+  // if (block.blank) return false;
+  // const id = Number(block.div.id)
+  // const valid = id % rl > 2 && id % rl + 2 <= Number(rl);
+  // console.log({valid});
+}
+
+blocks.forEach(item => {
+  item.div.addEventListener('click', (e) => {
+    const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
+    isValidMove(block);
+    if (!block.blank) block.div.classList.toggle('active');
+  }, true);
+})

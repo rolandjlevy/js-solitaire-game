@@ -6,6 +6,7 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  min-width: calc(var(--block-size) * 1px * var(--row-length));
   max-width: calc(var(--block-size) * 1px * var(--row-length));
 }
 
@@ -13,4 +14,8 @@
   width: calc(var(--block-size) * 1px);
   height: calc(var(--block-size) * 1px);
   background: linear-gradient(45deg, grey, lightgrey);
+}
+
+.blank {
+  background: #f9f9f9;
 }

@@ -11,6 +11,7 @@
 }
 
 .block {
+  cursor: pointer;
   width: calc(var(--block-size) * 1px);
   height: calc(var(--block-size) * 1px);
   background: linear-gradient(45deg, grey, lightgrey, #f9f9f9);

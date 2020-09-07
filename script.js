@@ -33,16 +33,18 @@ while (index < rl * rl) {
   index++;
 }
 
-function isBlank(i, rl) {
+function isBlank(index, rowLength) {
+  const i = index, rl = rowLength;
   return (i % rl < 2 || i % rl >= rl - 2) && (Math.floor(i / rl) < 2 || Math.floor(i / rl) >= rl - 2);
 }
 
-function isAvailable(i, rl) {
+function isAvailable(index, rowLength) {
+  const i = index, rl = rowLength;
   return i % rl == Math.floor(rl / 2) && Math.floor(i / rl) == Math.floor(rl / 2);
 }
 
 function isValidMove(block) {
-  // if (block.blank) return false;
+  if (block.blank) return false;
   // const id = Number(block.div.id)
   // const valid = id % rl > 2 && id % rl + 2 <= Number(rl);
   // console.log({valid});

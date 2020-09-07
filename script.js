@@ -7,6 +7,7 @@ const rowLength = getComputedStyle(body).getPropertyValue('--row-length');
 let index = 0;
 const blocks = [];
 const rl = rowLength;
+let origin = null;
 
 while (index < rl * rl) {
 
@@ -14,7 +15,8 @@ while (index < rl * rl) {
     div: document.createElement('div'),
     x: index % rl + 1,
     y: Math.floor(index / rl) + 1,
-    state: 'filled'
+    state: 'filled',
+    active: false
   }
   block.div.id = index + 1;
   block.div.classList.add('block');
@@ -42,13 +44,29 @@ blocks.forEach(item => {
   item.div.addEventListener('click', (e) => {
     const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
     isValidMove(block);
-    if (block.state == 'filled') {
-      block.div.classList.toggle('active');
-    }
   }, true);
 });
 
-console.log(blocks);
+function isValidMove(block) {
+  if (!block.active && !origin) {
+    block.active = true;
+    block.div.classList.add('active');
+    origin = block;
+  } else {
+    if (origin.id == block.id) {
+      block.active = false;
+      block.div.classList.remove('active');
+      origin = null;
+    }
+  }
+  // const target = block;
+  // if (block.state == 'empty') {
+  //   console.log({origin, target});
+  // }
+  // const id = Number(block.div.id)
+  // const valid = id % rl > 2 && id % rl + 2 <= Number(rl);
+  // console.log({valid});
+}
 
 function isBlank(index, rowLength) {
   const i = index, rl = rowLength;
@@ -58,11 +76,4 @@ function isBlank(index, rowLength) {
 function isEmpty(index, rowLength) {
   const i = index, rl = rowLength;
   return i % rl == Math.floor(rl / 2) && Math.floor(i / rl) == Math.floor(rl / 2);
-}
-
-function isValidMove(block) {
-  if (block.state == 'blank') return false;
-  // const id = Number(block.div.id)
-  // const valid = id % rl > 2 && id % rl + 2 <= Number(rl);
-  // console.log({valid});
 }

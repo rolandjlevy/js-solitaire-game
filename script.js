@@ -10,7 +10,6 @@ const rl = rowLength;
 let origin = null;
 
 while (index < rl * rl) {
-
   const block = {
     div: document.createElement('div'),
     x: index % rl + 1,
@@ -20,7 +19,6 @@ while (index < rl * rl) {
   }
   block.div.id = index + 1;
   block.div.classList.add('block');
-
   if (isBlank(index, rowLength)) {
     block.state = 'blank';
   } else {
@@ -34,7 +32,6 @@ while (index < rl * rl) {
     block.div.appendChild(marble);
   }
   block.div.classList.add(block.state);
-
   container.appendChild(block.div);
   blocks.push(block);
   index++;
@@ -52,12 +49,14 @@ function isValidMove(block) {
     block.active = true;
     block.div.classList.add('active');
     origin = block;
-  } else {
-    if (origin.id == block.id) {
-      block.active = false;
-      block.div.classList.remove('active');
-      origin = null;
-    }
+    console.log('active');
+    return;
+  }
+  if (origin.id == block.id) {
+    block.active = false;
+    block.div.classList.remove('active');
+    origin = null;
+    return;
   }
   // const target = block;
   // if (block.state == 'empty') {

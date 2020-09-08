@@ -29,17 +29,21 @@ while (index < rl * rl) {
     block.div.appendChild(marble);
   }
   block.div.classList.add(block.state);
+  block.div.classList.add('init');
   container.appendChild(block.div);
   blocks.push(block);
   index++;
 }
 
-blocks.forEach(item => {
-  item.div.addEventListener('click', (e) => {
-    const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
-    processMove(block);
-  }, true);
-});
+setTimeout(() => {
+  blocks.forEach(item => {
+    item.div.classList.remove('init');
+    item.div.addEventListener('click', (e) => {
+      const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
+      processMove(block);
+    }, true);
+  });
+}, 10);
 
 function processMove(block) {
   if (origin) {

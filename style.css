@@ -1,5 +1,5 @@
 :root {
-  --block-size: 75;
+  --block-size: 65;
   --row-length: 7;
   --blue-mid: #c3d1ffdd;
   --blue-dark: #1c2bffdd;
@@ -7,6 +7,10 @@
   --blue-shadow: #4444dddd;
   --board-colour: #003077;
   --peach:  #ffdd99;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 body {
@@ -42,10 +46,20 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  outline: none;
   cursor: pointer;
   width: calc(var(--block-size) * 1px);
   height: calc(var(--block-size) * 1px);
   background: linear-gradient(45deg, #e1e9ff, #f9fdff);
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  transition: all 0.5s ease;
+}
+
+.block.init {
+  opacity: 0;
+  transform: scale(0.1) rotate(90deg);
+  transition: all 0.5s ease;
 }
 
 .block.blank {
@@ -65,22 +79,22 @@ h3 {
       var(--blue-dark) 50%, 
       var(--blue-mid) 80%
   );
-  filter: drop-shadow(0 3px 3px var(--blue-shadow));
+  filter: drop-shadow(0 4px 3px var(--blue-shadow));
   transition: all 0.1s ease;
 }
 
 .block:hover > .marble {
-  transform: translateY(-3px);
-  filter: drop-shadow(0 6px 3px var(--blue-shadow));
+  transform: translateY(-4px);
+  filter: drop-shadow(0 8px 3px var(--blue-shadow));
 }
 
 .block.active > .marble {
-  filter: sepia(1) contrast(1.2) brightness(1.1) drop-shadow(0 3px 3px var(--blue-shadow));
+  filter: sepia(1) contrast(1.2) brightness(1.1) drop-shadow(0 4px 3px var(--blue-shadow));
   transition: all 0.1s ease;
 }
 
 .block.active:hover > .marble {
-  filter: sepia(1) contrast(1.2) brightness(1.1) drop-shadow(0 6px 3px var(--blue-shadow));
+  filter: sepia(1) contrast(1.2) brightness(1.1) drop-shadow(0 8px 3px var(--blue-shadow));
 }
 
 .block.empty > .marble, .block.empty:hover > .marble {

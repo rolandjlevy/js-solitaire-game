@@ -1,8 +1,8 @@
 :root {
   --block-size: 75;
   --row-length: 7;
-  --blue-mid: #b0c2ffdd;
-  --blue-dark: #000fdbdd;
+  --blue-mid: #c3d1ffdd;
+  --blue-dark: #1c2bffdd;
   --blue-deep: #000770dd;
   --blue-shadow: #4444dddd;
   --board-colour: #003077;
@@ -19,6 +19,7 @@ h3 {
   color: #ffdd99;
   letter-spacing: 2px;
   margin: 10px 0;
+  text-shadow: 0 3px 3px var(--blue-deep);
 }
 
 .wrapper {
@@ -66,29 +67,23 @@ h3 {
       var(--blue-dark) 50%, 
       var(--blue-mid) 80%
   );
-  box-shadow: 0 4px 6px -1px var(--blue-shadow);
-  transition: all 0.2s ease;
+  filter: drop-shadow(0 3px 3px var(--blue-shadow));
 }
 
 .block:hover > .marble {
   transform: translateY(-3px);
-  box-shadow: 0 6px 6px -1px var(--blue-shadow);
-  transition: all 0.2s ease;
+  filter: drop-shadow(0 6px 3px var(--blue-shadow));
 }
 
 .block.active > .marble {
-  filter: sepia(1) contrast(1.2) brightness(1.1);
-  box-shadow: 0 4px 6px -1px var(--blue-shadow);
-  transition: all 0.2s ease;
+  filter: sepia(1) contrast(1.2) brightness(1.1) drop-shadow(0 3px 3px var(--blue-shadow));
 }
 
 .block.active:hover > .marble {
-  filter: sepia(1) contrast(1.2) brightness(1.1);
-  box-shadow: 0 6px 6px -1px var(--blue-shadow);
-  transition: all 0.2s ease;
+  filter: sepia(1) contrast(1.2) brightness(1.1) drop-shadow(0 6px 3px var(--blue-shadow));
 }
 
-.block.empty > .marble {
+.block.empty > .marble, .block.empty:hover > .marble {
   opacity: 0.3;
   background: 
     radial-gradient(circle farthest-corner at 66% 66%, 

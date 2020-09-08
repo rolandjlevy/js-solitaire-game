@@ -1,6 +1,13 @@
 :root {
   --block-size: 80;
   --row-length: 7;
+  --blue-shadow: #4444ddcc;
+  --board-colour: #333;
+}
+
+body {
+
+  background: var(--board-colour);
 }
 
 .container {
@@ -21,7 +28,7 @@
 }
 
 .block.blank {
-  background: #f9f9f9;
+  background: var(--board-colour);
 }
 
 .block.empty {
@@ -35,19 +42,26 @@
   background: radial-gradient(circle farthest-corner at 33% 33%, rgba(240, 240, 240, 0.85) 0%, rgba(30, 30, 40, 0.85) 80%), radial-gradient(circle farthest-corner at 45% 45%, rgba(0, 0, 0, 0) 50%, #000000 80%);
   /* opacity: 0.8;
   filter: contrast(90%); */
-  filter: drop-shadow(3px 3px 2px #4444dd);
-  transition: all 0.2s ease;
+  filter: drop-shadow(0 3px 2px var(--blue-shadow));
+  transition: all 0.1s ease;
+}
+
+.block:hover > .marble {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 6px 2px var(--blue-shadow));
+  transition: all 0.1s ease;
 }
 
 .block.active > .marble {
   /* background: linear-gradient(45deg, #54bb00, #86ec00, #e5ff00); */
   /* background: radial-gradient(circle farthest-corner at 33% 33%, rgba(240, 240, 240, 0.85) 0%, rgba(30, 30, 40, 0.85) 80%), radial-gradient(circle farthest-corner at 45% 45%, rgba(0, 0, 0, 0) 50%, #000000 80%); */
-  filter: sepia() drop-shadow(3px 3px 2px #4444dd);
+  filter: sepia() drop-shadow(0 3px 2px var(--blue-shadow));
   transition: all 0.2s ease;
 }
 
 .block.empty > .marble {
   opacity: 0.3;
   background: radial-gradient(circle farthest-corner at 66% 66%, rgba(240, 240, 240, 0.85) 0%, rgba(30, 30, 40, 0.85) 80%), radial-gradient(circle farthest-corner at 45% 45%, rgba(0, 0, 0, 0) 50%, #000000 80%);
+  transform: none;
   filter: blur(1px);
 }

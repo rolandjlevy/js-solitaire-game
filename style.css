@@ -4,9 +4,9 @@
   --blue-mid: #c3d1ffdd;
   --blue-dark: #1c2bffdd;
   --blue-deep: #000770dd;
-  --blue-shadow: #4444dddd;
-  --board-colour: #003077;
-  --peach:  #ffdd99;
+  --blue-shadow: rgb(117, 117, 163);
+  --board-colour: #002966;
+  --peach: #ffdd99;
 }
 
 * {
@@ -40,6 +40,7 @@ h3 {
   flex-wrap: wrap;
   min-width: calc(var(--block-size) * 1px * var(--row-length));
   max-width: calc(var(--block-size) * 1px * var(--row-length));
+  margin: 20px;
 }
 
 .block {
@@ -111,4 +112,125 @@ h3 {
   transform: none;
   filter: blur(1px);
   transition: all 0.1s ease;
+}
+
+/***********/
+/* Buttons */
+/***********/
+
+.btn {
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: 0;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.btn:hover {
+  background-color: #fff;
+  box-shadow: 0 5px 10px -5px #000000;
+  transition: all 0.2s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+i.fas {
+  color: var(--grey-dark);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/**********/
+/* Footer */
+/**********/
+
+footer {
+  font-size: 1rem;
+}
+
+footer > a {
+  color: var(--peach);
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+footer > a:hover {
+  color: var(--peach);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.new-tab-icon::after {
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  content: "\f35d";
+  margin-left: 5px;
+}
+
+/********************/
+/* Margin & Padding */
+/********************/
+
+.m-t-5 {
+  margin-top: 5px;
+}
+
+.m-r-5 {
+  margin-right: 5px;
+}
+
+.m-b-5 {
+  margin-bottom: 5px;
+}
+
+.m-l-5 {
+  margin-left: 5px;
+}
+
+.m-t-0 {
+  margin-top: 0;
+}
+
+.m-t-8 {
+  margin-top: 8px;
+}
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+.m-b-10 {
+  margin-bottom: 10px;
+}
+
+.m-l-10 {
+  margin-left: 10px;
+}
+
+.m-r-10 {
+  margin-right: 10px;
+}
+
+.m-t-20 {
+  margin-top: 20px;
+}
+
+.m-b-20 {
+  margin-bottom: 20px;
+}
+
+.m-b-30 {
+  margin-bottom: 30px;
+}
+
+.m-t-30 {
+  margin-top: 30px;
 }

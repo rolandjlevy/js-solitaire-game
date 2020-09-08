@@ -104,3 +104,11 @@ function isEmpty(index, rowLength) {
   const i = index, rl = rowLength;
   return i % rl == Math.floor(rl / 2) && Math.floor(i / rl) == Math.floor(rl / 2);
 }
+
+function startGame() {
+  console.log('startGame');
+}
+
+function toggleHelp(state) {
+  console.log('toggleHelp:', state);
+}

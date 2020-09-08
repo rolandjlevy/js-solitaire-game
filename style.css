@@ -37,7 +37,7 @@ h3 {
   cursor: pointer;
   width: calc(var(--block-size) * 1px);
   height: calc(var(--block-size) * 1px);
-  background: linear-gradient(45deg, lightgrey, #f9f9f9);
+  background: linear-gradient(45deg, #dceaff, #f9fdff);
 }
 
 .block.blank {
@@ -52,7 +52,13 @@ h3 {
   width: calc((var(--block-size) * 1px) / 2);
   height: calc((var(--block-size) * 1px) / 2);
   border-radius: 50%;
-  background: radial-gradient(circle farthest-corner at 33% 33%, rgba(240, 240, 240, 0.85) 0%, rgba(30, 30, 40, 0.85) 80%), radial-gradient(circle farthest-corner at 45% 45%, rgba(0, 0, 0, 0) 50%, #000000 80%);
+  background: 
+    radial-gradient(circle farthest-corner at 33% 33%, 
+      rgba(240, 240, 240, 0.85) 0%, 
+      rgba(30, 30, 40, 0.85) 80%), 
+    radial-gradient(circle farthest-corner at 45% 45%, 
+      rgba(0, 0, 0, 0) 50%, 
+      #000000 80%);
   box-shadow: 0 4px 6px 0px var(--blue-shadow);
   transition: all 0.2s ease;
 }
@@ -77,7 +83,14 @@ h3 {
 
 .block.empty > .marble {
   opacity: 0.3;
-  background: radial-gradient(circle farthest-corner at 66% 66%, rgba(240, 240, 240, 0.85) 0%, rgba(30, 30, 40, 0.85) 80%), radial-gradient(circle farthest-corner at 45% 45%, rgba(0, 0, 0, 0) 50%, #000000 80%);
+  background: 
+    radial-gradient(circle farthest-corner at 66% 66%, 
+      rgba(240, 240, 240, 0.85) 0%, 
+      rgba(30, 30, 40, 0.85) 80%), 
+    radial-gradient(circle farthest-corner at 45% 45%, 
+      rgba(0, 0, 0, 0.822) 50%, 
+      #000000 80%
+  );
   transform: none;
   filter: blur(1px);
 }

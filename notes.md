@@ -4,7 +4,7 @@
 - Scoring
 - Change to OOP
 - Help section
-- Readme notes
+- Write readme
 - Leader Board
 
 ### Links

@@ -6,17 +6,19 @@
   --blue-deep: #000770dd;
   --blue-shadow: #4444dddd;
   --board-colour: #003077;
+  --peach:  #ffdd99;
 }
 
 body {
   background: var(--board-colour);
   font-family: 'Open Sans', sans-serif;
+  color: var(--peach);
   margin: 30px;
 }
 
 h3 {
   font-size: 3rem;
-  color: #ffdd99;
+  color: var(--peach);
   letter-spacing: 2px;
   margin: 10px 0;
   text-shadow: 0 3px 3px var(--blue-deep);
@@ -51,10 +53,6 @@ h3 {
   cursor: auto;
 }
 
-.block.empty {
-  /* background: #ffdddd; */
-}
-
 .block > .marble {
   width: calc((var(--block-size) * 1px) / 2);
   height: calc((var(--block-size) * 1px) / 2);
@@ -68,6 +66,7 @@ h3 {
       var(--blue-mid) 80%
   );
   filter: drop-shadow(0 3px 3px var(--blue-shadow));
+  transition: all 0.1s ease;
 }
 
 .block:hover > .marble {
@@ -77,6 +76,7 @@ h3 {
 
 .block.active > .marble {
   filter: sepia(1) contrast(1.2) brightness(1.1) drop-shadow(0 3px 3px var(--blue-shadow));
+  transition: all 0.1s ease;
 }
 
 .block.active:hover > .marble {
@@ -96,4 +96,5 @@ h3 {
   box-shadow: none;
   transform: none;
   filter: blur(1px);
+  transition: all 0.1s ease;
 }

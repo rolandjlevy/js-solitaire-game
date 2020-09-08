@@ -1,4 +1,5 @@
 const container = document.querySelector('.container');
+const display = document.querySelector('.display');
 
 const body = document.querySelector('body');
 const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
@@ -36,31 +37,58 @@ while (index < rl * rl) {
 blocks.forEach(item => {
   item.div.addEventListener('click', (e) => {
     const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
-    isValidMove(block);
+    processMove(block);
   }, true);
 });
 
-function isValidMove(block) {
-  if (!block.active && !origin) {
-    block.active = true;
+function processMove(block) {
+  if (origin) {
+    if (origin.div.id == block.div.id) {
+      block.div.classList.remove('active');
+      origin = null;
+    } else {
+      const target = block;
+      const taken = isValidTake(origin, target);
+      if (taken) {
+        take(origin, target, taken);
+      }
+    }
+  } else {
+    if (block.state != 'filled') return;
     block.div.classList.add('active');
     origin = block;
-    console.log('active');
-    return;
   }
-  if (origin.id == block.id) {
-    block.active = false;
-    block.div.classList.remove('active');
-    origin = null;
-    return;
+}
+
+function isValidTake(origin, target) {
+  if (target.state !== 'empty') return false;
+  if (target.y == origin.y && Math.abs(target.x - origin.x) % 2 == 0) {
+    const middleHorizId = Number(origin.div.id) + (origin.x < target.x ? 1 : -1);
+    const middleHoriz = blocks.find(item => item.div.id == middleHorizId);
+    if (middleHoriz.state == 'filled') return middleHoriz;
   }
-  // const target = block;
-  // if (block.state == 'empty') {
-  //   console.log({origin, target});
-  // }
-  // const id = Number(block.div.id)
-  // const valid = id % rl > 2 && id % rl + 2 <= Number(rl);
-  // console.log({valid});
+  if (target.x == origin.x && Math.abs(target.y - origin.y) % 2 == 0) {
+    const middleVertId = Number(origin.div.id) + rowLength * (origin.y < target.y ? 1 : -1);
+    const middleVert = blocks.find(item => item.div.id == middleVertId);
+    if (middleVert.state == 'filled') return middleVert;
+  }
+  return false;
+}
+
+function take(orig, target, taken) {
+  orig.div.classList.remove('active');
+  orig.div.classList.add('empty');
+  origBlock = blocks.find(item => item.div.id == orig.div.id);
+  origBlock.state = 'empty';
+  origin = null;
+  target.div.classList.remove('empty');
+  target.div.classList.add('filled');
+  targetBlock = blocks.find(item => item.div.id == target.div.id);
+  targetBlock.state = 'filled';
+  taken.div.classList.remove('filled');
+  taken.div.classList.add('empty');
+  takenBlock = blocks.find(item => item.div.id == taken.div.id);
+  takenBlock.state = 'empty';
 }
 
 function isBlank(index, rowLength) {

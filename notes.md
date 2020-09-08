@@ -1,5 +1,12 @@
 # Notes
 
+### Todo
+- Scoring
+- Change to OOP
+- Help section
+- Readme notes
+- Leader Board
+
 ### Links
 - https://veerasundar.com/33holepegsolitaire/
 - https://youtu.be/XLmE12fHifc

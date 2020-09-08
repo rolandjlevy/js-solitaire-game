@@ -22,13 +22,9 @@ while (index < rl * rl) {
   if (isBlank(index, rowLength)) {
     block.state = 'blank';
   } else {
+    if (isEmpty(index, rowLength)) block.state = 'empty';
     const marble = document.createElement('div');
-    if (isEmpty(index, rowLength)) {
-      block.state = 'empty';
-      marble.classList.add('marble-none');
-    } else {
-      marble.classList.add('marble');
-    }
+    marble.classList.add(`marble-${block.state}`);
     block.div.appendChild(marble);
   }
   block.div.classList.add(block.state);

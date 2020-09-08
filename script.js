@@ -24,7 +24,7 @@ while (index < rl * rl) {
   } else {
     if (isEmpty(index, rowLength)) block.state = 'empty';
     const marble = document.createElement('div');
-    marble.classList.add(`marble-${block.state}`);
+    marble.classList.add('marble');
     block.div.appendChild(marble);
   }
   block.div.classList.add(block.state);

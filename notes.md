@@ -10,6 +10,7 @@
 ### Other solitaire games
 - https://veerasundar.com/33holepegsolitaire/
 - https://youtu.be/XLmE12fHifc
+- https://youtu.be/f1AuE4WweSw
 
 ### Fixes
 - Fix for [300ms lag onclick event](https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away)

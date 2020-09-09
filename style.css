@@ -1,16 +1,16 @@
 :root {
-  --block-size: 60;
+  --block-size: 50;
   --row-length: 7;
   --blue-white: #f9fbff;
   --blue-light: #e1e9ff;
   --blue-mid: #c3d1ffe7;
-  --blue-dark: #4356ffb4;
-  --blue-darker: #000f99;
+  --blue-dark: #3240bec4;
+  --blue-darker: #000c77;
   --blue-deep: #000655;
   --blue-shadow: rgb(117, 117, 163);
-  --board-colour: #00087a;
+  --board-colour: #00065e;
   --peach-white: #fffae4;
-  --peach-light: #ffeda5;
+  --peach-light: #ffeb9c;
   --peach-mid: #ffdf76;
   --peach-dark: #ffc918;
   --peach-darker: #ce8d00;
@@ -25,24 +25,27 @@
 
 html {
   touch-action: manipulation;
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 50px;
+  padding: 0;
+  box-sizing: border-box;
   background: var(--board-colour);
   font-family: 'Open Sans', sans-serif;
   color: var(--peach-light);
-  margin: 30px;
 }
 
 h3 {
   font-size: 3rem;
   color: var(--peach-mid);
   letter-spacing: 2px;
-  margin: 10px 0;
+  margin: 0;
   text-shadow: 0 3px 3px var(--blue-deep);
 }
 
-.wrapper {
+article {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,8 +95,8 @@ h3 {
 /*******************/
 
 .block > .marble {
-  width: calc((var(--block-size) * 1px) * 0.6);
-  height: calc((var(--block-size) * 1px) * 0.6);
+  width: calc((var(--block-size) * 1px) * 0.625);
+  height: calc((var(--block-size) * 1px) * 0.625);
   border-radius: 50%;
   background: 
     radial-gradient(circle farthest-corner at 33% 33%, 
@@ -165,10 +168,12 @@ h3 {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 1.5;
+  min-width: 300px;
+  max-width: 300px;
 }
 
 .help.show {
-  height: 255px;
+  min-height: 255px;
   opacity: 1;
   transition: all 0.5s ease;
   margin-top: 20px;

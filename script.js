@@ -1,5 +1,7 @@
 const container = document.querySelector('.container');
 const helpDisplay = document.querySelector('.help');
+const scoreDisplay = document.querySelector('.score-display');
+const timerDisplay = document.querySelector('.timer-display');
 
 const body = document.querySelector('body');
 const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
@@ -9,6 +11,8 @@ let index = 0;
 const blocks = [];
 const rl = rowLength;
 let origin = null;
+let score = 0;
+let timer = 0;
 
 while (index < rl * rl) {
   const block = {
@@ -45,6 +49,12 @@ setTimeout(() => {
   });
 }, 10);
 
+setInterval(() => {
+  const paddedTimer = String(timer).padStart(2, '0');
+  timerDisplay.textContent = paddedTimer;
+  timer++;
+}, 1000);
+
 function processMove(block) {
   if (origin) {
     if (origin.div.id == block.div.id) {
@@ -55,6 +65,8 @@ function processMove(block) {
       const taken = isValidTake(origin, target);
       if (taken) {
         take(origin, target, taken);
+        score++;
+        scoreDisplay.textContent = score;
       }
     }
   } else {

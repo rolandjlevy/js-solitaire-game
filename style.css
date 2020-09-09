@@ -5,7 +5,7 @@
   --blue-dark: #3240bec4;
   --blue-darker: #000c77;
   --blue-deep: #000655;
-  --blue-shadow: rgb(117, 117, 163);
+  --blue-shadow: #7575a3;
   --board-colour: #00065e;
   --peach-white: #fffae4;
   --peach-light: #ffeb9c;
@@ -23,7 +23,7 @@
 @media screen and (max-width: 480px) {
   :root {
     --block-size: 50;
-  --marble-ratio: 0.625;
+    --marble-ratio: 0.625;
   }
 }
 

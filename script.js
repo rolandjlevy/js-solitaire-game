@@ -38,6 +38,7 @@ while (index < rl * rl) {
 setTimeout(() => {
   blocks.forEach(item => {
     item.div.classList.remove('init');
+    // item.div.style.transition = 'all 0.1s ease';
     item.div.addEventListener('click', (e) => {
       const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
       processMove(block);

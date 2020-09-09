@@ -1,28 +1,41 @@
 :root {
-  --block-size: 65;
+  --block-size: 60;
   --row-length: 7;
+  --blue-white: #f9fbff;
+  --blue-light: #e1e9ff;
   --blue-mid: #c3d1ffdd;
   --blue-dark: #1c2bffdd;
   --blue-deep: #000770dd;
   --blue-shadow: rgb(117, 117, 163);
   --board-colour: #002966;
-  --peach: #ffdd99;
+  --peach-white: #fffae4;
+  --peach-light: #ffeda5;
+  --peach-mid: #ffdf76;
+  --peach-dark: #ffc918;
+  --peach-darker: #ce8d00;
+  --peach-deep: #694800;
+  --peach-shadow: #553a0055;
+  --peach-shadow-dark: #553a0066;
 }
 
 * {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+html {
+  touch-action: manipulation;
+}
+
 body {
   background: var(--board-colour);
   font-family: 'Open Sans', sans-serif;
-  color: var(--peach);
+  color: var(--peach-light);
   margin: 30px;
 }
 
 h3 {
   font-size: 3rem;
-  color: var(--peach);
+  color: var(--peach-mid);
   letter-spacing: 2px;
   margin: 10px 0;
   text-shadow: 0 3px 3px var(--blue-deep);
@@ -51,8 +64,8 @@ h3 {
   cursor: pointer;
   width: calc(var(--block-size) * 1px);
   height: calc(var(--block-size) * 1px);
-  background: linear-gradient(45deg, #e1e9ff, #f9fdff);
-  opacity: 1;
+  background: linear-gradient(315deg, var(--peach-light), var(--peach-white));
+  opacity: 1; 
   transform: scale(1) rotate(0deg);
   transition: all 0.5s ease;
 }
@@ -68,49 +81,68 @@ h3 {
   cursor: auto;
 }
 
+.block.active {
+  background: linear-gradient(45deg, var(--peach-light), var(--peach-light));
+  transition: all 0.1s ease;
+}
+
+/*******************/
+/* Marble settings */
+/*******************/
+
 .block > .marble {
-  width: calc((var(--block-size) * 1px) / 2);
-  height: calc((var(--block-size) * 1px) / 2);
+  width: calc((var(--block-size) * 1px) * 0.6);
+  height: calc((var(--block-size) * 1px) * 0.6);
   border-radius: 50%;
   background: 
     radial-gradient(circle farthest-corner at 33% 33%, 
-      var(--blue-mid) 0%, 
-      var(--blue-deep) 80%), 
+      var(--peach-mid) 0%, 
+      var(--peach-darker) 80%), 
     radial-gradient(circle farthest-corner at 45% 45%, 
-      var(--blue-dark) 50%, 
-      var(--blue-mid) 80%
+      var(--peach-darker) 50%, 
+      var(--peach-mid) 80%
   );
-  filter: drop-shadow(0 4px 3px var(--blue-shadow));
+  box-shadow: 4px 4px 4px 1px var(--peach-shadow);
   transition: all 0.1s ease;
 }
 
 .block:hover > .marble {
-  transform: translateY(-4px);
-  filter: drop-shadow(0 8px 3px var(--blue-shadow));
+  /*transform: translateY(0);
+  filter: drop-shadow(0 8px 3px var(--blue-shadow));*/
 }
 
 .block.active > .marble {
-  filter: sepia(1) contrast(1.2) brightness(1.1) drop-shadow(0 4px 3px var(--blue-shadow));
+  background: 
+    radial-gradient(circle farthest-corner at 33% 33%, 
+      var(--peach-dark) 0%, 
+      var(--peach-deep) 80%), 
+    radial-gradient(circle farthest-corner at 45% 45%, 
+      var(--peach-deep) 50%, 
+      var(--peach-dark) 80%
+  );
+  filter: contrast(1.2) brightness(1.2);
+  box-shadow: 4px 4px 4px 1px var(--peach-shadow);
   transition: all 0.1s ease;
 }
 
 .block.active:hover > .marble {
-  filter: sepia(1) contrast(1.2) brightness(1.1) drop-shadow(0 8px 3px var(--blue-shadow));
+  /*filter: sepia(1) contrast(1.2) brightness(1.1) drop-shadow(0 8px 3px var(--blue-shadow));*/
 }
 
 .block.empty > .marble, .block.empty:hover > .marble {
   opacity: 0.3;
+  background: var(--blue-mid);
   background: 
     radial-gradient(circle farthest-corner at 66% 66%, 
-      var(--blue-mid) 0%, 
-      var(--blue-dark) 80%), 
+      var(--peach-mid) 0%, 
+      var(--peach-darker) 80%), 
     radial-gradient(circle farthest-corner at 45% 45%, 
-      rgba(0, 0, 0, 0.8) 50%, 
-      var(--blue-dark) 80%
+      rgba(0, 0, 0, 0.5) 20%, 
+      var(--peach-darker) 80%
   );
   box-shadow: none;
   transform: none;
-  filter: blur(1px);
+  filter: blur(0);
   transition: all 0.1s ease;
 }
 
@@ -122,7 +154,7 @@ h3 {
   border-radius: 5px;
   border: none;
   padding: 5px 10px;
-  background-color: #ddd;
+  background-color: #e1e9ff;
   cursor: pointer;
   transition: all 0.2s ease;
   outline: 0;
@@ -131,7 +163,7 @@ h3 {
 }
 
 .btn:hover {
-  background-color: #fff;
+  background-color: var(--peach-mid);
   box-shadow: 0 5px 10px -5px #000000;
   transition: all 0.2s ease;
 }
@@ -157,13 +189,13 @@ footer {
 }
 
 footer > a {
-  color: var(--peach);
+  color: var(--peach-light);
   font-weight: bold;
   transition: all 0.2s ease;
 }
 
 footer > a:hover {
-  color: var(--peach);
+  color: var(--peach-light);
   transition: all 0.2s ease;
   text-decoration: none;
 }

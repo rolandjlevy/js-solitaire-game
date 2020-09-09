@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 const display = document.querySelector('.display');
+const helpDisplay = document.querySelector('.help');
 
 const body = document.querySelector('body');
 const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
@@ -110,6 +111,10 @@ function startGame() {
   console.log('startGame');
 }
 
+// function toggleHelp(state) {
+//   console.log('toggleHelp:', state);
+// }
+
 function toggleHelp(state) {
-  console.log('toggleHelp:', state);
+  helpDisplay.classList[state]('show');
 }

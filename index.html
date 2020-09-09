@@ -16,6 +16,27 @@
         <button class="btn m-r-5 m-b-10" onclick="startGame()">New game <i class="fas fa-redo-alt"></i></button>
         <button class="btn" onclick="toggleHelp('add')">Help <i class="fas fa-question-circle"></i></button>
       </section>
+      <section class="text-center max-w-350">
+        <div class="help">
+          <h4 class="m-t-0 m-b-10">How to play</h4><button class="close-btn" onclick="toggleHelp('remove')">&times;</button><br>
+          <ul>
+            <li>Choose the game size: 3x3, 4x4 etc...</li>
+            <li>Slide pieces into the empty space from above, below or the side</li>
+            <li>Position numbers in the correct order in the fewest possible moves</li>
+            <li>Each move reduces the total score by 1</li>
+            <li>Pieces turn green in the correct position</li>
+            <li>When all the pieces are correct you can add your score to the Leader Board</li>
+          </ul>
+        </div>
+        <!-- <form id="add-score-form">
+          <span class="win-display m-t-10"></span>
+          <p>
+            <span class="player-name-wrapper"></span><button class="btn m-l-10" type="submit" id="add-score-button">Add</button>
+          </p>
+        </form>
+        <h3 class="m-t-20 m-b-20">Leader Board</h3>
+        <div id="leader-board">Loading...</div> -->
+      </section>
       <footer class="text-center m-t-30">&copy; Copyright 2020 <a href="https://rolandlevy.co.uk" class="new-tab-icon" target="_blank">see more of my projects</a></footer>
     </main>
     <script src="script.js"></script>

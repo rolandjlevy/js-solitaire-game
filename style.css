@@ -3,11 +3,12 @@
   --row-length: 7;
   --blue-white: #f9fbff;
   --blue-light: #e1e9ff;
-  --blue-mid: #c3d1ffdd;
-  --blue-dark: #1c2bffdd;
-  --blue-deep: #000770dd;
+  --blue-mid: #c3d1ffe7;
+  --blue-dark: #4356ff9d;
+  --blue-darker: #0010a5;
+  --blue-deep: #000655;
   --blue-shadow: rgb(117, 117, 163);
-  --board-colour: #002966;
+  --board-colour: #000a92;
   --peach-white: #fffae4;
   --peach-light: #ffeda5;
   --peach-mid: #ffdf76;
@@ -67,13 +68,13 @@ h3 {
   background: linear-gradient(315deg, var(--peach-light), var(--peach-white));
   opacity: 1; 
   transform: scale(1) rotate(0deg);
-  transition: all 0.5s ease;
+  transition: all 0.7s ease-in-out;
 }
 
 .block.init {
   opacity: 0;
   transform: scale(0.1) rotate(90deg);
-  transition: all 0.5s ease;
+  transition: all 0.7s ease-in-out;
 }
 
 .block.blank {
@@ -146,6 +147,90 @@ h3 {
   transition: all 0.1s ease;
 }
 
+/********/
+/* Help */
+/********/
+
+.help {
+  font-size: 1rem;
+  text-align: left;
+  background-color: var(--blue-darker);
+  color: var(--blue-light);
+  padding: 15px;
+  border-radius: 5px;
+  height: 0;
+  opacity: 0;
+  transition: all 0.5s ease;
+  letter-spacing: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.help.show {
+  height: 255px;
+  opacity: 1;
+  transition: all 0.5s ease;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.help > h4 {
+  display: inline-block;
+  font-size: 1.25rem;
+}
+
+.help > .close-btn {
+  float: right;
+  font-size: 1.25rem;
+  background: var(--blue-dark);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  color: #fff;
+  padding: 1px 6px 0px 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 3px 3px #00000011;
+}
+
+.help > .close-btn:hover {
+  background: var(--blue-mid);
+  transition: all 0.2s ease;
+  color: #000;
+}
+
+.help > ul {
+  margin: 0;
+  padding-left: 20px;
+  pointer-events: none;
+}
+
+/**************/
+/* Layout *****/
+/**************/
+
+.h-block, .v-block {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.h-block {
+  flex-direction: row;
+}
+
+.v-block {
+  flex-direction: column;
+}
+
+.max-w-350 {
+  max-width: 350px;
+}
+
+.text-center {
+  text-align: center;
+}
+
 /***********/
 /* Buttons */
 /***********/
@@ -154,17 +239,18 @@ h3 {
   border-radius: 5px;
   border: none;
   padding: 5px 10px;
-  background-color: #e1e9ff;
+  background-color: var(--blue-mid);
   cursor: pointer;
   transition: all 0.2s ease;
   outline: 0;
   font-weight: 700;
   font-size: 1.25rem;
+  color: var(--blue-deep);
 }
 
 .btn:hover {
-  background-color: var(--peach-mid);
-  box-shadow: 0 5px 10px -5px #000000;
+  background-color: var(--blue-light);
+  box-shadow: 0 5px 10px -3px var(--blue-deep);
   transition: all 0.2s ease;
 }
 

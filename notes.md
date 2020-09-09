@@ -7,6 +7,8 @@
 - Leader Board
 - Help section
 
+Click and drag a marble, jumping over another single marble to a empty hole (white box). You can move the marbles in either horizontal or vertical direction. The jumped over marble will be removed from the board, thus making a new hole. Remove as many marbles as possible.
+
 ### Other solitaire games
 - https://veerasundar.com/33holepegsolitaire/
 - https://youtu.be/XLmE12fHifc

@@ -125,14 +125,6 @@ article {
 }
 
 .block.active > .marble {
-  /* background: 
-    radial-gradient(circle farthest-corner at 33% 33%, 
-      var(--peach-dark) 0%, 
-      var(--peach-deep) 80%), 
-    radial-gradient(circle farthest-corner at 45% 45%, 
-      var(--peach-deep) 50%, 
-      var(--peach-dark) 80%
-  ); */
   background: 
     radial-gradient(circle farthest-corner at 33% 33%, 
       var(--blue-mid) 0%, 
@@ -141,6 +133,14 @@ article {
       var(--blue-dark) 50%, 
       var(--blue-mid) 80%
   );
+  /* background: 
+    radial-gradient(circle farthest-corner at 33% 33%, 
+      var(--peach-dark) 0%, 
+      var(--peach-deep) 80%), 
+    radial-gradient(circle farthest-corner at 45% 45%, 
+      var(--peach-deep) 50%, 
+      var(--peach-dark) 80%
+  ); */
   filter: contrast(1.2) brightness(1.2);
   box-shadow: 4px 4px 4px 1px var(--peach-shadow);
   transition: all 0.1s ease;

@@ -1,5 +1,4 @@
 const container = document.querySelector('.container');
-const display = document.querySelector('.display');
 const helpDisplay = document.querySelector('.help');
 
 const body = document.querySelector('body');
@@ -39,7 +38,6 @@ while (index < rl * rl) {
 setTimeout(() => {
   blocks.forEach(item => {
     item.div.classList.remove('init');
-    // item.div.style.transition = 'all 0.1s ease';
     item.div.addEventListener('click', (e) => {
       const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
       processMove(block);
@@ -110,10 +108,6 @@ function isEmpty(index, rowLength) {
 function startGame() {
   console.log('startGame');
 }
-
-// function toggleHelp(state) {
-//   console.log('toggleHelp:', state);
-// }
 
 function toggleHelp(state) {
   helpDisplay.classList[state]('show');

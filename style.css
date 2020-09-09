@@ -1,6 +1,4 @@
 :root {
-  --block-size: 50;
-  --row-length: 7;
   --blue-white: #f9fbff;
   --blue-light: #e1e9ff;
   --blue-mid: #c3d1ffe7;
@@ -17,6 +15,16 @@
   --peach-deep: #694800;
   --peach-shadow: #553a0055;
   --peach-shadow-dark: #553a0066;
+  --row-length: 7;
+  --block-size: 75;
+  --marble-ratio: 0.5;
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --block-size: 50;
+  --marble-ratio: 0.625;
+  }
 }
 
 * {
@@ -95,8 +103,8 @@ article {
 /*******************/
 
 .block > .marble {
-  width: calc((var(--block-size) * 1px) * 0.625);
-  height: calc((var(--block-size) * 1px) * 0.625);
+  width: calc((var(--block-size) * 1px) * var(--marble-ratio));
+  height: calc((var(--block-size) * 1px) * var(--marble-ratio));
   border-radius: 50%;
   background: 
     radial-gradient(circle farthest-corner at 33% 33%, 

@@ -95,8 +95,8 @@ article {
 }
 
 .block.active {
-  background: linear-gradient(45deg, var(--peach-light), var(--peach-light));
-  transition: all 0.1s ease;
+  /* background: linear-gradient(315deg, var(--peach-mid), var(--peach-light)); */
+  /* transition: all 0.1s ease; */
 }
 
 /*******************/
@@ -125,13 +125,21 @@ article {
 }
 
 .block.active > .marble {
-  background: 
+  /* background: 
     radial-gradient(circle farthest-corner at 33% 33%, 
       var(--peach-dark) 0%, 
       var(--peach-deep) 80%), 
     radial-gradient(circle farthest-corner at 45% 45%, 
       var(--peach-deep) 50%, 
       var(--peach-dark) 80%
+  ); */
+  background: 
+    radial-gradient(circle farthest-corner at 33% 33%, 
+      var(--blue-mid) 0%, 
+      var(--blue-dark) 80%), 
+    radial-gradient(circle farthest-corner at 45% 45%, 
+      var(--blue-dark) 50%, 
+      var(--blue-mid) 80%
   );
   filter: contrast(1.2) brightness(1.2);
   box-shadow: 4px 4px 4px 1px var(--peach-shadow);
@@ -163,12 +171,13 @@ article {
 /* Score */
 /*********/
 
-.score-display, .timer-display  {
+.moves-display, .timer-display, .score-display  {
   color: var(--blue-mid);
   font-size: 2.25rem;
   line-height: 1.25;
   transition: all 0.2s ease;
   font-weight: 700;
+  text-align: center;
 }
 
 .score-label, .timer-label {
@@ -361,6 +370,10 @@ footer > a:hover {
 
 .m-l-10 {
   margin-left: 10px;
+}
+
+.m-l-20 {
+  margin-left: 20px;
 }
 
 .m-r-10 {

@@ -1,11 +1,11 @@
 # Notes
 
 ### Todo
-- Scoring
+- Scoring: add 500 points if you end up with 1 left and another 500 points if it's left in position 25
 - Change to OOP
-- Help section
 - Write readme
 - Leader Board
+- Help section
 
 ### Other solitaire games
 - https://veerasundar.com/33holepegsolitaire/

@@ -1,7 +1,8 @@
 const container = document.querySelector('.container');
 const helpDisplay = document.querySelector('.help');
-const scoreDisplay = document.querySelector('.score-display');
+const movesDisplay = document.querySelector('.moves-display');
 const timerDisplay = document.querySelector('.timer-display');
+const scoreDisplay = document.querySelector('.score-display');
 
 const body = document.querySelector('body');
 const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
@@ -11,10 +12,12 @@ let index = 0;
 const blocks = [];
 const rl = rowLength;
 let origin = null;
-let score = 0;
-let timer = 0;
+let moves = 0;
+let timer = 100;
 
+// see game.createGrid(blockSize) and game.createDivs();
 while (index < rl * rl) {
+  // instantiate new Block({x, y})
   const block = {
     div: document.createElement('div'),
     x: index % rl + 1,
@@ -39,22 +42,6 @@ while (index < rl * rl) {
   index++;
 }
 
-setTimeout(() => {
-  blocks.forEach(item => {
-    item.div.classList.remove('init');
-    item.div.addEventListener('click', (e) => {
-      const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
-      processMove(block);
-    }, true);
-  });
-}, 10);
-
-setInterval(() => {
-  const paddedTimer = String(timer).padStart(2, '0');
-  timerDisplay.textContent = paddedTimer;
-  timer++;
-}, 1000);
-
 function processMove(block) {
   if (origin) {
     if (origin.div.id == block.div.id) {
@@ -65,8 +52,8 @@ function processMove(block) {
       const taken = isValidTake(origin, target);
       if (taken) {
         take(origin, target, taken);
-        score++;
-        scoreDisplay.textContent = score;
+        moves++;
+        movesDisplay.textContent = moves;
       }
     }
   } else {
@@ -107,15 +94,37 @@ function take(orig, target, taken) {
   takenBlock.state = 'empty';
 }
 
+// part of Game object, createDivs
 function isBlank(index, rowLength) {
   const i = index, rl = rowLength;
   return (i % rl < 2 || i % rl >= rl - 2) && (Math.floor(i / rl) < 2 || Math.floor(i / rl) >= rl - 2);
 }
 
+// part of Game object, createDivs
 function isEmpty(index, rowLength) {
   const i = index, rl = rowLength;
   return i % rl == Math.floor(rl / 2) && Math.floor(i / rl) == Math.floor(rl / 2);
 }
+
+// blocks are at top level, in script.js global scope
+setTimeout(() => {
+  blocks.forEach(item => {
+    item.div.classList.remove('init');
+    item.div.addEventListener('click', (e) => {
+      const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
+      processMove(block);
+    }, true);
+  });
+}, 1);
+  
+// part of Score object
+const timerID = setInterval(() => {
+  const paddedTimer = String(timer).padStart(2, '0');
+  timerDisplay.textContent = paddedTimer;
+  scoreDisplay.textContent = (moves * timer).toLocaleString();
+  if (timer == 0) clearInterval(timerID);
+  timer--;
+}, 1000);
 
 function startGame() {
   console.log('startGame');

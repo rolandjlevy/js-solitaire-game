@@ -40,7 +40,7 @@ while (index < rl * rl) {
 }
 
 // blocks array is at top level, in script.js global scope
-setTimeout(() => {
+const initBlocks = setTimeout(() => {
   blocks.forEach(item => {
     item.div.classList.remove('init');
     item.div.addEventListener('click', (e) => {

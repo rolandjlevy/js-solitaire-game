@@ -10,7 +10,7 @@ const rowLength = getComputedStyle(body).getPropertyValue('--row-length');
 
 const rl = rowLength;
 let blocks = [];
-let moves = 0;;
+let moves = 0;
 let timer = 100;
 let origin = null;
 let index = 0;

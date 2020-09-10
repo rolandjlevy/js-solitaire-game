@@ -12,7 +12,7 @@
   --peach-light: #ffe992;
   --peach-mid: #ffdf76;
   --peach-dark: #ffbe0c;
-  --peach-darker: #c27e01;
+  --peach-darker: #bd7b01;
   --peach-deep: #694800;
   --peach-shadow: #553a0055;
   --peach-shadow-dark: #553a0066;
@@ -103,7 +103,7 @@ article {
 
 .block.active {
   /* background: linear-gradient(315deg, var(--peach-mid), var(--peach-light)); */
-  /* transition: all 0.25s ease-in-out; */
+  /* transition: all 0.15s ease-in-out; */
 }
 
 /*******************/
@@ -123,7 +123,7 @@ article {
       var(--peach-mid) 80%
   );
   box-shadow: 4px 4px 4px 1px var(--peach-shadow);
-  transition: all 0.25s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .block:hover > .marble {
@@ -150,7 +150,7 @@ article {
   ); */
   /* filter: contrast(1.2) brightness(1.2); */
   box-shadow: 4px 4px 4px 1px var(--peach-shadow);
-  transition: all 0.25s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 .block.active:hover > .marble {
@@ -171,7 +171,7 @@ article {
   box-shadow: none;
   transform: none;
   filter: blur(0);
-  transition: all 0.25s ease-in-out;
+  transition: all 0.15s ease-in-out;
 }
 
 /*********/

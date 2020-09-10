@@ -1,5 +1,8 @@
+// global scope
 const container = document.querySelector('.container');
 const helpDisplay = document.querySelector('.help');
+
+// Score object
 const movesDisplay = document.querySelector('.moves-display');
 const timerDisplay = document.querySelector('.timer-display');
 const scoreDisplay = document.querySelector('.score-display');
@@ -8,12 +11,15 @@ const body = document.querySelector('body');
 const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
 const rowLength = getComputedStyle(body).getPropertyValue('--row-length');
 
-const rl = rowLength;
+const rl = rowLength; // global scope
 let blocks = []; // global scope
 let moves = 0; // Score object
 let timer = 100; // Score object
 let origin = null; // Block object
 let index = 0;
+
+const score = new Score({maxTime:100});
+console.log(score.movesDisplay);
 
 // work out how grid is created and how blocks is iterated
 while (index < rl * rl) {
@@ -40,7 +46,7 @@ while (index < rl * rl) {
   index++;
 }
 
-// blocks array is at top level, in script.js global scope
+// blocks array is global scope, in script.js
 const initBlocks = setTimeout(() => {
   blocks.forEach(item => {
     item.div.classList.remove('init');

@@ -2,7 +2,7 @@
   --blue-white: #f9fbff;
   --blue-light: #e1e9ff;
   --blue-mid: #c3d1ffe7;
-  --blue-mid-dark: #c3d1ffaa;
+  --blue-mid-dark: #c3d1ffcc;
   --blue-dark: #3240bec4;
   --blue-darker: #000c77;
   --blue-deep: #000655;
@@ -25,6 +25,13 @@
   :root {
     --block-size: 50;
     --marble-ratio: 0.625;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  :root {
+    --block-size: 35;
+    --marble-ratio: 0.7;
   }
 }
 
@@ -189,7 +196,7 @@ article {
 /********/
 
 .help {
-  font-size: 1rem;
+  font-size: 0.875rem;
   text-align: left;
   background-color: var(--blue-darker);
   color: var(--blue-light);
@@ -201,13 +208,13 @@ article {
   letter-spacing: 0;
   margin-top: 0;
   margin-bottom: 0;
-  line-height: 1.5;
-  min-width: 300px;
-  max-width: 300px;
+  line-height: 1.75;
+  min-width: 280px;
+  max-width: 280px;
 }
 
 .help.show {
-  min-height: 255px;
+  min-height: 265px;
   opacity: 1;
   transition: all 0.5s ease;
   margin-top: 20px;
@@ -260,10 +267,6 @@ article {
 
 .v-block {
   flex-direction: column;
-}
-
-.max-w-350 {
-  max-width: 350px;
 }
 
 .text-center {

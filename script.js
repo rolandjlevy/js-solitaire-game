@@ -71,6 +71,7 @@ function processMove(block) {
       const taken = isValidTake(origin, target);
       if (taken) {
         take(origin, target, taken);
+        origin = null;
         moves++;
         movesDisplay.textContent = moves;
       }
@@ -97,12 +98,11 @@ function isValidTake(origin, target) {
   return false;
 }
 
-function take(orig, target, taken) {
-  orig.div.classList.remove('active');
-  orig.div.classList.add('empty');
-  origBlock = blocks.find(item => item.div.id == orig.div.id);
-  origBlock.state = 'empty';
-  origin = null;
+function take(origin, target, taken) {
+  origin.div.classList.remove('active');
+  origin.div.classList.add('empty');
+  originBlock = blocks.find(item => item.div.id == origin.div.id);
+  originBlock.state = 'empty';
   target.div.classList.remove('empty');
   target.div.classList.add('filled');
   targetBlock = blocks.find(item => item.div.id == target.div.id);

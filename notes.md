@@ -16,6 +16,13 @@
 
 ### Fixes
 - Fix for [300ms lag onclick event](https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away)
+- [Clear all setintervals:](https://stackoverflow.com/questions/34167975/clear-all-setintervals)
+```js
+let id = window.setInterval(function() {}, 0);
+while (id--) {
+  window.clearInterval(id);
+}
+```
 
 ### CSS
 - https://cssanimation.rocks/spheres/

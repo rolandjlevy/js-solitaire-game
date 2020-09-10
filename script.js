@@ -8,14 +8,13 @@ const body = document.querySelector('body');
 const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
 const rowLength = getComputedStyle(body).getPropertyValue('--row-length');
 
-let index = 0;
-const blocks = [];
 const rl = rowLength;
-let origin = null;
-let moves = 0;
+let blocks = [];
+let moves = 0;;
 let timer = 100;
+let origin = null;
+let index = 0;
 
-// see game.createGrid(blockSize) and game.createDivs();
 while (index < rl * rl) {
   // instantiate new Block({x, y})
   const block = {
@@ -41,6 +40,26 @@ while (index < rl * rl) {
   blocks.push(block);
   index++;
 }
+
+// blocks are at top level, in script.js global scope
+setTimeout(() => {
+  blocks.forEach(item => {
+    item.div.classList.remove('init');
+    item.div.addEventListener('click', (e) => {
+      const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
+      processMove(block);
+    }, true);
+  });
+}, 1);
+
+// part of Score object
+const timerID = setInterval(() => {
+  const paddedTimer = String(timer).padStart(2, '0');
+  timerDisplay.textContent = paddedTimer;
+  scoreDisplay.textContent = (moves * timer).toLocaleString();
+  if (timer == 0) clearInterval(timerID);
+  timer--;
+}, 1000);
 
 function processMove(block) {
   if (origin) {
@@ -104,30 +123,6 @@ function isBlank(index, rowLength) {
 function isEmpty(index, rowLength) {
   const i = index, rl = rowLength;
   return i % rl == Math.floor(rl / 2) && Math.floor(i / rl) == Math.floor(rl / 2);
-}
-
-// blocks are at top level, in script.js global scope
-setTimeout(() => {
-  blocks.forEach(item => {
-    item.div.classList.remove('init');
-    item.div.addEventListener('click', (e) => {
-      const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
-      processMove(block);
-    }, true);
-  });
-}, 1);
-  
-// part of Score object
-const timerID = setInterval(() => {
-  const paddedTimer = String(timer).padStart(2, '0');
-  timerDisplay.textContent = paddedTimer;
-  scoreDisplay.textContent = (moves * timer).toLocaleString();
-  if (timer == 0) clearInterval(timerID);
-  timer--;
-}, 1000);
-
-function startGame() {
-  console.log('startGame');
 }
 
 function toggleHelp(state) {

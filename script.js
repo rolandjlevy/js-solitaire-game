@@ -39,7 +39,7 @@ while (index < rl * rl) {
   index++;
 }
 
-// blocks are at top level, in script.js global scope
+// blocks array is at top level, in script.js global scope
 setTimeout(() => {
   blocks.forEach(item => {
     item.div.classList.remove('init');
@@ -58,6 +58,7 @@ const timerID = setInterval(() => {
   timer--;
 }, 1000);
 
+// part of Block object
 function processMove(block) {
   if (origin) {
     if (origin.div.id == block.div.id) {
@@ -79,6 +80,7 @@ function processMove(block) {
   }
 }
 
+// part of Block object
 function isValidTake({origin, target, blocks}) {
   if (target.state !== 'empty') return false;
   if (target.y == origin.y && Math.abs(target.x - origin.x) % 2 == 0) {
@@ -94,6 +96,7 @@ function isValidTake({origin, target, blocks}) {
   return false;
 }
 
+// part of Block object
 function takeMarble({origin, target, blocks, marbleToTake}) {
   origin.div.classList.remove('active');
   origin.div.classList.add('empty');

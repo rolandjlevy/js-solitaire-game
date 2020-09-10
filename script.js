@@ -25,7 +25,6 @@ while (index < rl * rl) {
     active: false
   }
   block.div.id = index + 1;
-  block.div.classList.add('block');
   if (isBlank(index, rowLength)) {
     block.state = 'blank';
   } else {
@@ -34,8 +33,7 @@ while (index < rl * rl) {
     marble.classList.add('marble');
     block.div.appendChild(marble);
   }
-  block.div.classList.add(block.state);
-  block.div.classList.add('init');
+  block.div.classList.add('block', 'init', block.state);
   container.appendChild(block.div);
   blocks.push(block);
   index++;
@@ -68,9 +66,9 @@ function processMove(block) {
       origin = null;
     } else {
       const target = block;
-      const taken = isValidTake(origin, target);
+      const taken = isValidTake(origin, target, blocks);
       if (taken) {
-        take(origin, target, taken);
+        take(origin, target, blocks, taken);
         origin = null;
         moves++;
         movesDisplay.textContent = moves;
@@ -83,7 +81,7 @@ function processMove(block) {
   }
 }
 
-function isValidTake(origin, target) {
+function isValidTake(origin, target, blocks) {
   if (target.state !== 'empty') return false;
   if (target.y == origin.y && Math.abs(target.x - origin.x) % 2 == 0) {
     const middleHorizId = Number(origin.div.id) + (origin.x < target.x ? 1 : -1);
@@ -98,7 +96,7 @@ function isValidTake(origin, target) {
   return false;
 }
 
-function take(origin, target, taken) {
+function take(origin, target, blocks, taken) {
   origin.div.classList.remove('active');
   origin.div.classList.add('empty');
   originBlock = blocks.find(item => item.div.id == origin.div.id);

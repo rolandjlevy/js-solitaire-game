@@ -87,13 +87,13 @@ article {
   background: linear-gradient(315deg, var(--peach-light), var(--peach-white));
   opacity: 1; 
   transform: scale(1) rotate(0deg);
-  transition: all 0.7s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .block.init {
   opacity: 0;
-  transform: scale(0.1) rotate(90deg);
-  transition: all 0.7s ease-in-out;
+  transform: scale(0.3) rotate(135deg) skew(45deg, 45deg);
+  transition: all 1s ease-in-out;
 }
 
 .block.blank {

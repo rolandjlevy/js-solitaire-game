@@ -22,9 +22,7 @@ function startGame() {
       block.state = 'blank';
     } else {
       if (game.isEmpty(index)) block.state = 'empty';
-      const marble = document.createElement('div');
-      marble.classList.add('marble');
-      block.div.appendChild(marble);
+      block.addMarble();
     }
     block.div.classList.add('block', 'init', block.state);
     block.div.addEventListener('click', (e) => {

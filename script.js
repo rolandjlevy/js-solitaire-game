@@ -52,8 +52,7 @@ setTimeout(() => {
 
 // part of Score object
 const timerID = setInterval(() => {
-  const paddedTimer = String(timer).padStart(2, '0');
-  timerDisplay.textContent = paddedTimer;
+  timerDisplay.textContent = String(timer).padStart(2, '0');
   scoreDisplay.textContent = (moves * timer).toLocaleString();
   if (timer == 0) clearInterval(timerID);
   timer--;
@@ -65,10 +64,9 @@ function processMove(block) {
       block.div.classList.remove('active');
       origin = null;
     } else {
-      const target = block;
-      const taken = isValidTake(origin, target, blocks);
-      if (taken) {
-        take(origin, target, blocks, taken);
+      const marbleToTake = isValidTake({origin, target:block, blocks});
+      if (marbleToTake) {
+        takeMarble({origin, target:block, blocks, marbleToTake});
         origin = null;
         moves++;
         movesDisplay.textContent = moves;
@@ -81,7 +79,7 @@ function processMove(block) {
   }
 }
 
-function isValidTake(origin, target, blocks) {
+function isValidTake({origin, target, blocks}) {
   if (target.state !== 'empty') return false;
   if (target.y == origin.y && Math.abs(target.x - origin.x) % 2 == 0) {
     const middleHorizId = Number(origin.div.id) + (origin.x < target.x ? 1 : -1);
@@ -96,7 +94,7 @@ function isValidTake(origin, target, blocks) {
   return false;
 }
 
-function take(origin, target, blocks, taken) {
+function takeMarble({origin, target, blocks, marbleToTake}) {
   origin.div.classList.remove('active');
   origin.div.classList.add('empty');
   originBlock = blocks.find(item => item.div.id == origin.div.id);
@@ -105,10 +103,10 @@ function take(origin, target, blocks, taken) {
   target.div.classList.add('filled');
   targetBlock = blocks.find(item => item.div.id == target.div.id);
   targetBlock.state = 'filled';
-  taken.div.classList.remove('filled');
-  taken.div.classList.add('empty');
-  takenBlock = blocks.find(item => item.div.id == taken.div.id);
-  takenBlock.state = 'empty';
+  marbleToTake.div.classList.remove('filled');
+  marbleToTake.div.classList.add('empty');
+  marbleToTakeBlock = blocks.find(item => item.div.id == marbleToTake.div.id);
+  marbleToTakeBlock.state = 'empty';
 }
 
 // part of Game object, createDivs

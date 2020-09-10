@@ -9,10 +9,10 @@
   --blue-shadow: #7575a3;
   --board-colour: #00065e;
   --peach-white: #fffae4;
-  --peach-light: #ffeb9c;
+  --peach-light: #ffe992;
   --peach-mid: #ffdf76;
-  --peach-dark: #ffc918;
-  --peach-darker: #ce8d00;
+  --peach-dark: #ffbe0c;
+  --peach-darker: #c27e01;
   --peach-deep: #694800;
   --peach-shadow: #553a0055;
   --peach-shadow-dark: #553a0066;
@@ -45,7 +45,7 @@ html {
 }
 
 body {
-  margin: 50px;
+  margin: 30px;
   padding: 0;
   box-sizing: border-box;
   background: var(--board-colour);
@@ -103,7 +103,7 @@ article {
 
 .block.active {
   /* background: linear-gradient(315deg, var(--peach-mid), var(--peach-light)); */
-  /* transition: all 0.1s ease; */
+  /* transition: all 0.25s ease-in-out; */
 }
 
 /*******************/
@@ -123,12 +123,12 @@ article {
       var(--peach-mid) 80%
   );
   box-shadow: 4px 4px 4px 1px var(--peach-shadow);
-  transition: all 0.1s ease;
+  transition: all 0.25s ease-in-out;
 }
 
 .block:hover > .marble {
-  /*transform: translateY(0);
-  filter: drop-shadow(0 8px 3px var(--blue-shadow));*/
+  /* transform: translate(-2px, -2px); */
+  filter: contrast(1.1) brightness(1.1);
 }
 
 .block.active > .marble {
@@ -148,9 +148,9 @@ article {
       var(--peach-deep) 50%, 
       var(--peach-dark) 80%
   ); */
-  filter: contrast(1.2) brightness(1.2);
+  /* filter: contrast(1.2) brightness(1.2); */
   box-shadow: 4px 4px 4px 1px var(--peach-shadow);
-  transition: all 0.1s ease;
+  transition: all 0.25s ease-in-out;
 }
 
 .block.active:hover > .marble {
@@ -158,20 +158,20 @@ article {
 }
 
 .block.empty > .marble, .block.empty:hover > .marble {
-  opacity: 0.3;
+  opacity: 0.4;
   background: var(--blue-mid);
   background: 
     radial-gradient(circle farthest-corner at 66% 66%, 
       var(--peach-mid) 0%, 
       var(--peach-darker) 80%), 
     radial-gradient(circle farthest-corner at 45% 45%, 
-      rgba(0, 0, 0, 0.5) 20%, 
+      rgba(0, 0, 0, 0.9) 20%, 
       var(--peach-darker) 80%
   );
   box-shadow: none;
   transform: none;
   filter: blur(0);
-  transition: all 0.1s ease;
+  transition: all 0.25s ease-in-out;
 }
 
 /*********/

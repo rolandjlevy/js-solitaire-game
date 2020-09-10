@@ -15,6 +15,7 @@ let timer = 100;
 let origin = null;
 let index = 0;
 
+// work out how grid is created and how blocks is iterated
 while (index < rl * rl) {
   // instantiate new Block({x, y})
   const block = {

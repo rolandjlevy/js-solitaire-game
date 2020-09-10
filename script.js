@@ -9,10 +9,10 @@ const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
 const rowLength = getComputedStyle(body).getPropertyValue('--row-length');
 
 const rl = rowLength;
-let blocks = [];
-let moves = 0;
-let timer = 100;
-let origin = null;
+let blocks = []; // global scope
+let moves = 0; // Score object
+let timer = 100; // Score object
+let origin = null; // Block object
 let index = 0;
 
 // work out how grid is created and how blocks is iterated

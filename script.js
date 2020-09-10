@@ -1,25 +1,16 @@
 // global scope
-const container = document.querySelector('.container');
-const helpDisplay = document.querySelector('.help');
-
-// Score object
-const movesDisplay = document.querySelector('.moves-display');
-const timerDisplay = document.querySelector('.timer-display');
-const scoreDisplay = document.querySelector('.score-display');
-
 const body = document.querySelector('body');
 const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
 const rowLength = getComputedStyle(body).getPropertyValue('--row-length');
+const container = document.querySelector('.container');
+const helpDisplay = document.querySelector('.help');
 
 const rl = rowLength; // global scope
 let blocks = []; // global scope
-let moves = 0; // Score object
-let timer = 100; // Score object
+const score = new Score({maxTime:100}); // global scope
+
 let origin = null; // Block object
 let index = 0;
-
-const score = new Score({maxTime:100});
-console.log(score.movesDisplay);
 
 // work out how grid is created and how blocks is iterated
 while (index < rl * rl) {
@@ -52,21 +43,13 @@ const initBlocks = setTimeout(() => {
     item.div.classList.remove('init');
     item.div.addEventListener('click', (e) => {
       const block = blocks.find(bl => bl.div.id == e.currentTarget.id);
-      processMove(block);
+      processMove(block, score);
     }, true);
   });
 }, 1);
 
-// part of Score object
-const timerID = setInterval(() => {
-  timerDisplay.textContent = String(timer).padStart(2, '0');
-  scoreDisplay.textContent = (moves * timer).toLocaleString();
-  if (timer == 0) clearInterval(timerID);
-  timer--;
-}, 1000);
-
 // part of Block object
-function processMove(block) {
+function processMove(block, score) {
   if (origin) {
     if (origin.div.id == block.div.id) {
       block.div.classList.remove('active');
@@ -76,8 +59,8 @@ function processMove(block) {
       if (marbleToTake) {
         takeMarble({origin, target:block, blocks, marbleToTake});
         origin = null;
-        moves++;
-        movesDisplay.textContent = moves;
+        score.moves++;
+        score.movesDisplay.textContent = score.moves;
       }
     }
   } else {

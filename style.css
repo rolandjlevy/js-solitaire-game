@@ -24,14 +24,14 @@
 @media screen and (max-width: 480px) {
   :root {
     --block-size: 50;
-    --marble-ratio: 0.625;
+    --marble-ratio: 0.6;
   }
 }
 
 @media screen and (max-width: 360px) {
   :root {
     --block-size: 35;
-    --marble-ratio: 0.7;
+    --marble-ratio: 0.65;
   }
 }
 

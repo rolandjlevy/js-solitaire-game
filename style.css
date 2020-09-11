@@ -123,12 +123,12 @@ article {
 
 .block.active > .marble {
   background: 
-    radial-gradient(circle farthest-corner at 33% 33%, 
-      var(--blue-mid) 0%, 
+  radial-gradient(circle farthest-corner at 33% 33%, 
+      var(--blue-light) 0%, 
       var(--blue-dark) 80%), 
     radial-gradient(circle farthest-corner at 45% 45%, 
       var(--blue-dark) 50%, 
-      var(--blue-mid) 80%
+      var(--blue-darker) 80%
   );
   box-shadow: 4px 4px 4px 1px var(--peach-shadow);
   transition: all 0.15s ease-in-out;

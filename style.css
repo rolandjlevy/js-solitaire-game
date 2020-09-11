@@ -14,7 +14,7 @@
   --peach-dark: #ffbe0c;
   --peach-darker: #bd7b01;
   --peach-deep: #694800;
-  --peach-shadow: #553a0055;
+  --peach-shadow: #553a0077;
   --peach-shadow-dark: #553a0066;
   --row-length: 7;
   --block-size: 75;
@@ -62,6 +62,7 @@ h3 {
   letter-spacing: 2px;
   margin: 0;
   text-shadow: 0 3px 3px var(--blue-deep);
+  line-height: 1.5;
   transition: all 0.2s ease;
 }
 
@@ -128,8 +129,6 @@ article {
       var(--peach-darker) 50%, 
       var(--peach-mid) 80%
   );
-  box-shadow: 4px 4px 4px 1px var(--peach-shadow);
-  transition: all 0.15s ease-in-out;
 }
 
 .block.active > .marble {
@@ -141,8 +140,17 @@ article {
       var(--blue-dark) 50%, 
       var(--blue-darker) 80%
   );
-  box-shadow: 4px 4px 4px 1px var(--peach-shadow);
+}
+
+.block > .marble, .block.active > .marble {
+  box-shadow: 4px 4px 6px 1px var(--peach-shadow);
   transition: all 0.15s ease-in-out;
+}
+
+@media screen and (max-width: 360px) {
+  .block > .marble, .block.active > .marble {
+    box-shadow: 2px 2px 4px 1px var(--peach-shadow);
+  }
 }
 
 .block:hover > .marble  {

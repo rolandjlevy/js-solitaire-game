@@ -87,23 +87,18 @@ article {
   background: linear-gradient(315deg, var(--peach-light), var(--peach-white));
   opacity: 1; 
   transform: scale(1) rotate(0deg);
-  transition: all 1s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
 
 .block.init {
   opacity: 0;
-  transform: scale(0.3) rotate(135deg) skew(45deg, 45deg);
-  transition: all 1s ease-in-out;
+  transform: scale(0.3) rotate(135deg);
+  transition: all 0.7s ease-in-out;
 }
 
 .block.blank {
   background: var(--board-colour);
   cursor: auto;
-}
-
-.block.active {
-  /* background: linear-gradient(315deg, var(--peach-mid), var(--peach-light)); */
-  /* transition: all 0.15s ease-in-out; */
 }
 
 /*******************/
@@ -126,11 +121,6 @@ article {
   transition: all 0.15s ease-in-out;
 }
 
-.block:hover > .marble {
-  /* transform: translate(-2px, -2px); */
-  filter: contrast(1.1) brightness(1.1);
-}
-
 .block.active > .marble {
   background: 
     radial-gradient(circle farthest-corner at 33% 33%, 
@@ -140,21 +130,18 @@ article {
       var(--blue-dark) 50%, 
       var(--blue-mid) 80%
   );
-  /* background: 
-    radial-gradient(circle farthest-corner at 33% 33%, 
-      var(--peach-dark) 0%, 
-      var(--peach-deep) 80%), 
-    radial-gradient(circle farthest-corner at 45% 45%, 
-      var(--peach-deep) 50%, 
-      var(--peach-dark) 80%
-  ); */
-  /* filter: contrast(1.2) brightness(1.2); */
   box-shadow: 4px 4px 4px 1px var(--peach-shadow);
   transition: all 0.15s ease-in-out;
 }
 
-.block.active:hover > .marble {
-  /*filter: sepia(1) contrast(1.2) brightness(1.1) drop-shadow(0 8px 3px var(--blue-shadow));*/
+.block:hover > .marble  {
+  filter: contrast(1.1) brightness(1.1);
+}
+
+@media screen and (max-width: 480px) {
+  .block:hover > .marble {
+    filter: contrast(1) brightness(1);
+  }
 }
 
 .block.empty > .marble, .block.empty:hover > .marble {

@@ -3,10 +3,10 @@ class Score {
     this.moves = 0;
     this.timer = maxTime;
     this.initElements();
-    this.countdown();
+    this.countdown({inc:0});
     this.clearAllIntervals();
     this.timerID = setInterval(() => {
-      this.countdown();
+      this.countdown({inc:1});
     }, 1000);
   }
   initElements() {
@@ -15,14 +15,14 @@ class Score {
     this.scoreDisplay = document.querySelector('.score-display');
     this.movesDisplay.textContent = this.moves;
   }
-  countdown() {
+  countdown({inc}) {
     this.timerDisplay.textContent = String(this.timer).padStart(2, '0');
     this.scoreDisplay.textContent = (this.moves * this.timer).toLocaleString();
     if (this.timer == 0) {
       clearInterval(this.timerID);
       this.timerID = null;
     }
-    this.timer--;
+    this.timer = this.timer - inc;
   }
   clearAllIntervals() {
     let id = window.setInterval(function() {}, 0);

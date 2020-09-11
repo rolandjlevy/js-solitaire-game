@@ -51,6 +51,7 @@ class Block {
     originBlock.state = 'empty';
     target.div.classList.remove('empty');
     target.div.classList.add('filled');
+    target.div.classList.add('blurred');
     const targetBlock = blocks.find(item => item.div.id == target.div.id);
     targetBlock.state = 'filled';
     marbleToTake.div.classList.remove('filled');

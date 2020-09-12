@@ -3,6 +3,9 @@ class Game {
     this.rowLength = rowLength;
     this.container = document.querySelector('.container');
     this.origin = null;
+    setTimeout(() => {
+      this.container.classList.add('init');
+    }, 100);
   }
   createDivs() {
     this.container.innerHTML = '';

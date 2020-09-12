@@ -57,23 +57,31 @@ body {
   color: var(--peach-light);
 }
 
-h3 {
-  font-size: 3rem;
+h2, h3 {
   font-weight: 700;
   color: var(--peach-mid);
   letter-spacing: 2px;
   margin: 0;
   text-shadow: 0 0 20px var(--blue-deep);
   line-height: 1.5;
-  transition: all 0.2s ease;
-  /* font-family: 'Poppins', sans-serif; */
   font-family: 'Raleway', sans-serif;
+  transition: all 0.2s ease;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 360px) {
-  h3 {
+  h2 {
     font-size: 2.5rem;
-    transition: all 0.2s ease;
+  }
+  h3 {
+    font-size: 1.5rem;
   }
 }
 
@@ -89,6 +97,8 @@ article {
   flex-wrap: wrap;
   min-width: calc(var(--block-size) * 1px * var(--row-length));
   max-width: calc(var(--block-size) * 1px * var(--row-length));
+  min-height: calc(var(--block-size) * 1px * var(--row-length));
+  max-height: calc(var(--block-size) * 1px * var(--row-length));
   margin: 20px;
   border-radius: 50%;
   padding: calc(var(--block-size) * 0.33 * 1px);
@@ -220,6 +230,17 @@ article {
   color: var(--blue-mid-dark);
 }
 
+form#add-score {
+  max-width: 350px;
+}
+
+input#player-name  {
+  border: none;
+  padding: 4px 8px;
+  font-size: 1.25rem;
+  border-radius: 5px;
+}
+
 /********/
 /* Help */
 /********/
@@ -246,13 +267,18 @@ article {
   min-height: 265px;
   opacity: 1;
   transition: all 0.5s ease;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px auto;
 }
 
-.help > h4 {
+.help > h3 {
   display: inline-block;
   font-size: 1.25rem;
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+  letter-spacing: 1px;
+  color: var(--blue-mid);
+  font-family: 'Open Sans', sans-serif;
 }
 
 .help > .close-btn {

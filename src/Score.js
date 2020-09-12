@@ -13,6 +13,9 @@ class Score {
     this.movesDisplay = document.querySelector('.moves-display');
     this.timerDisplay = document.querySelector('.timer-display');
     this.scoreDisplay = document.querySelector('.score-display');
+    this.playerNameWrapper = document.querySelector('.player-name-wrapper');
+    this.addScoreForm = document.querySelector('#add-score-form');
+    this.winDisplay = document.querySelector('.win-display');
     this.movesDisplay.textContent = this.moves;
   }
   countdown({inc}) {
@@ -23,6 +26,15 @@ class Score {
       this.timerID = null;
     }
     this.timer = this.timer - inc;
+    // const winStatus = blocks.every((item, index) => item.currentNum == item.div.id);
+    const winStatus = false;
+    if (winStatus == true) {
+      this.addScoreForm.style.display = 'initial';
+      this.winDisplay.innerHTML = `<span>Well done! you won with a score of <span class="moves">${(this.moves * this.timer)}</span>. Please add your name or Repl username to the Leader Board:</span>`;
+      this.playerNameWrapper.innerHTML = `<input id="player-name" type="text" class="m-b-10" required placeholder="Your name..." maxlength="20"><label for="player-name" class="error-message"></label>`;
+      const playerName = document.querySelector('#player-name');
+      //playerName.focus();
+    }
   }
   clearAllIntervals() {
     let id = window.setInterval(function() {}, 0);

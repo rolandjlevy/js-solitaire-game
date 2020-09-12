@@ -5,11 +5,6 @@ class Block {
     this.y = y;
     this.state = state;
   }
-  addMarble() {
-    const marble = document.createElement('div');
-    marble.classList.add('marble');
-    this.div.appendChild(marble);
-  }
   processMove(block, game, score) {
     if (game.origin) {
       if (game.origin.div.id == block.div.id) {
@@ -43,6 +38,11 @@ class Block {
       if (midVert.state == 'filled') return midVert;
     }
     return false;
+  }
+  addMarble() {
+    const marble = document.createElement('div');
+    marble.classList.add('marble');
+    this.div.appendChild(marble);
   }
   takeMarble({game, target, blocks, marbleToTake}) {
     game.origin.div.classList.remove('active');

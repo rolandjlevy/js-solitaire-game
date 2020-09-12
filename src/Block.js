@@ -16,6 +16,7 @@ class Block {
           this.takeMarble({game, target:block, blocks, marbleToTake});
           game.origin = null;
           score.movesDisplay.textContent = ++score.moves;
+          score.checkForWin(blocks);
         }
       }
     } else {
@@ -46,12 +47,12 @@ class Block {
   }
   takeMarble({game, target, blocks, marbleToTake}) {
     game.origin.div.classList.remove('active');
+    game.origin.div.classList.remove('filled');
     game.origin.div.classList.add('empty');
     const originBlock = blocks.find(item => item.div.id == game.origin.div.id);
     originBlock.state = 'empty';
     target.div.classList.remove('empty');
     target.div.classList.add('filled');
-    target.div.classList.add('blurred');
     const targetBlock = blocks.find(item => item.div.id == target.div.id);
     targetBlock.state = 'filled';
     marbleToTake.div.classList.remove('filled');

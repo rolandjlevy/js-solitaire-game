@@ -5,7 +5,8 @@
   --blue-mid-dark: #c3d1ffcc;
   --blue-dark: #3240bec4;
   --blue-darker: #011092;
-  --blue-deep: #000655;
+  --blue-deep: #000441;
+  --blue-deep-faded: #00065533;
   --blue-shadow: #7575a3;
   --board-colour: #000770;
   --peach-white: #fffcf1;
@@ -55,6 +56,7 @@ body {
   background: var(--board-colour);
   font-family: 'Open Sans', sans-serif;
   color: var(--peach-light);
+  font-size: 1.25rem;
 }
 
 h2, h3 {
@@ -226,8 +228,9 @@ article {
   text-shadow: 0 0 10px var(--blue-deep);
 }
 
-.score-label, .timer-label {
+.moves-label, .score-label, .timer-label {
   color: var(--blue-mid-dark);
+  font-size: 1rem;
 }
 
 form#add-score {
@@ -239,6 +242,39 @@ input#player-name  {
   padding: 4px 8px;
   font-size: 1.25rem;
   border-radius: 5px;
+}
+
+input#player-name.invalid {
+  border: 2px solid red;
+}
+
+input#player-name + label.error-message {
+  position: absolute;
+  color: red;
+  transform: translate(-100%, calc(100% + 0px));
+  font-size: 0.875rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  width: fit-content;
+  padding-bottom: 20px;
+}
+
+input#player-name + label.error-message.show {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+/* .score-display {
+  color: var(--green-mid);
+  font-size: 2.25rem;
+  line-height: 1.25;
+  transition: all 0.2s ease;
+  font-weight: 700;
+} */
+
+.moves {
+  font-weight: 700;
+  color: var(--peach-mid);
 }
 
 /********/
@@ -256,11 +292,10 @@ input#player-name  {
   opacity: 0;
   transition: all 0.5s ease;
   letter-spacing: 0;
-  margin-top: 0;
-  margin-bottom: 0;
   line-height: 1.75;
   min-width: 280px;
   max-width: 280px;
+  margin: 0 auto;
 }
 
 .help.show {
@@ -282,6 +317,11 @@ input#player-name  {
 }
 
 .help > .close-btn {
+  display: none;
+}
+
+.help.show > .close-btn {
+  display: initial;
   float: right;
   font-size: 1.25rem;
   background: var(--blue-dark);
@@ -326,6 +366,51 @@ input#player-name  {
 
 .text-center {
   text-align: center;
+}
+
+.max-w-350 {
+  max-width: 350px;
+}
+
+/****************/
+/* Leader Board */
+/****************/
+
+#leader-board {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 350px;
+  max-height: 350px;
+  min-width: 350px;
+  max-width: 350px;
+  margin: 0 auto;
+  color: var(--blue-light);
+}
+
+#leader-board > p {
+  /* background-color: var(--board-colour); */
+  background: linear-gradient(0deg, var(--blue-deep), var(--blue-deep-faded));
+  padding: 10px 0;
+  border-bottom: 4px transparent solid;
+  width: 100%;
+  margin: 0;
+}
+
+#leader-board::-webkit-scrollbar {
+  width: 12px;
+}
+
+#leader-board::-webkit-scrollbar-track {
+  background: var(--blue-deep);
+}
+
+#leader-board::-webkit-scrollbar-thumb {
+  background-color: var(--peach-mid);
+  border-radius: 3px;
+  border: 2px solid var(--peach-mid);
+  cursor: pointer;
 }
 
 /***********/

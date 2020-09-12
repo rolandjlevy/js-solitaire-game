@@ -4,10 +4,11 @@ const rowLength = getComputedStyle(body).getPropertyValue('--row-length');
 const helpDisplay = document.querySelector('.help');
 
 let blocks;
+let score;
 
 function startGame() {
   blocks = [];
-  const score = new Score({maxTime:100});
+  score = new Score({rowLength, maxTime:100});
   const game = new Game(rowLength);
   game.createDivs();
   game.divs.forEach((div, index) => {
@@ -32,6 +33,7 @@ function startGame() {
     setTimeout(() => block.div.classList.remove('init'), 1);
     blocks.push(block);
   });
+  score.marbles = blocks.filter(item => item.state !== 'blank');
 }
 
 startGame();

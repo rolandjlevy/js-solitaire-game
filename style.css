@@ -124,7 +124,7 @@ article {
 
 .block.init {
   opacity: 0;
-  transform: scale(0.3) rotate(135deg);
+  transform: scale(0.1) rotate(135deg);
   transition: all 0.8s ease-in-out;
 }
 

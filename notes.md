@@ -1,13 +1,15 @@
 # Notes
 
 ### Todo
-- Scoring: add 500 points if you end up with 1 left and another 500 points if it's left in position 25
-- Change to OOP
+- Scoring: add 250 points if you end up with 1 left and another 250 points if it's left in the middle position, id:25
 - Write readme
 - Leader Board
 - Help section
 
  click and drag a marble arbleping over another single marble to a empty hole (white box). You can move the marbles in either horizontal or vertical direction. The jumped over marble will be removed from the board, thus making a new hole. Remove as many marbles as possible.
+
+### Done
+- Change to OOP
 
 ### Other solitaire games
 - https://veerasundar.com/33holepegsolitaire/

@@ -154,7 +154,7 @@ article {
 
 .block.active > .marble {
   background: 
-  radial-gradient(circle farthest-corner at 33% 33%, 
+    radial-gradient(circle farthest-corner at 33% 33%, 
       var(--blue-light) 5%, 
       var(--blue-dark) 60%), 
     radial-gradient(circle farthest-corner at 66% 66%, 

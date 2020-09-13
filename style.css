@@ -143,6 +143,7 @@ article {
 .block.init {
   opacity: 0;
   transform: scale(0.1) rotate(135deg);
+  filter: blur(2px);
   transition: all 0.8s ease-in-out;
 }
 
@@ -334,14 +335,14 @@ input#player-name + label.error-message.show {
   cursor: pointer;
   color: #fff;
   padding: 1px 6px 0px 6px;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
   box-shadow: 0 0 3px 3px #00000011;
 }
 
 .help.show > .close-btn {
   transform: scale(1);
   display: block;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .help > .close-btn:hover {

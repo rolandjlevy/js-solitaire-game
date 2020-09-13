@@ -16,7 +16,6 @@ class Block {
           this.takeMarble({game, target:block, blocks, marbleToTake});
           game.origin = null;
           score.movesDisplay.textContent = ++score.moves;
-          score.checkForWin(blocks);
         }
       }
     } else {

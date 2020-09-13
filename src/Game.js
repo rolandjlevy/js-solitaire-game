@@ -2,6 +2,7 @@ class Game {
   constructor(rowLength) {
     this.rowLength = rowLength;
     this.container = document.querySelector('.container');
+    this.container.classList.remove('disabled');
     this.origin = null;
     setTimeout(() => {
       this.container.classList.add('init');

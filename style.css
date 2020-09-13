@@ -108,11 +108,17 @@ article {
   box-shadow: 0 0 30px 5px var(--blue-dark);
   opacity: 0;
   transition: all 0.8s ease-in-out;
+  pointer-events: initial;
 }
 
 .container.init {
   opacity: 1;
   transition: all 0.8s ease-in-out;
+}
+
+.container.disabled {
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 /******************/
@@ -426,7 +432,7 @@ input#player-name + label.error-message.show {
   transition: all 0.2s ease;
   outline: 0;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: var(--blue-deep);
 }
 

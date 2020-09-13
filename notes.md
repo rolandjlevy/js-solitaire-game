@@ -1,15 +1,17 @@
 # Notes
 
 ### Todo
+- Fix Help section transition
 - Scoring: add 250 points if you end up with 1 left and another 250 points if it's left in the middle position, id:25
 - Write readme
-- Leader Board
 - Help section
+- Protect against XSS
 
  click and drag a marble arbleping over another single marble to a empty hole (white box). You can move the marbles in either horizontal or vertical direction. The jumped over marble will be removed from the board, thus making a new hole. Remove as many marbles as possible.
 
 ### Done
 - Change to OOP
+- Leader Board
 
 ### Other solitaire games
 - https://veerasundar.com/33holepegsolitaire/

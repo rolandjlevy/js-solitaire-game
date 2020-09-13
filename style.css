@@ -7,7 +7,7 @@
   --blue-darker: #011092;
   --blue-deep: #000441;
   --blue-deep-faded: #0006555d;
-  --blue-deeper-faded: #0006559c;
+  --blue-deeper-faded: #00054ea4;
   --blue-shadow: #7575a3;
   --board-colour: #000770;
   --peach-white: #fffcf1;
@@ -80,7 +80,7 @@ h3 {
 }
 
 h5 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 500;
   letter-spacing: 1px;
 }
@@ -240,11 +240,13 @@ article {
   font-weight: 700;
   text-align: center;
   text-shadow: 0 0 10px var(--blue-deep);
+  letter-spacing: 1px;
 }
 
 .moves-label, .score-label, .timer-label {
   color: var(--blue-mid-dark);
   font-size: 1rem;
+  letter-spacing: 1px;
 }
 
 form#add-score {

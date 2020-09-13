@@ -248,6 +248,7 @@ input#player-name  {
   padding: 4px 8px;
   font-size: 1.25rem;
   border-radius: 5px;
+  width: calc(100% - 100px);
 }
 
 input#player-name.invalid {
@@ -305,7 +306,7 @@ input#player-name + label.error-message.show {
 }
 
 .help.show {
-  min-height: 265px;
+  height: 265px;
   opacity: 1;
   transition: all 0.5s ease;
   margin: 20px auto;

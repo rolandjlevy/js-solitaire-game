@@ -1,10 +1,8 @@
 # Notes
 
 ### Todo
-- make help panel scrollable
 - Scoring: in submission message, add 250 points if you end up with 1 left and another 250 points if it's left in the middle position, id:25
 - Write readme
-- Write help section
 - Protect against XSS with obscurator
 
 **Aim of the game**
@@ -26,12 +24,16 @@ You can end the game at and time to submit your score to the Leader Board.
 If you complete with just one peice remaining which is 'solitaire' you win a bonus 250 points. If you manage to get the last price in the very centre of the board the bonus is 1000 points!
 
 
+![Solitaire demo](https://js-33-peg-solitaire-game.rjlevy.repl.co/images/solitaire-demo.gif)
+
  [click and drag a marble marble over another single marble to a empty hole (white box). You can move the marbles in either horizontal or vertical direction. The jumped over marble will be removed from the board, thus making a new hole. Remove as many marbles as possible.]
 
 ### Done
 - Change to OOP
 - Leader Board
 - Fix weird glitch in Help section transition
+- make help panel scrollable
+- Write help section
 
 ### Other solitaire games
 - https://veerasundar.com/33holepegsolitaire/

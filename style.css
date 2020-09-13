@@ -325,6 +325,8 @@ input#player-name + label.error-message.show {
 
 .help > .close-btn {
   float: right;
+  transform: scale(0);
+  display: none;
   font-size: 1.25rem;
   background: var(--blue-dark);
   border: none;
@@ -334,6 +336,12 @@ input#player-name + label.error-message.show {
   padding: 1px 6px 0px 6px;
   transition: all 0.2s ease;
   box-shadow: 0 0 3px 3px #00000011;
+}
+
+.help.show > .close-btn {
+  transform: scale(1);
+  display: block;
+  transition: all 0.2s ease;
 }
 
 .help > .close-btn:hover {

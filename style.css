@@ -78,6 +78,13 @@ h3 {
   font-size: 2rem;
 }
 
+h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: auto;
+}
+
 @media screen and (max-width: 360px) {
   h2 {
     font-size: 2.5rem;
@@ -321,7 +328,7 @@ input#player-name + label.error-message.show {
   margin: 0;
   text-align: center;
   letter-spacing: 1px;
-  color: var(--blue-mid);
+  color: var(--blue-light);
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -363,6 +370,21 @@ input#player-name + label.error-message.show {
 .help.show > ul {
   opacity: 1;
   transition: all 0.2s ease-in-out;
+}
+
+.help::-webkit-scrollbar {
+  width: 12px;
+}
+
+.help::-webkit-scrollbar-track {
+  background: var(--blue-dark);
+}
+
+.help::-webkit-scrollbar-thumb {
+  background-color: var(--blue-mid);
+  border-radius: 3px;
+  border: 2px solid var(--blue-mid);
+  cursor: pointer;
 }
 
 /**************/

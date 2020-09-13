@@ -423,6 +423,10 @@ input#player-name + label.error-message.show {
 /* Buttons */
 /***********/
 
+.btn-group {
+  display: flex;
+}
+
 .btn {
   border-radius: 5px;
   border: none;
@@ -448,6 +452,7 @@ input#player-name + label.error-message.show {
 
 i.fas {
   color: var(--grey-dark);
+  margin-top: 3px;
 }
 
 .text-center {

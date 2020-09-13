@@ -26,10 +26,10 @@
         </p>
       </section>
       <main class="container"></main>
-      <section class="m-t-10">
+      <section class="btn-group m-t-10">
         <button class="btn m-r-5 m-b-10" onclick="startGame()">New game <i class="fas fa-redo-alt"></i></button>
         <button class="btn m-r-5 m-b-10" onclick="score.submit()">Submit <i class="fas fa-share"></i></button>
-        <button class="btn" onclick="toggleHelp('add')">Help <i class="fas fa-question-circle"></i></button>
+        <button class="btn m-b-10" onclick="toggleHelp('add')">Help <i class="fas fa-question-circle"></i></button>
       </section>
       <section class="text-center max-w-350">
         <div class="help">
@@ -54,10 +54,12 @@
       </section>
       <footer class="text-center m-t-30">&copy; Copyright 2020 <a href="https://rolandlevy.co.uk" class="new-tab-icon" target="_blank">see more of my projects</a></footer>
     </article>
+
     <script src="src/Block.js"></script>
     <script src="src/Game.js"></script>
     <script src="src/Score.js"></script>
     <script src="script.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
     <script src="src/utils.js"></script>

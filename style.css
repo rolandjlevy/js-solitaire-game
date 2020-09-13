@@ -6,7 +6,8 @@
   --blue-dark: #3240bec4;
   --blue-darker: #011092;
   --blue-deep: #000441;
-  --blue-deep-faded: #00065533;
+  --blue-deep-faded: #0006555d;
+  --blue-deeper-faded: #0006559c;
   --blue-shadow: #7575a3;
   --board-colour: #000770;
   --peach-white: #fffcf1;
@@ -59,13 +60,13 @@ body {
   font-size: 1.25rem;
 }
 
-h2, h3 {
+h2, h3, h5 {
   font-weight: 700;
   color: var(--peach-mid);
   letter-spacing: 2px;
   margin: 0;
   text-shadow: 0 0 20px var(--blue-deep);
-  line-height: 1.5;
+  line-height: 1;
   font-family: 'Raleway', sans-serif;
   transition: all 0.2s ease;
 }
@@ -78,11 +79,10 @@ h3 {
   font-size: 2rem;
 }
 
-h4 {
+h5 {
   font-size: 1rem;
-  font-weight: 700;
-  margin-top: 10px;
-  margin-bottom: auto;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 @media screen and (max-width: 360px) {
@@ -279,14 +279,6 @@ input#player-name + label.error-message.show {
   transition: opacity 0.25s ease;
 }
 
-/* .score-display {
-  color: var(--green-mid);
-  font-size: 2.25rem;
-  line-height: 1.25;
-  transition: all 0.2s ease;
-  font-weight: 700;
-} */
-
 .moves {
   font-weight: 700;
   color: var(--peach-mid);
@@ -299,7 +291,7 @@ input#player-name + label.error-message.show {
 .help {
   font-size: 0.875rem;
   text-align: left;
-  background-color: var(--blue-darker);
+  background-color: var(--blue-deeper-faded);
   color: var(--blue-light);
   padding: 15px;
   border-radius: 5px;
@@ -308,27 +300,26 @@ input#player-name + label.error-message.show {
   transition: all 0.5s ease;
   letter-spacing: 0;
   line-height: 1.75;
-  min-width: 280px;
-  max-width: 280px;
+  min-width: 320px;
+  max-width: 320px;
   margin: 0 auto;
 }
 
 .help.show {
   height: 265px;
   opacity: 1;
-  transition: all 0.5s ease;
   margin: 20px auto;
-  overflow-y: scroll;
+  transition: all 0.5s ease;
 }
 
 .help > h3 {
   display: inline-block;
   font-size: 1.25rem;
   line-height: 1.5;
-  margin: 0;
+  margin: 0 0 10px 0;
   text-align: center;
   letter-spacing: 1px;
-  color: var(--blue-light);
+  /* color: var(--blue-light); */
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -337,7 +328,7 @@ input#player-name + label.error-message.show {
   transform: scale(0);
   display: none;
   font-size: 1.25rem;
-  background: var(--blue-dark);
+  background: var(--blue-darker);
   border: none;
   border-radius: 2px;
   cursor: pointer;
@@ -361,7 +352,7 @@ input#player-name + label.error-message.show {
 
 .help > ul {
   margin: 0;
-  padding-left: 20px;
+  padding: 0 20px;
   pointer-events: none;
   opacity: 0;
   transition: all 0.2s ease-in-out;
@@ -369,18 +360,33 @@ input#player-name + label.error-message.show {
 
 .help.show > ul {
   opacity: 1;
+  position: relative;
+  overflow-y: scroll;
+  height: calc(100% - 40px);
+  pointer-events: inherit;
   transition: all 0.2s ease-in-out;
 }
 
-.help::-webkit-scrollbar {
+.help.show > ul > li > h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: auto;
+}
+
+.help.show > ul > li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.help.show > ul::-webkit-scrollbar {
   width: 12px;
 }
 
-.help::-webkit-scrollbar-track {
-  background: var(--blue-dark);
+.help.show > ul::-webkit-scrollbar-track {
+  background: var(--blue-darker);
 }
 
-.help::-webkit-scrollbar-thumb {
+.help.show > ul::-webkit-scrollbar-thumb {
   background-color: var(--blue-mid);
   border-radius: 3px;
   border: 2px solid var(--blue-mid);
@@ -431,8 +437,7 @@ input#player-name + label.error-message.show {
 }
 
 #leader-board > p {
-  /* background-color: var(--board-colour); */
-  background: linear-gradient(0deg, var(--blue-deep-faded), var(--blue-deep));
+  background: linear-gradient(0deg, var(--blue-deep), var(--blue-deep-faded));
   padding: 10px 0;
   border-bottom: 4px transparent solid;
   width: 100%;
@@ -444,13 +449,13 @@ input#player-name + label.error-message.show {
 }
 
 #leader-board::-webkit-scrollbar-track {
-  background: var(--blue-deep);
+  background: var(--blue-darker);
 }
 
 #leader-board::-webkit-scrollbar-thumb {
-  background-color: var(--peach-mid);
+  background-color: var(--blue-mid);
   border-radius: 3px;
-  border: 2px solid var(--peach-mid);
+  border: 2px solid var(--blue-mid);
   cursor: pointer;
 }
 

@@ -11,6 +11,7 @@
   <body>
     <article>
       <h2>Solitaire</h2>
+      <h5 class="m-t-10 m-b-20">A game of speed, skill and logic</h5>
       <section class="h-block">
         <p class="v-block">
           <span class="moves-label">Taken</span>
@@ -29,14 +30,14 @@
       <section class="btn-group m-t-10">
         <button class="btn m-r-10 m-b-10" onclick="startGame()">New game <i class="fas fa-redo-alt"></i></button>
         <button class="btn m-r-10 m-b-10" onclick="score.submit()">Submit <i class="fas fa-share"></i></button>
-        <button class="btn m-b-10" onclick="toggleHelp('add')">Help <i class="fas fa-question-circle"></i></button>
+        <button class="btn m-b-10" onclick="toggleHelp('toggle')">Help <i class="fas fa-question-circle"></i></button>
       </section>
       <section class="text-center max-w-350">
         <div class="help">
           <h3 class="m-t-0 m-b-10">How to play</h3><button class="close-btn" onclick="toggleHelp('remove')">&times;</button><br>
           <ul>
             <li><h4>Aim of the game</h4>
-              This is a game of speed, skill and logic. The aim of the game is to remove as many marbles as possible in 100 seconds. It's a race against time!</li>
+              The aim of the game is to remove as many marbles as possible in 100 seconds. It's a race against time!</li>
             <li><h4>Removing the marbles</h4>
               Select any marble so it turns blue and move it over another marble so it lands in an empty space, either horizontally or vertically. The marble you moved over will be removed from the board, thus making a new hole.  To cancel your selection click on the blue marble again so it turns gold.</li>
             <li><h4>Scoring</h4>

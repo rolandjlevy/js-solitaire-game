@@ -402,7 +402,7 @@ input#player-name + label.error-message.show {
 
 #leader-board > p {
   /* background-color: var(--board-colour); */
-  background: linear-gradient(0deg, var(--blue-deep), var(--blue-deep-faded));
+  background: linear-gradient(0deg, var(--blue-deep-faded), var(--blue-deep));
   padding: 10px 0;
   border-bottom: 4px transparent solid;
   width: 100%;

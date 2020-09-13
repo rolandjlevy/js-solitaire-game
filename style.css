@@ -3,7 +3,7 @@
   --blue-light: #e1e9ff;
   --blue-mid: #c3d1ffe7;
   --blue-mid-dark: #c3d1ffcc;
-  --blue-dark: #3240bec4;
+  --blue-dark: #3544cfc4;
   --blue-darker: #011092;
   --blue-deep: #000441;
   --blue-deep-faded: #0006555d;
@@ -362,21 +362,20 @@ input#player-name + label.error-message.show {
 
 .help.show > ul {
   opacity: 1;
-  position: relative;
   overflow-y: scroll;
   height: calc(100% - 40px);
   pointer-events: inherit;
   transition: all 0.2s ease-in-out;
 }
 
-.help.show > ul > li > h4 {
+.help > ul > li > h4 {
   font-size: 1rem;
   font-weight: 700;
   margin-top: 0;
   margin-bottom: auto;
 }
 
-.help.show > ul > li:not(:last-child) {
+.help > ul > li:not(:last-child) {
   margin-bottom: 10px;
 }
 
@@ -389,9 +388,9 @@ input#player-name + label.error-message.show {
 }
 
 .help.show > ul::-webkit-scrollbar-thumb {
-  background-color: var(--blue-mid);
+  background-color: var(--blue-dark);
   border-radius: 3px;
-  border: 2px solid var(--blue-mid);
+  border: 2px solid var(--blue-dark);
   cursor: pointer;
 }
 
@@ -455,9 +454,9 @@ input#player-name + label.error-message.show {
 }
 
 #leader-board::-webkit-scrollbar-thumb {
-  background-color: var(--blue-mid);
+  background-color: var(--blue-dark);
   border-radius: 3px;
-  border: 2px solid var(--blue-mid);
+  border: 2px solid var(--blue-dark);
   cursor: pointer;
 }
 

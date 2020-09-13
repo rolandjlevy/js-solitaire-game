@@ -324,11 +324,6 @@ input#player-name + label.error-message.show {
 }
 
 .help > .close-btn {
-  display: none;
-}
-
-.help.show > .close-btn {
-  display: initial;
   float: right;
   font-size: 1.25rem;
   background: var(--blue-dark);

@@ -1,6 +1,7 @@
 # Notes
 
 ### Todo
+- make help panel scrollable
 - Scoring: in submission message, add 250 points if you end up with 1 left and another 250 points if it's left in the middle position, id:25
 - Write readme
 - Write help section

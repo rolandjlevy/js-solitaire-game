@@ -311,6 +311,7 @@ input#player-name + label.error-message.show {
   opacity: 1;
   transition: all 0.5s ease;
   margin: 20px auto;
+  overflow-y: scroll;
 }
 
 .help > h3 {
@@ -355,6 +356,13 @@ input#player-name + label.error-message.show {
   margin: 0;
   padding-left: 20px;
   pointer-events: none;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.help.show > ul {
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
 }
 
 /**************/

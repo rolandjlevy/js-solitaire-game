@@ -1,6 +1,8 @@
 # Notes
 
 ### Todo
+- Add ordering index to Leader Board
+- create a pre-obs repl for firebase code
 - Scoring: in submission message, add 250 points if you end up with 1 left and another 250 points if it's left in the middle position, id:25
 - Write readme
 - Protect against XSS with obscurator
@@ -49,6 +51,9 @@ while (id--) {
   window.clearInterval(id);
 }
 ```
+
+### Links
+- Gif screen capture: https://giphy.com/apps/giphycapture
 
 ### CSS
 - https://cssanimation.rocks/spheres/

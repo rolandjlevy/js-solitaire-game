@@ -5,14 +5,14 @@ A game of speed, logic and skill: start with 33 marbles and try to finish with j
 ### Features 💡
 - Build entirely with Vanilla JavaScript and CSS; no front-end frameworks or libraries like React, Vue etc...
 - Includes Help section and Leader board
-- Scores are saved on the back-end with Google Firebase
 - Completely responsive and mobile friendly
+- Scores are saved on the back-end with Google Firebase
 
 ### Instructions 🛠
 - **Aim of the game**
 Take away as many marbles as possible in the 100 seconds countdown.
 - **How to take away marbles**
-Select a marble so it turns blue then place it over an adjacent marble into an empty space. The marble you moved over will be taken. To deselect a marble, click on it again so it turns from blue to gold. See demo below.
+Select a marble so it turns blue then place it over an adjacent marble into an empty space. The marble you move over will be taken. To deselect a marble, click on it again so it turns from blue to gold. See the demo below.
 - **Scoring**
 Each marble removed increases the score by marbles taken multiplied by seconds remaining. Eg, 15 marbles taken in 60 seconds scores 900. Finish the game at any time to submit your score to the Leader Board.
 - **Bonus points**

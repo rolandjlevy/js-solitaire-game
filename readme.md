@@ -24,4 +24,4 @@ If you finish with just one marble remaining, which is 'Solitaire', you get a bo
 - [Github repo](https://github.com/rolandjlevy/js-solitaire-33-game)
 
 ### Demo 🏁
-![Sliders demo](https://js-solitaire-33-game.rjlevy.repl.co/images/solitaire-demo.gif)
+![Solitaire demo](https://js-solitaire-33-game.rjlevy.repl.co/images/solitaire-demo.gif)

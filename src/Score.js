@@ -3,6 +3,8 @@ class Score {
     this.moves = 0;
     this.rowLength = rowLength;
     this.timer = maxTime;
+    this.boardCentreId = 25;
+    this.bonusAmount = null;
     this.initElements();
     this.resetSubmissionForm();
     this.countdown({inc:0});
@@ -14,6 +16,7 @@ class Score {
   resetSubmissionForm() {
     this.addScoreForm.style.display = 'none';
     this.playerNameWrapper.innerHTML = '';
+    this.moves = 0;
   }
   get currentScore() {
     return this.score;
@@ -26,30 +29,25 @@ class Score {
     this.container.classList.add('disabled');
     this.clearAllIntervals();
     this.addScoreForm.style.display = 'initial';
-    this.winDisplay.innerHTML = `<span>Well done! you got a score of <span class="moves">${(this.currentScore)}</span>. Please add your name or Repl username to the Leader Board:</span>`;
+    this.checkForBonus();
+    this.winDisplay.innerHTML = `<span>Well done! you got a score of <span class="moves">${(this.currentScore)}</span>. ${this.bonusMessage()}Please add your name or Repl username to the Leader Board:</span>`;
     this.playerNameWrapper.innerHTML = `<input id="player-name" type="text" class="m-b-10" required placeholder="Your name..." maxlength="20"><label for="player-name" class="error-message"></label>`;
     const playerName = document.querySelector('#player-name');
     playerName.focus();
   }
-  gameCompleted() {
-    this.marbles.some((item, index, array) => {
-      const origin = item;
-      if (index > 0) {
-        const target = array[index - 1];
-        if (target.y == origin.y && (target.state == 'filled' && origin.state == 'filled')) {
-          //  console.log(target.div.id, ' and ', origin.div.id, ' are neighbours')
-          return true;
-        }
-      }
-      if (index < array.length - 1) {
-        const target = array[index + 1];
-        if (target.y == origin.y && (target.state == 'filled' && origin.state == 'filled')) {
-          // console.log(target.div.id, ' and ', origin.div.id, ' are neighbours')
-          return true;
-        }
-      }
-    });
-    return false;
+  checkForBonus() {
+    const filled = this.marbles.filter(item => item.state == 'filled');
+    this.bonusAmount = null;
+    if (filled.length > 1) return;
+    const lastMarble = filled.shift();
+    this.bonusAmount = Number(lastMarble.div.id) == this.boardCentreId ? 1000 : 500;
+    this.score += this.bonusAmount;
+    this.scoreDisplay.textContent = this.currentScore.toLocaleString();
+  }
+  bonusMessage() {
+    if (!this.bonusAmount) return '';
+    const boardCentre = this.bonusAmount == 1000 ? ' in the center of the board' : '';
+    return `You have won a bonus of ${this.bonusAmount} as there is only one marble remaining${boardCentre}!! `;
   }
   initElements() {
     this.container = document.querySelector('.container');

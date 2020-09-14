@@ -1,7 +1,6 @@
 # Solitaire 33
 
-A game of speed, skill & logic - start with 33 marbles and try to finish with just one marble left in the middle of the board to acheive 'Solitaire'.
-
+A game of speed, logic and skill: start with 33 marbles and try to finish with just one marble left in the middle of the board to acheive 'Solitaire'.
 
 ### Features 💡
 - Build entirely with Vanilla JavaScript and CSS; no front-end frameworks or libraries like React, Vue etc...

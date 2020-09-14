@@ -35,6 +35,10 @@ function startGame() {
   });
   score.marbles = blocks.filter(item => item.state !== 'blank');
   window.scrollTo(0,0);
+  // score.moves = 1;
+  // score.timer = 10;
+  // score.updateScore()
+  // score.submit();
 }
 
 startGame();

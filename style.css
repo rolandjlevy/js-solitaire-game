@@ -353,7 +353,7 @@ input#player-name + label.error-message.show {
 
 @media screen and (max-width: 640px) {
   .help > .close-btn {
-    padding: 2px 1px 0px 2px;
+    padding: 2px 1px 2px 2px;
   }
 }
 

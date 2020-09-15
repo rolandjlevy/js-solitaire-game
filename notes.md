@@ -2,15 +2,14 @@
 
 ### Todo
 - Add sound effects for selecting, taking a marble, invalid move and winning: https://www.w3schools.com/graphics/game_sound.asp
+- Sort out API exposure on Github. Move API key to env.js file. See https://dashboard.gitguardian.com/workspace/40412/scanning
 
 ![Solitaire demo](https://js-33-peg-solitaire-game.rjlevy.repl.co/images/solitaire-demo.gif)
-
- [click and drag a marble marble over another single marble to a empty hole (white box). You can move the marbles in either horizontal or vertical direction. The jumped over marble will be removed from the board, thus making a new hole. Remove as many marbles as possible.]
 
 ### Done
 - Change to OOP
 - Leader Board
-- Fix weird glitch in Help section transition
+- Fix glitch in Help section transition
 - make help panel scrollable
 - Write help section
 - Add ordering index to Leader Board

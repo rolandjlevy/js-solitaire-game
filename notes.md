@@ -1,6 +1,7 @@
 # Notes
 
 ### Todo
+- Add an x and a = to the scoring so you get taken x timer = score
 - Add sound effects for selecting, taking a marble, invalid move and winning: https://www.w3schools.com/graphics/game_sound.asp
 - Sound effects library: 
 + https://www.buildbox.com/13-places-to-find-free-game-sound-effects/

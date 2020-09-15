@@ -28,17 +28,17 @@
 
 @media screen and (max-width: 640px) {
   :root {
-    --block-size: 50;
+    --block-size: 48;
     --marble-ratio: 0.55;
-    --scrollbar-size: 30px;
     transition: all 0.2s ease;
   }
 }
 
 @media screen and (max-width: 360px) {
   :root {
-    --block-size: 35;
+    --block-size: 36;
     --marble-ratio: 0.6;
+    --scrollbar-size: 30px;
     transition: all 0.2s ease;
   }
 }

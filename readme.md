@@ -3,9 +3,9 @@
 A game of speed, logic and skill: start with 33 marbles and try to finish with just one marble left in the middle of the board to acheive 'Solitaire'.
 
 ### Features 💡
-- Build entirely with Vanilla JavaScript and CSS; no front-end frameworks or libraries like React, Vue etc...
-- Includes Help section and Leader board
+- Built from scratch with Vanilla JavaScript and CSS; no front-end frameworks or libraries like React, Vue etc...
 - Completely responsive and mobile friendly
+- Includes Help section and Leader board
 - Scores are saved on the back-end with Google Firebase
 
 ### Instructions 🛠

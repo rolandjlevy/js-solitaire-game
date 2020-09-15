@@ -1,30 +1,7 @@
 # Notes
 
 ### Todo
-- Add ordering index to Leader Board
-- create a pre-obs repl for firebase code
-- Scoring: in submission message, add 250 points if you end up with 1 left and another 250 points if it's left in the middle position, id:25
-- Write readme
-- Protect against XSS with obscurator
-
-**Aim of the game**
-This is a game of speed, skill and logic. The aim of the game is to remove as many marbles as possible in 100 seconds. It's a race against time!
-
-**Removing the marbles**
-Select any marble so it turns blue and move it over another marble so it lands in an empty space, either horizontally or vertically.
-
-The marble you moved over will be removed from the board, thus making a new hole. 
-
-To cancel your selection click on the blue marble again so it turns gold.
-
-**Scoring**
-Each time you remove a marble the score increases by the amount of seconds remaining multiplied by the amount of marbles taken. For example 5 pieces taken with 90 seconds remaining gives a total score of 5 x 90 = 450. The more marbles you take, the higher the score. 
-
-You can end the game at and time to submit your score to the Leader Board.
-
-**Bonus points**:
-If you complete with just one peice remaining which is 'solitaire' you win a bonus 250 points. If you manage to get the last price in the very centre of the board the bonus is 1000 points!
-
+- Add sound effects for selecting, taking a marble, invalid move and winning: https://www.w3schools.com/graphics/game_sound.asp
 
 ![Solitaire demo](https://js-33-peg-solitaire-game.rjlevy.repl.co/images/solitaire-demo.gif)
 
@@ -36,6 +13,11 @@ If you complete with just one peice remaining which is 'solitaire' you win a bon
 - Fix weird glitch in Help section transition
 - make help panel scrollable
 - Write help section
+- Add ordering index to Leader Board
+- Write readme
+- Protect against XSS with obscurator
+- create a pre-obs repl for firebase code
+- Scoring: in submission message, add 250 points if you end up with 1 left and another 250 points if it's left in the middle position, id:25
 
 ### Other solitaire games
 - https://veerasundar.com/33holepegsolitaire/

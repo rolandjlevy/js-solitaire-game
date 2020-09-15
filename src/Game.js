@@ -7,6 +7,8 @@ class Game {
     setTimeout(() => {
       this.container.classList.add('init');
     }, 100);
+    this.buttons = document.querySelectorAll('article .btn');
+    this.initButtons();
   }
   createDivs() {
     this.container.innerHTML = '';
@@ -18,6 +20,14 @@ class Game {
       index++;
     }
     this.divs = document.querySelectorAll('main > div');
+  }
+  initButtons() {
+    this.buttons.forEach(item => {
+      item.addEventListener('click', this.handleClickEvent);
+    });
+  }
+  handleClickEvent(e) {
+    console.log(e.currentTarget.name);
   }
   isBlank(index) {
     const i = index, rl = this.rowLength;

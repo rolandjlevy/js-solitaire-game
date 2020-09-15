@@ -5,6 +5,7 @@ const helpDisplay = document.querySelector('.help');
 
 let blocks;
 let score;
+const sound = new Sound();
 
 function startGame() {
   blocks = [];
@@ -35,7 +36,6 @@ function startGame() {
   });
   score.marbles = blocks.filter(item => item.state !== 'blank');
   window.scrollTo(0,0);
-  // new Sound('sounds/django.mp3').sound.play();
 }
 
 startGame();

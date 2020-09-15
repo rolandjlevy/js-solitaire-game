@@ -26,7 +26,6 @@ class Score {
   }
   submit() {
     if (!this.moves) return;
-    sound.init('sounds/applause.mp3');
     this.container.classList.add('disabled');
     this.clearAllIntervals();
     this.addScoreForm.style.display = 'initial';

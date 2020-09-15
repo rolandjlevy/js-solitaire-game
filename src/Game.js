@@ -27,7 +27,12 @@ class Game {
     });
   }
   handleClickEvent(e) {
-    console.log(e.currentTarget.name);
+    sound.stop();
+    let soundFileName = 'click.mp3';
+    if (e.target.name == 'submit-score') {
+      if (score.moves) soundFileName = 'applause.mp3';
+    }
+    sound.init(`sounds/${soundFileName}`);
   }
   isBlank(index) {
     const i = index, rl = this.rowLength;

@@ -19,7 +19,7 @@ Each marble removed increases the score by marbles taken multiplied by seconds r
 If you finish with just one marble remaining, which is 'Solitaire', you get a bonus 500 points, and if you last marble finishes in the centre of the board the bonus is 1,000 points!
 
 ### Links 🔗
-- [Live demo](https://js-solitaire-33-game.rjlevy.repl.co/)
+- [Play the game](https://js-solitaire-33-game.rjlevy.repl.co/)
 - [Source code](https://repl.it/@rjlevy/js-solitaire-33-game)
 - [Github repo](https://github.com/rolandjlevy/js-solitaire-33-game)
 

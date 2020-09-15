@@ -19,7 +19,6 @@ function startGame() {
       y: Math.floor(index / rowLength) + 1,
       state: 'filled'
     });
-    block.div.id = index + 1;
     if (game.isBlank(index)) {
       block.state = 'blank';
     } else {

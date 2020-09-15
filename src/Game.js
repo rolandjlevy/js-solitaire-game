@@ -13,6 +13,7 @@ class Game {
     let index = 0;
     while (index < this.rowLength * this.rowLength) {
       const div = document.createElement('div');
+      div.id = index + 1;
       this.container.appendChild(div);
       index++;
     }

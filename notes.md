@@ -2,6 +2,9 @@
 
 ### Todo
 - Add sound effects for selecting, taking a marble, invalid move and winning: https://www.w3schools.com/graphics/game_sound.asp
+- Sound effects library: 
++ https://www.buildbox.com/13-places-to-find-free-game-sound-effects/
++ https://99sounds.org/free-sound-effects/
 - Sort out API exposure on Github. Move API key to env.js file. See https://dashboard.gitguardian.com/workspace/40412/scanning
 
 ![Solitaire demo](https://js-33-peg-solitaire-game.rjlevy.repl.co/images/solitaire-demo.gif)

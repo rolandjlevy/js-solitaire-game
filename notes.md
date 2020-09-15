@@ -6,6 +6,7 @@
 - Sound effects library: 
 + https://www.buildbox.com/13-places-to-find-free-game-sound-effects/
 + https://99sounds.org/free-sound-effects/
++ https://blog.felgo.com/game-resources/16-sites-featuring-free-game-sounds
 - Sort out API exposure on Github. Move API key to env.js file. See https://dashboard.gitguardian.com/workspace/40412/scanning
 
 ![Solitaire demo](https://js-33-peg-solitaire-game.rjlevy.repl.co/images/solitaire-demo.gif)

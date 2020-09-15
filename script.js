@@ -35,6 +35,7 @@ function startGame() {
   });
   score.marbles = blocks.filter(item => item.state !== 'blank');
   window.scrollTo(0,0);
+  // new Sound('sounds/django.mp3').sound.play();
 }
 
 startGame();

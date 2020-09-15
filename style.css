@@ -237,6 +237,26 @@ article {
   transition: none;
 }
 
+/*******************/
+/* Rounded corners */
+/*******************/
+
+.block[id="3"], .block[id="15"] {
+  border-top-left-radius: 50%;
+}
+
+.block[id="5"], .block[id="21"] {
+  border-top-right-radius: 50%;
+}
+
+.block[id="29"], .block[id="45"] {
+  border-bottom-left-radius: 50%;
+}
+
+.block[id="35"], .block[id="47"] {
+  border-bottom-right-radius: 50%;
+}
+
 /*********/
 /* Score */
 /*********/

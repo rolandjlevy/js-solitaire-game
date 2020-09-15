@@ -3,6 +3,7 @@ class Sound {
     this.sound = document.createElement('audio');
     this.sound.setAttribute('preload', 'auto');
     this.sound.setAttribute('controls', 'none');
+    this.sound.setAttribute('muted', false);
     this.sound.style.display = 'none';
     document.body.appendChild(this.sound);
   }

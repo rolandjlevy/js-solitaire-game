@@ -15,11 +15,13 @@ class Block {
         if (marbleToTake) {
           this.takeMarble({game, target:block, blocks, marbleToTake});
           game.origin = null;
+          sound.init('sounds/taken.mp3');
           score.movesDisplay.textContent = ++score.moves;
         }
       }
     } else {
       if (block.state != 'filled') return;
+      sound.init('sounds/select.mp3');
       block.div.classList.add('active');
       game.origin = block;
     }

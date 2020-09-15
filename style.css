@@ -308,19 +308,19 @@ input#player-name + label.error-message.show {
   border-radius: 5px;
   height: 0;
   opacity: 0;
-  transition: all 0.5s ease;
   letter-spacing: 0;
   line-height: 1.75;
   min-width: 320px;
   max-width: 320px;
   margin: 0 auto;
+  transition: all 0.6s ease;
 }
 
 .help.show {
   height: 265px;
   opacity: 1;
   margin: 20px auto;
-  transition: all 0.5s ease;
+  transition: all 0.6s ease;
 }
 
 .help > h3 {
@@ -372,17 +372,19 @@ input#player-name + label.error-message.show {
 .help > ul {
   margin: 0;
   padding: 0 20px;
-  pointer-events: none;
   opacity: 0;
-  transition: all 0.2s ease-in-out;
+  height: 0;
+  overflow-y: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
 }
 
 .help.show > ul {
   opacity: 1;
-  overflow-y: scroll;
   height: calc(100% - 40px);
+  overflow-y: scroll;
   pointer-events: inherit;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .help > ul > li > h4 {

@@ -1,18 +1,10 @@
 # Notes
 
 ### Todo
-- Add an x and a = to the scoring so you get taken x timer = score
-- Add sound effects for selecting, taking a marble, invalid move and winning: https://www.w3schools.com/graphics/game_sound.asp
-- Sound effects libraries:
-+ [good] http://soundbible.com/ 
-+ https://www.buildbox.com/13-places-to-find-free-game-sound-effects/
-+ https://99sounds.org/free-sound-effects/
-+ https://blog.felgo.com/game-resources/16-sites-featuring-free-game-sounds
 - Sort out API exposure on Github. Move API key to env.js file. See https://dashboard.gitguardian.com/workspace/40412/scanning
 
-![Solitaire demo](https://js-33-peg-solitaire-game.rjlevy.repl.co/images/solitaire-demo.gif)
-
 ### Done
+- Add an x and a = to the scoring so you get taken x timer = score
 - Change to OOP
 - Leader Board
 - Fix glitch in Help section transition
@@ -23,6 +15,12 @@
 - Protect against XSS with obscurator
 - create a pre-obs repl for firebase code
 - Scoring: in submission message, add 250 points if you end up with 1 left and another 250 points if it's left in the middle position, id:25
+- Add sound effects for selecting, taking a marble, invalid move and winning: https://www.w3schools.com/graphics/game_sound.asp
+- Sound effects libraries:
++ [good] http://soundbible.com/ 
++ https://www.buildbox.com/13-places-to-find-free-game-sound-effects/
++ https://99sounds.org/free-sound-effects/
++ https://blog.felgo.com/game-resources/16-sites-featuring-free-game-sounds
 
 ### Other solitaire games
 - https://veerasundar.com/33holepegsolitaire/

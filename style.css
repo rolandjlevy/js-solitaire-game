@@ -335,7 +335,7 @@ input#player-name + label.error-message.show {
   text-align: left;
   background-color: var(--blue-deeper-faded);
   color: var(--blue-light);
-  padding: 15px;
+  padding: 20px;
   border-radius: 5px;
   height: 0;
   opacity: 0;
@@ -402,9 +402,10 @@ input#player-name + label.error-message.show {
 
 .help > ul {
   margin: 0;
-  padding: 0 20px;
+  padding: 0;
   opacity: 0;
   height: 0;
+  list-style: none;
   overflow-y: hidden;
   pointer-events: none;
   transition: all 0.3s ease-in-out;

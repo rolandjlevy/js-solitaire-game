@@ -377,7 +377,7 @@ input#player-name + label.error-message.show {
   color: #fff;
   padding: 0 2px;
   transition: all 0.2s ease-in-out;
-  box-shadow: 0 0 3px 3px #00000066;
+  box-shadow: 0 0 3px 3px #00000033;
   width: var(--scrollbar-size);
   height: var(--scrollbar-size);
 }
@@ -554,6 +554,11 @@ i.fas {
 
 .text-center {
   text-align: center;
+}
+
+.operator {
+  color: var(--blue-mid);
+  margin-top: 15px;
 }
 
 /**********/

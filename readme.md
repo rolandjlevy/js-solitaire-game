@@ -14,9 +14,9 @@ Take away as many marbles as possible in the 100 seconds countdown.
 - **How to take away marbles**
 Select a marble so it turns blue then place it over an adjacent marble into an empty space. The marble you move over will be taken. To deselect a marble, click on it again so it turns from blue to gold. See the demo below.
 - **Scoring**
-Each marble removed increases the score by marbles taken multiplied by seconds remaining. Eg, 15 marbles taken in 60 seconds scores 900. Finish the game at any time to submit your score to the Leader Board.
+Each marble removed updates the score by the total marbles taken multiplied by the total seconds remaining. Eg, 20 marbles taken in 40 seconds scores 800. Finish the game at any time to submit your score to the Leader Board.
 - **Bonus points**
-If you finish with just one marble remaining, which is 'Solitaire', you get a bonus 500 points, and if you last marble finishes in the centre of the board the bonus is 1,000 points!
+If you finish with just one marble remaining, which is 'Solitaire', you get a bonus 500 points, and if your last marble finishes in the centre of the board the bonus is 1,000 points!
 
 ### Links 🔗
 - [Play the game](https://js-solitaire-game.rjlevy.repl.co/)

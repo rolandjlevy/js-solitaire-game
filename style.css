@@ -21,14 +21,22 @@
   --peach-shadow-dark: #553a0066;
   --row-length: 7;
   --block-size: 76;
-  --marble-ratio: 0.5;
+  --marble-ratio: 0.45;
   --scrollbar-size: 20px;
   transition: all 0.2s ease;
 }
 
 @media screen and (max-width: 640px) {
   :root {
-    --block-size: 48;
+    --block-size: 60;
+    --marble-ratio: 0.5;
+    transition: all 0.2s ease;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --block-size: 46;
     --marble-ratio: 0.55;
     transition: all 0.2s ease;
   }
@@ -36,8 +44,8 @@
 
 @media screen and (max-width: 360px) {
   :root {
-    --block-size: 36;
-    --marble-ratio: 0.6;
+    --block-size: 40;
+    --marble-ratio: 0.65;
     --scrollbar-size: 30px;
     transition: all 0.2s ease;
   }
@@ -75,6 +83,9 @@ h2, h3, h5 {
 
 h2 {
   font-size: 3rem;
+}
+
+h2.gradient {
   background: linear-gradient(0deg, var(--peach-dark), var(--peach-lighter));
   background-clip: text;
   -webkit-background-clip: text;
@@ -215,7 +226,7 @@ article {
   filter: contrast(1.1) brightness(1.1);
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 480px) {
   .block:hover > .marble {
     filter: contrast(1) brightness(1);
   }
@@ -371,9 +382,9 @@ input#player-name + label.error-message.show {
   height: var(--scrollbar-size);
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 360px) {
   .help > .close-btn {
-    padding: 2px 1px 2px 2px;
+    padding: 4px 0px 2px 2px;
   }
 }
 
@@ -407,11 +418,17 @@ input#player-name + label.error-message.show {
   transition: all 0.3s ease-in-out;
 }
 
+.help > ul > li {
+  color: var(--blue-mid);
+}
+
 .help > ul > li > h4 {
   font-size: 1rem;
   font-weight: 700;
   margin-top: 0;
   margin-bottom: auto;
+  letter-spacing: 0.5px;
+  color: var(--blue-light);
 }
 
 .help > ul > li:not(:last-child) {

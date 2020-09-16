@@ -331,7 +331,7 @@ input#player-name + label.error-message.show {
 /********/
 
 .help {
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-align: left;
   background-color: var(--blue-deeper-faded);
   color: var(--blue-light);
@@ -340,7 +340,7 @@ input#player-name + label.error-message.show {
   height: 0;
   opacity: 0;
   letter-spacing: 0;
-  line-height: 1.75;
+  line-height: 1.5;
   min-width: 320px;
   max-width: 320px;
   margin: 0 auto;
@@ -402,7 +402,7 @@ input#player-name + label.error-message.show {
 
 .help > ul {
   margin: 0;
-  padding: 0;
+  padding: 0 10px 0 0;
   opacity: 0;
   height: 0;
   list-style: none;

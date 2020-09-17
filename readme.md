@@ -1,4 +1,4 @@
-# Solitaire
+# ⚡ Solitaire ⚡
 
 A game of speed, logic and skill: start with 33 marbles and try to finish with just one marble left in the middle of the board to acheive 'Solitaire'.
 

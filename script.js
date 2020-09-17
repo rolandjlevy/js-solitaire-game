@@ -26,7 +26,7 @@ function startGame() {
       block.addMarble();
     }
     block.div.classList.add('block', 'init', block.state);
-    block.div.addEventListener('click', (e) => {
+    block.div.addEventListener('mousedown', (e) => {
       const clickedBlock = blocks.find(bl => bl.div.id == e.currentTarget.id);
       block.processMove(clickedBlock, game, score);
     }, true);

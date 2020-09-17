@@ -1,6 +1,8 @@
 # Notes
 
 ### Todo
+- Prepare message for sat
+- Convert to modules
 - Sort out API exposure on Github. Move API key to env.js file. See https://dashboard.gitguardian.com/workspace/40412/scanning
 
 ### Done

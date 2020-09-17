@@ -1,15 +1,15 @@
+import { Block } from './src/Block.js';
+import { Game } from './src/Game.js';
+import { Score } from './src/Score.js';
+import { Sound } from './src/Sound.js';
+
 const body = document.querySelector('body');
-const blockSize = getComputedStyle(body).getPropertyValue('--block-size');
 const rowLength = getComputedStyle(body).getPropertyValue('--row-length');
-const helpDisplay = document.querySelector('.help');
 
-let blocks;
-let score;
-const sound = new Sound();
-
-function startGame() {
-  blocks = [];
-  score = new Score({rowLength, maxTime:100});
+window.startGame = function() {
+  window.blocks = [];
+  window.sound = new Sound();
+  window.score = new Score({rowLength, maxTime:100});
   const game = new Game(rowLength);
   game.createDivs();
   game.divs.forEach((div, index) => {
@@ -37,8 +37,10 @@ function startGame() {
   window.scrollTo(0,0);
 }
 
-startGame();
+const helpDisplay = document.querySelector('.help');
 
-function toggleHelp(state) {
+window.toggleHelp = function(state) {
   helpDisplay.classList[state]('show');
 }
+
+startGame();

@@ -1,4 +1,4 @@
-class Block {
+export class Block {
   constructor({div, x, y, state}) {
     this.div = div;
     this.x = x;
@@ -21,7 +21,7 @@ class Block {
       }
     } else {
       if (block.state != 'filled') return;
-      sound.init('sounds/pat.mp3');
+      sound.init('sounds/click.mp3');
       block.div.classList.add('active');
       game.origin = block;
     }
@@ -35,7 +35,7 @@ class Block {
       if (midHoriz.state == 'filled') return midHoriz;
     }
     if (target.x == orig.x && Math.abs(target.y - orig.y) % 2 == 0) {
-      const midVertId = Number(orig.div.id) + rowLength * (orig.y < target.y ? 1 : -1);
+      const midVertId = Number(orig.div.id) + game.rowLength * (orig.y < target.y ? 1 : -1);
       const midVert = blocks.find(item => item.div.id == midVertId);
       if (midVert.state == 'filled') return midVert;
     }

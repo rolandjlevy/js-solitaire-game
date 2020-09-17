@@ -1,4 +1,4 @@
-class Score {
+export class Score {
   constructor({rowLength, maxTime}) {
     this.moves = 0;
     this.rowLength = rowLength;

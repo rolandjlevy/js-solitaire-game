@@ -1,4 +1,4 @@
-class Sound {
+export class Sound {
   constructor() {
     this.sound = document.createElement('audio');
     this.sound.setAttribute('preload', 'auto');
@@ -8,8 +8,19 @@ class Sound {
     document.body.appendChild(this.sound);
   }
   init(src) {
+    this.sound.pause();
+    this.sound.currentTime = 0;
     this.sound.src = src;
-    this.sound.play();
+    const playPromise = this.sound.play();
+    if (playPromise) {
+      playPromise.then(() => {
+        setTimeout(() => {
+          this.sound.play();
+        }, 0);
+      }).catch(error => {
+        console.log({error});
+      });
+    }
   }
   play() {
     this.sound.play();

@@ -1,4 +1,4 @@
-class Game {
+export class Game {
   constructor(rowLength) {
     this.rowLength = rowLength;
     this.container = document.querySelector('.container');
@@ -27,8 +27,7 @@ class Game {
     });
   }
   handleClickEvent(e) {
-    sound.stop();
-    let soundFileName = 'click.mp3';
+    let soundFileName = 'pat.mp3';
     if (e.target.name == 'submit-score') {
       if (score.moves) soundFileName = 'applause.mp3';
     }

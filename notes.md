@@ -1,6 +1,7 @@
 # Notes
 
 ### Todo
+- the first time you click new game without selecting a marble the init animation doesn't run
 - Sort out API exposure on Github. Move API key to env.js file. See https://dashboard.gitguardian.com/workspace/40412/scanning
 - try to update part of a commit https://github.com/rolandjlevy/js-solitaire-game/commits/master?after=621d5d27f8b405868bd53f18e3d484ade5434ad1+34&branch=master
 

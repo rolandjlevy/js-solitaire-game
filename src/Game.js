@@ -1,6 +1,7 @@
 export class Game {
   constructor(rowLength) {
     this.rowLength = rowLength;
+    this.helpDisplay = document.querySelector('.help');
     this.container = document.querySelector('.container');
     this.container.classList.remove('disabled');
     this.origin = null;
@@ -40,5 +41,8 @@ export class Game {
   isEmpty(index) {
     const i = index, rl = this.rowLength;
     return i % rl == Math.floor(rl / 2) && Math.floor(i / rl) == Math.floor(rl / 2);
+  }
+  toggleHelp(state) {
+    this.helpDisplay.classList[state]('show');
   }
 }

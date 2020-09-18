@@ -59,6 +59,9 @@ export class Score {
     this.winDisplay = document.querySelector('.win-display');
     this.movesDisplay.textContent = this.moves;
   }
+  initMarbles() {
+    this.marbles = blocks.filter(item => item.state !== 'blank');
+  }
   countdown({inc}) {
     this.updateScore();
     this.timerDisplay.textContent = String(this.timer).padStart(2, '0');

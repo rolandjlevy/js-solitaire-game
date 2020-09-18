@@ -38,11 +38,11 @@
       <section class="btn-group m-t-10">
         <button class="btn m-r-10 m-b-10" name="new-game" onclick="startGame()">New game <i class="fas fa-redo-alt"></i></button>
         <button class="btn m-r-10 m-b-10" name="submit-score" onclick="score.submit()">Submit <i class="fas fa-share"></i></button>
-        <button class="btn m-b-10" name="toggle-help" onclick="toggleHelp('toggle')">Help <i class="fas fa-question-circle"></i></button>
+        <button class="btn m-b-10" name="toggle-help" onclick="game.toggleHelp('toggle')">Help <i class="fas fa-question-circle"></i></button>
       </section>
       <section class="text-center max-w-350">
         <div class="help">
-          <h3 class="m-t-0 m-b-10">How to play</h3><button class="btn close-btn"  name="remove-help" onclick="toggleHelp('remove')">&times;</button><br>
+          <h3 class="m-t-0 m-b-10">How to play</h3><button class="btn close-btn"  name="remove-help" onclick="game.toggleHelp('remove')">&times;</button><br>
           <ul>
             <li><h4>Aim of the game</h4>
               Take away as many marbles as possible in the 100 seconds countdown.</li>

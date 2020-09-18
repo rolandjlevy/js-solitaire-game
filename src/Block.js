@@ -5,15 +5,33 @@ export class Block {
     this.y = y;
     this.state = state;
   }
-  processMove(block, game, score) {
+  init(index) {
+    if (game.isBlank(index)) {
+      this.state = 'blank';
+    } else {
+      if (game.isEmpty(index)) this.state = 'empty';
+      const marble = document.createElement('div');
+      marble.classList.add('marble');
+      this.div.appendChild(marble);
+    }
+    this.div.classList.add('block', 'init', this.state);
+    setTimeout(() => this.div.classList.remove('init'), 1);
+  }
+  handleClickEvent() {
+    this.div.addEventListener('mousedown', (e) => {
+      const clickedBlock = blocks.find(bl => bl.div.id == e.currentTarget.id);
+      this.processMove(clickedBlock);
+    }, true);
+  }
+  processMove(block) {
     if (game.origin) {
       if (game.origin.div.id == block.div.id) {
         block.div.classList.remove('active');
         game.origin = null;
       } else {
-        const marbleToTake = this.isValidTake({game, target:block, blocks});
+        const marbleToTake = this.isValidTake({target:block, blocks});
         if (marbleToTake) {
-          this.takeMarble({game, target:block, blocks, marbleToTake});
+          this.takeMarble({target:block, blocks, marbleToTake});
           game.origin = null;
           sound.init('sounds/whoosh.mp3');
           score.movesDisplay.textContent = ++score.moves;
@@ -26,7 +44,7 @@ export class Block {
       game.origin = block;
     }
   }
-  isValidTake({game, target, blocks}) {
+  isValidTake({target, blocks}) {
     if (target.state !== 'empty') return false;
     const orig = game.origin;
     if (target.y == orig.y && Math.abs(target.x - orig.x) % 2 == 0) {
@@ -41,12 +59,7 @@ export class Block {
     }
     return false;
   }
-  addMarble() {
-    const marble = document.createElement('div');
-    marble.classList.add('marble');
-    this.div.appendChild(marble);
-  }
-  takeMarble({game, target, blocks, marbleToTake}) {
+  takeMarble({target, blocks, marbleToTake}) {
     game.origin.div.classList.remove('active');
     game.origin.div.classList.remove('filled');
     game.origin.div.classList.add('empty');

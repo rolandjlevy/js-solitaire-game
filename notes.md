@@ -1,7 +1,6 @@
 # Notes
 
 ### Done
-- Prepare message for sat
 - Convert to modules
 - Add an x and a = to the scoring so you get taken x timer = score
 - Change to OOP

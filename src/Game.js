@@ -37,13 +37,6 @@ export class Game {
       });
     });
   }
-  // handleClickEvent(e) {
-  //   let soundFileName = 'pat.mp3';
-  //   if (e.target.name == 'submit-score') {
-  //     if (score.moves) soundFileName = 'applause.mp3';
-  //   }
-  //   sound.init(`sounds/${soundFileName}`);
-  // }
   isBlank(index) {
     const i = index, rl = this.rowLength;
     return (i % rl < 2 || i % rl >= rl - 2) && (Math.floor(i / rl) < 2 || Math.floor(i / rl) >= rl - 2);

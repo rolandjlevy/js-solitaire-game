@@ -9,8 +9,8 @@ const rowLength = getComputedStyle(body).getPropertyValue('--row-length');
 window.startGame = function() {
   window.blocks = [];
   window.sound = new Sound();
-  window.score = new Score({rowLength, maxTime:100});
-  window.game = new Game(rowLength);
+  const score = new Score({rowLength, maxTime:100});
+  window.game = new Game(rowLength, score);
   game.createDivs();
   game.divs.forEach((div, index) => {
     const block = new Block({
@@ -20,7 +20,7 @@ window.startGame = function() {
       state: 'filled'
     });
     block.init(index);
-    block.handleClickEvent();
+    block.handleClickEvent(score);
     blocks.push(block);
   });
   score.initMarbles();

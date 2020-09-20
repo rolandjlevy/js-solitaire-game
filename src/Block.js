@@ -17,13 +17,13 @@ export class Block {
     this.div.classList.add('block', 'init', this.state);
     setTimeout(() => this.div.classList.remove('init'), 1);
   }
-  handleClickEvent() {
+  handleClickEvent(score) {
     this.div.addEventListener('mousedown', (e) => {
       const clickedBlock = blocks.find(bl => bl.div.id == e.currentTarget.id);
-      this.processMove(clickedBlock);
+      this.processMove(clickedBlock, score);
     }, true);
   }
-  processMove(block) {
+  processMove(block, score) {
     if (game.origin) {
       if (game.origin.div.id == block.div.id) {
         block.div.classList.remove('active');

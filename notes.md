@@ -21,6 +21,8 @@
 + https://blog.felgo.com/game-resources/16-sites-featuring-free-game-sounds
 
 ### Todo
+- css fixes for Firefox and IE
+- Add 'Compatible with Chrome, Safari, Firefox, IE'
 - the first time you click new game without selecting a marble the init animation doesn't run
 
 ### Other solitaire games

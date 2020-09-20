@@ -1,6 +1,7 @@
 export class Game {
-  constructor(rowLength) {
+  constructor(rowLength, s) {
     this.rowLength = rowLength;
+    this.s = s;
     this.helpDisplay = document.querySelector('.help');
     this.container = document.querySelector('.container');
     this.container.classList.remove('disabled');
@@ -9,7 +10,10 @@ export class Game {
       this.container.classList.add('init');
     }, 100);
     this.buttons = document.querySelectorAll('article .btn');
-    this.initButtons();
+    this.initButtons(s);
+  }
+  add() {
+    this.s.submit();
   }
   createDivs() {
     this.container.innerHTML = '';
@@ -22,18 +26,24 @@ export class Game {
     }
     this.divs = document.querySelectorAll('main > div');
   }
-  initButtons() {
+  initButtons(score) {
     this.buttons.forEach(item => {
-      item.addEventListener('click', this.handleClickEvent);
+      item.addEventListener('click', (e) => {
+        let soundFileName = 'pat.mp3';
+        if (e.target.name == 'submit-score') {
+          if (score.moves) soundFileName = 'applause.mp3';
+        }
+        sound.init(`sounds/${soundFileName}`);
+      });
     });
   }
-  handleClickEvent(e) {
-    let soundFileName = 'pat.mp3';
-    if (e.target.name == 'submit-score') {
-      if (score.moves) soundFileName = 'applause.mp3';
-    }
-    sound.init(`sounds/${soundFileName}`);
-  }
+  // handleClickEvent(e) {
+  //   let soundFileName = 'pat.mp3';
+  //   if (e.target.name == 'submit-score') {
+  //     if (score.moves) soundFileName = 'applause.mp3';
+  //   }
+  //   sound.init(`sounds/${soundFileName}`);
+  // }
   isBlank(index) {
     const i = index, rl = this.rowLength;
     return (i % rl < 2 || i % rl >= rl - 2) && (Math.floor(i / rl) < 2 || Math.floor(i / rl) >= rl - 2);

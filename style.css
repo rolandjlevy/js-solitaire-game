@@ -58,6 +58,8 @@
 html {
   touch-action: manipulation;
   scroll-behavior: smooth;
+  scrollbar-color: var(--blue-dark) var(--blue-darker) !important;
+  scrollbar-width: var(--scrollbar-size) !important;
 }
 
 body {
@@ -514,6 +516,7 @@ input#player-name + label.error-message.show {
 
 #leader-board::-webkit-scrollbar-track {
   background: var(--blue-darker);
+  scrollbar-color: var(--blue-darker);
 }
 
 #leader-board::-webkit-scrollbar-thumb {
@@ -522,6 +525,8 @@ input#player-name + label.error-message.show {
   border: 2px solid var(--blue-dark);
   cursor: pointer;
 }
+
+
 
 /***********/
 /* Buttons */

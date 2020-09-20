@@ -12,7 +12,7 @@
 - Write readme
 - Protect against XSS with obfuscator
 - create a pre-obs repl for firebase code
-- Scoring: in submission message, add 250 points if you end up with 1 left and another 250 points if it's left in the middle position, id:25
+- Scoring: in submission message, add 500 points if you end up with 1 left and another 1000 points if it's left in the middle position, id:25
 - Add sound effects for selecting, taking a marble, invalid move and winning: https://www.w3schools.com/graphics/game_sound.asp
 - Sound effects libraries:
 + [good] http://soundbible.com/ 

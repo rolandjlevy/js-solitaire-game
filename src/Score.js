@@ -24,7 +24,7 @@ export class Score {
   updateScore() {
     this.score = this.moves * this.timer;
   }
-  submit() {
+  add() {
     if (!this.moves) return;
     this.container.classList.add('disabled');
     this.clearAllIntervals();

@@ -12,9 +12,6 @@ export class Game {
     this.buttons = document.querySelectorAll('article .btn');
     this.initButtons(s);
   }
-  add() {
-    this.s.submit();
-  }
   createDivs() {
     this.container.innerHTML = '';
     let index = 0;
@@ -47,5 +44,8 @@ export class Game {
   }
   toggleHelp(state) {
     this.helpDisplay.classList[state]('show');
+  }
+  add() {
+    this.s.add();
   }
 }

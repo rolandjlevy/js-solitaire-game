@@ -149,6 +149,7 @@ article {
 
 .container.init {
   opacity: 1;
+  border-radius: 50%;
   transform: rotate(0deg);
   transition: all 0.8s ease-in-out;
 }

@@ -21,8 +21,9 @@
 + https://blog.felgo.com/game-resources/16-sites-featuring-free-game-sounds
 
 ### Todo
+- Added user-scalable=no to meta tag
 - css fixes for Firefox and IE
-- Add 'Compatible with Chrome, Safari, Firefox, IE'
+- Add 'Compatible with Chrome, Safari, Firefox, IE' to README.md
 - the first time you click new game without selecting a marble the init animation doesn't run
 
 ### Other solitaire games

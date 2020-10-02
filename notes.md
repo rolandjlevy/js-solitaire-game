@@ -1,6 +1,7 @@
 # Notes
 
 ### Done
+- Added user-scalable=no to meta tag
 - Convert to modules
 - Add an x and a = to the scoring so you get taken x timer = score
 - Change to OOP
@@ -21,7 +22,7 @@
 + https://blog.felgo.com/game-resources/16-sites-featuring-free-game-sounds
 
 ### Todo
-- Added user-scalable=no to meta tag
+- Add sounds using https://howlerjs.com/
 - css fixes for Firefox and IE
 - Add 'Compatible with Chrome, Safari, Firefox, IE' to README.md
 - the first time you click new game without selecting a marble the init animation doesn't run

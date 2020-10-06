@@ -22,6 +22,7 @@
 + https://blog.felgo.com/game-resources/16-sites-featuring-free-game-sounds
 
 ### Todo
+- Break main CSS file into separate CSS files
 - Add sounds using https://howlerjs.com/
 - css fixes for Firefox and IE
 - Add 'Compatible with Chrome, Safari, Firefox, IE' to README.md

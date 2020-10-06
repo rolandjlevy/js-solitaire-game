@@ -1,0 +1,124 @@
+/********/
+/* Help */
+/********/
+
+.help {
+  font-size: 1rem;
+  text-align: left;
+  background-color: var(--blue-deeper-faded);
+  color: var(--blue-light);
+  padding: 20px;
+  border-radius: 5px;
+  height: 0;
+  opacity: 0;
+  letter-spacing: 0;
+  line-height: 1.5;
+  min-width: 320px;
+  max-width: 320px;
+  margin: 0 auto;
+  transition: all 0.6s ease;
+}
+
+.help.show {
+  height: 265px;
+  opacity: 1;
+  margin: 20px auto;
+  transition: all 0.6s ease;
+}
+
+.help > h3 {
+  display: inline-block;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+  text-align: center;
+  letter-spacing: 1px;
+  /* color: var(--blue-light); */
+  font-family: 'Open Sans', sans-serif;
+}
+
+.help > .close-btn {
+  float: right;
+  transform: scale(0);
+  display: none;
+  font-size: 1.25rem;
+  background: var(--blue-darker);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  color: #fff;
+  padding: 0 2px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 3px 3px #00000033;
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+
+@media screen and (max-width: 360px) {
+  .help > .close-btn {
+    padding: 4px 0px 2px 2px;
+  }
+}
+
+.help.show > .close-btn {
+  transform: scale(1);
+  display: block;
+  transition: all 0.2s ease-in-out;
+}
+
+.help > .close-btn:hover {
+  background: var(--blue-mid);
+  transition: all 0.2s ease;
+  color: #000;
+}
+
+.help > ul {
+  margin: 0;
+  padding: 0 10px 0 0;
+  opacity: 0;
+  height: 0;
+  list-style: none;
+  overflow-y: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.help.show > ul {
+  opacity: 1;
+  height: calc(100% - 40px);
+  overflow-y: scroll;
+  pointer-events: inherit;
+  transition: all 0.3s ease-in-out;
+}
+
+.help > ul > li {
+  color: var(--blue-mid);
+}
+
+.help > ul > li > h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: auto;
+  letter-spacing: 0.5px;
+  color: var(--blue-light);
+}
+
+.help > ul > li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.help.show > ul::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+}
+
+.help.show > ul::-webkit-scrollbar-track {
+  background: var(--blue-darker);
+}
+
+.help.show > ul::-webkit-scrollbar-thumb {
+  background-color: var(--blue-dark);
+  border-radius: 3px;
+  border: 2px solid var(--blue-dark);
+  cursor: pointer;
+}

@@ -1,0 +1,52 @@
+:root {
+  --blue-white: #f9fbff;
+  --blue-light: #e1e9ff;
+  --blue-mid: #c3d1ffe7;
+  --blue-mid-dark: #c3d1ffcc;
+  --blue-dark: #3544cfc4;
+  --blue-darker: #011092;
+  --blue-deep: #000441;
+  --blue-deep-faded: #0006555d;
+  --blue-deeper-faded: #00054ea4;
+  --blue-shadow: #7575a3;
+  --board-colour: #000770;
+  --peach-white: #fffcf1;
+  --peach-lighter: #fff2bb;
+  --peach-light: #fddf66;
+  --peach-mid: #f8d254;
+  --peach-dark: #ffbe0c;
+  --peach-darker: #bd7b01;
+  --peach-deep: #694800;
+  --peach-shadow: #553a0077;
+  --peach-shadow-dark: #553a0066;
+  --row-length: 7;
+  --block-size: 76;
+  --marble-ratio: 0.45;
+  --scrollbar-size: 20px;
+  transition: all 0.2s ease;
+}
+
+@media screen and (max-width: 640px) {
+  :root {
+    --block-size: 60;
+    --marble-ratio: 0.5;
+    transition: all 0.2s ease;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --block-size: 46;
+    --marble-ratio: 0.55;
+    transition: all 0.2s ease;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  :root {
+    --block-size: 40;
+    --marble-ratio: 0.65;
+    --scrollbar-size: 30px;
+    transition: all 0.2s ease;
+  }
+}

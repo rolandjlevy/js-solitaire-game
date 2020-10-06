@@ -1,0 +1,57 @@
+/*********/
+/* Score */
+/*********/
+
+.moves-display, .timer-display, .score-display  {
+  color: var(--blue-mid);
+  font-size: 2.25rem;
+  line-height: 1.25;
+  transition: all 0.2s ease;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 0 10px var(--blue-deep);
+  letter-spacing: 1px;
+}
+
+.moves-label, .score-label, .timer-label {
+  color: var(--blue-mid-dark);
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+form#add-score {
+  max-width: 350px;
+}
+
+input#player-name  {
+  border: none;
+  padding: 4px 8px;
+  font-size: 1.25rem;
+  border-radius: 5px;
+  width: calc(100% - 100px);
+}
+
+input#player-name.invalid {
+  border: 2px solid red;
+}
+
+input#player-name + label.error-message {
+  position: absolute;
+  color: red;
+  transform: translate(-100%, calc(100% + 5px));
+  font-size: 0.875rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  width: fit-content;
+  padding-bottom: 20px;
+}
+
+input#player-name + label.error-message.show {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.moves {
+  font-weight: 700;
+  color: var(--peach-mid);
+}

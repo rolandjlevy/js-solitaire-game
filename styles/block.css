@@ -1,0 +1,119 @@
+/******************/
+/* Block settings */
+/******************/
+
+.block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: calc(var(--block-size) * 1px);
+  height: calc(var(--block-size) * 1px);
+  background: linear-gradient(315deg, var(--peach-mid), var(--peach-white));
+  opacity: 1; 
+  transform: scale(1) rotate(0deg);
+  transition: all 0.8s ease-in-out;
+}
+
+.block.init {
+  opacity: 0;
+  transform: scale(0.1) rotate(135deg);
+  filter: blur(2px);
+  transition: all 0.8s ease-in-out;
+}
+
+.block.blank {
+  background: transparent;
+  cursor: auto;
+}
+
+/*******************/
+/* Marble settings */
+/*******************/
+
+.block > .marble {
+  width: calc((var(--block-size) * 1px) * var(--marble-ratio));
+  height: calc((var(--block-size) * 1px) * var(--marble-ratio));
+  border-radius: 50%;
+  background: 
+    radial-gradient(circle farthest-corner at 33% 33%, 
+      var(--peach-light) 5%, 
+      var(--peach-darker) 60%), 
+    radial-gradient(circle farthest-corner at 66% 66%, 
+      var(--peach-darker) 10%, 
+      var(--peach-mid) 80%
+    );
+  transition: all 0.2s ease-in-out;
+}
+
+.block.active > .marble {
+  background: 
+    radial-gradient(circle farthest-corner at 33% 33%, 
+      var(--blue-light) 5%, 
+      var(--blue-dark) 60%), 
+    radial-gradient(circle farthest-corner at 66% 66%, 
+      var(--blue-mid) 10%, 
+      var(--blue-darker) 80%
+  );
+  transition: all 0.2s ease-in-out;
+}
+
+.block > .marble, .block.active > .marble {
+  box-shadow: 4px 4px 6px 1px var(--peach-shadow);
+  transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 360px) {
+  .block > .marble, .block.active > .marble {
+    box-shadow: 2px 2px 4px 1px var(--peach-shadow);
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.block:hover > .marble  {
+  filter: contrast(1.1) brightness(1.1);
+}
+
+@media screen and (max-width: 480px) {
+  .block:hover > .marble {
+    filter: contrast(1) brightness(1);
+  }
+}
+
+.block.empty > .marble, .block.empty:hover > .marble {
+  opacity: 0.3;
+  background: 
+    radial-gradient(circle farthest-corner at 75% 75%, 
+      var(--peach-white) 40%, 
+      var(--peach-darker) 80%), 
+    radial-gradient(circle farthest-corner at 45% 45%, 
+      rgba(0, 0, 0, 0.5) 20%, 
+      var(--peach-dark) 80%
+  );
+  box-shadow: none;
+  transform: none;
+  filter: blur(0);
+  transition: none;
+}
+
+/*******************/
+/* Rounded corners */
+/*******************/
+
+.block[id="3"], .block[id="15"] {
+  border-top-left-radius: 50%;
+}
+
+.block[id="5"], .block[id="21"] {
+  border-top-right-radius: 50%;
+}
+
+.block[id="29"], .block[id="45"] {
+  border-bottom-left-radius: 50%;
+}
+
+.block[id="35"], .block[id="47"] {
+  border-bottom-right-radius: 50%;
+}

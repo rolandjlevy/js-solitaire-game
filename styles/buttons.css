@@ -1,0 +1,45 @@
+
+/***********/
+/* Buttons */
+/***********/
+
+.btn-group {
+  display: flex;
+}
+
+.btn {
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  background-color: var(--blue-mid);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: 0;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--blue-deep);
+}
+
+.btn:hover {
+  background-color: var(--blue-light);
+  box-shadow: 0 5px 10px -3px var(--blue-deep);
+  transition: all 0.2s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+i.fas {
+  color: var(--grey-dark);
+  margin-top: 3px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.operator {
+  color: var(--blue-mid);
+  margin-top: 15px;
+}

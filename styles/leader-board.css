@@ -1,0 +1,40 @@
+/****************/
+/* Leader Board */
+/****************/
+
+#leader-board {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+  min-height: 350px;
+  max-height: 350px;
+  min-width: 350px;
+  max-width: 350px;
+  margin: 0 auto;
+  color: var(--blue-light);
+}
+
+#leader-board > p {
+  background: linear-gradient(0deg, var(--blue-deep), var(--blue-deep-faded));
+  padding: 10px 0;
+  border-bottom: 4px transparent solid;
+  width: 100%;
+  margin: 0;
+}
+
+#leader-board::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+}
+
+#leader-board::-webkit-scrollbar-track {
+  background: var(--blue-darker);
+  scrollbar-color: var(--blue-darker);
+}
+
+#leader-board::-webkit-scrollbar-thumb {
+  background-color: var(--blue-dark);
+  border-radius: 3px;
+  border: 2px solid var(--blue-dark);
+  cursor: pointer;
+}

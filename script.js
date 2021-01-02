@@ -6,6 +6,8 @@ import { Sound } from './src/Sound.js';
 const body = document.querySelector('body');
 const rowLength = getComputedStyle(body).getPropertyValue('--row-length');
 
+document.querySelector('#year').textContent = new Date().getFullYear();
+
 window.startGame = function() {
   window.blocks = [];
   window.sound = new Sound();

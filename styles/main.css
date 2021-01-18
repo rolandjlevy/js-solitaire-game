@@ -18,6 +18,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: var(--peach-light);
   font-size: 1.25rem;
+  overflow: hidden;
 }
 
 h2, h3, h5 {

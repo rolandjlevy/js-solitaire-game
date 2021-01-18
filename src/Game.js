@@ -2,13 +2,15 @@ export class Game {
   constructor(rowLength, s) {
     this.rowLength = rowLength;
     this.s = s;
+    this.body = document.querySelector('body');
     this.helpDisplay = document.querySelector('.help');
     this.container = document.querySelector('.container');
     this.container.classList.remove('disabled');
     this.origin = null;
-    setTimeout(() => {
-      this.container.classList.add('init');
-    }, 100);
+    // setTimeout(() => {
+    //   this.container.classList.add('init');
+    // }, 100);
+    this.container.classList.add('initialise');
     this.buttons = document.querySelectorAll('article .btn');
     this.initButtons(s);
   }

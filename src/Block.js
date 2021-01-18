@@ -14,8 +14,9 @@ export class Block {
       marble.classList.add('marble');
       this.div.appendChild(marble);
     }
-    this.div.classList.add('block', 'init', this.state);
-    setTimeout(() => this.div.classList.remove('init'), 1);
+    // this.div.classList.add('block', 'init', this.state);
+    // setTimeout(() => this.div.classList.remove('init'), 1);
+    this.div.classList.add('block', 'fade-in', this.state);
   }
   handleClickEvent(score) {
     this.div.addEventListener('mousedown', (e) => {

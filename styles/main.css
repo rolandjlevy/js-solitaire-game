@@ -94,6 +94,10 @@ article {
   transition: all 0.8s ease-in-out;
 }
 
+.game {
+  scroll-margin-top: 50px;
+}
+
 .initialise {
   animation: init 0.8s ease-in-out 0s 1 forwards;
 }

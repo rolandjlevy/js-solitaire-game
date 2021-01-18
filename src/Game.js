@@ -46,6 +46,9 @@ export class Game {
   }
   toggleHelp(state) {
     this.helpDisplay.classList[state]('show');
+    const active = this.helpDisplay.classList.contains('show');
+    const targetView = active ? '.help-section' : '.game'; 
+    document.querySelector(targetView).scrollIntoView();
   }
   add() {
     this.s.add();

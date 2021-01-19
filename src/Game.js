@@ -7,12 +7,16 @@ export class Game {
     this.container = document.querySelector('.container');
     this.container.classList.remove('disabled');
     this.origin = null;
-    // setTimeout(() => {
-    //   this.container.classList.add('init');
-    // }, 100);
     this.container.classList.add('initialise');
     this.buttons = document.querySelectorAll('article .btn');
     this.initButtons(s);
+  }
+  toggleHelp(state) {
+    console.log('window.scrollY');
+    this.helpDisplay.classList[state]('show');
+    const active = this.helpDisplay.classList.contains('show');
+    const targetView = active && window.scrollY < 100 ? '.help-section' : '.game'; 
+    // document.querySelector(targetView).scrollIntoView();
   }
   createDivs() {
     this.container.innerHTML = '';
@@ -43,12 +47,6 @@ export class Game {
   isEmpty(index) {
     const i = index, rl = this.rowLength;
     return i % rl == Math.floor(rl / 2) && Math.floor(i / rl) == Math.floor(rl / 2);
-  }
-  toggleHelp(state) {
-    this.helpDisplay.classList[state]('show');
-    const active = this.helpDisplay.classList.contains('show');
-    const targetView = active ? '.help-section' : '.game'; 
-    document.querySelector(targetView).scrollIntoView();
   }
   add() {
     this.s.add();

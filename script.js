@@ -27,7 +27,6 @@ window.startGame = function() {
   });
   score.initMarbles();
   window.scrollTo(0,0);
-  console.log(score, game, blocks)
 }
 
 startGame();

@@ -110,7 +110,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         getScores();
         resolve('Score added successfully');
       }).catch(err => {
-        reject('Error: snapshot not added');
+        reject('Error: score not added');
       });
     });
   }

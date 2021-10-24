@@ -24,4 +24,4 @@ If you finish with just one marble remaining, which is 'Solitaire', you get a bo
 - Built from scratch with Vanilla JavaScript and CSS; no front-end frameworks or libraries like React, Vue etc...
 - Completely responsive and mobile friendly
 - Includes Help section and Leader board
-- Scores are saved on the back-end with Google Firebase
+- Scores are saved on the back-end using MongoDB Atlas

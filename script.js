@@ -12,6 +12,7 @@ window.startGame = function() {
   window.blocks = [];
   window.sound = new Sound();
   const score = new Score({rowLength, maxTime:100});
+  window.num = 13;
   window.game = new Game(rowLength, score);
   window.game.createDivs();
   window.game.divs.forEach((div, index) => {

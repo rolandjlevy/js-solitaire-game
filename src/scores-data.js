@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   let counter = 0;
   let totalChildren;
   const leaderBoardLimit = 200;
+  const scoreLimit = 3800;
   const name = 'Kadampa';
 
   const baseUrl = 'https://express-portfolio-api.rolandjlevy.repl.co';
@@ -25,23 +26,23 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
     renderAllScores(users);
   }
-  
+
   getScores();
 
   function renderAllScores(score) {
     leaderBoard.innerText = '';
     const topUsers = users
-    .sort((a, b) => b.score - a.score)
-    .filter((item, index) => index < leaderBoardLimit);
-    topUsers
-    .forEach((item, index) => {
+      .sort((a, b) => b.score - a.score)
+      .filter((item, index) => item.score < scoreLimit);
+    topUsers.forEach((item, index) => {
       const p = document.createElement('p');
       const nameStr = unescape(item.user_name).replace(/</g, "&lt;").replace(/>/g, "gt;").trim();
       const score = Number(item.score).toLocaleString();
       const scoreStr = String(score).replace(/</g, "&lt;").replace(/>/g, "gt;");
       const validPattern = /^[a-zA-Z0-9@, ]*$/gm;
       const validInput = (nameStr.match(validPattern) || false) && (scoreStr.match(validPattern) || false);
-      if (validInput && item.score < 3800) {
+
+      if (validInput && index < leaderBoardLimit) {
         const textContent = document.createTextNode(`${index + 1}. ${unescape(nameStr)}: ${unescape(scoreStr)}`);
         p.appendChild(textContent);
         leaderBoard.appendChild(p);

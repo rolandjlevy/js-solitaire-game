@@ -12,22 +12,28 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const scoreLimit = 3800;
   const name = 'Kadampa';
 
-  const baseUrl = 'https://express-portfolio-api.rolandjlevy.repl.co';
-  const getScoresUrl = `${baseUrl}/api/routes/solitaire?origin=${window.origin}`;
-  const addScoreUrl = `${baseUrl}/api/routes/add-solitaire-score?origin=${window.origin}`;
+  const basApiUrl = 'https://node-api-serverless.vercel.app';
+  const getScoresUrl = `${basApiUrl}/api/sliders/view?page=1&orderBy=score&sortBy=desc&limit=100`;
+  const addScoreUrl = `${basApiUrl}/api/sliders/add`;
 
   const getScores = async () => {
-    users = [];
-    leaderBoard.innerText = 'Loading...';
-    const response = await fetch(getScoresUrl);
-    const json = await response.json();
-    json.forEach(score => {
-      users.push(score);
-    });
-    renderAllScores(users);
-  }
+    try {
+      const response = await fetch(getScoresUrl);
+      if (!response.ok) {
+        throw new Error('Failed to fetch scores');
+      }
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.error('Error fetching scores:', error.message);
+    }
+  };
 
-  getScores();
+  (async () => {
+    const scores = await getScores();
+    console.log({ scores});
+    renderAllScores(scores.data);
+  })();
 
   function renderAllScores(score) {
     leaderBoard.innerText = '';

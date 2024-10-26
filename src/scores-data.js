@@ -15,6 +15,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const getScoresUrl = `${basApiUrl}/api/solitaire/view?page=1&orderBy=score&sortBy=desc&limit=100`;
   const addScoreUrl = `${basApiUrl}/api/solitaire/add`;
 
+  const $ = (elem) => document.querySelector(elem);
+
   const getScores = async () => {
     try {
       const response = await fetch(getScoresUrl);

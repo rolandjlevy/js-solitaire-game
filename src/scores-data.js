@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', (event) => {
-
   const leaderBoard = document.querySelector('#leader-board');
   const addScoreForm = document.querySelector('#add-score-form');
   const addScoreButton = document.querySelector('#add-score-button');
@@ -13,12 +12,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const name = 'Kadampa';
 
   const basApiUrl = 'https://node-api-serverless.vercel.app';
-  const getScoresUrl = `${basApiUrl}/api/sliders/view?page=1&orderBy=score&sortBy=desc&limit=100`;
-  const addScoreUrl = `${basApiUrl}/api/sliders/add`;
+  const getScoresUrl = `${basApiUrl}/api/solitaire/view?page=1&orderBy=score&sortBy=desc&limit=100`;
+  const addScoreUrl = `${basApiUrl}/api/solitaire/add`;
 
   const getScores = async () => {
     try {
       const response = await fetch(getScoresUrl);
+      console.log('#####', { response });
       if (!response.ok) {
         throw new Error('Failed to fetch scores');
       }
@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   (async () => {
     const scores = await getScores();
-    console.log({ scores});
+    console.log({ scores });
     renderAllScores(scores.data);
   })();
 
@@ -42,14 +42,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
       .filter((item, index) => item.score < scoreLimit);
     topUsers.forEach((item, index) => {
       const p = document.createElement('p');
-      const nameStr = unescape(item.user_name).replace(/</g, "&lt;").replace(/>/g, "gt;").trim();
+      const nameStr = unescape(item.user_name)
+        .replace(/</g, '&lt;')
+        .replace(/>/g, 'gt;')
+        .trim();
       const score = Number(item.score).toLocaleString();
-      const scoreStr = String(score).replace(/</g, "&lt;").replace(/>/g, "gt;");
+      const scoreStr = String(score).replace(/</g, '&lt;').replace(/>/g, 'gt;');
       const validPattern = /^[a-zA-Z0-9@, ]*$/gm;
-      const validInput = (nameStr.match(validPattern) || false) && (scoreStr.match(validPattern) || false);
+      const validInput =
+        (nameStr.match(validPattern) || false) &&
+        (scoreStr.match(validPattern) || false);
 
       if (validInput && index < leaderBoardLimit) {
-        const textContent = document.createTextNode(`${index + 1}. ${unescape(nameStr)}: ${unescape(scoreStr)}`);
+        const textContent = document.createTextNode(
+          `${index + 1}. ${unescape(nameStr)}: ${unescape(scoreStr)}`
+        );
         p.appendChild(textContent);
         leaderBoard.appendChild(p);
       }
@@ -60,28 +67,36 @@ window.addEventListener('DOMContentLoaded', (event) => {
     event.preventDefault();
     const playerNameError = document.querySelector('.error-message');
     playerName = document.querySelector('#player-name');
-    validate(game.s).then((validationResolve, validationReject) => {
-      return pushIt(game.s).then(pushResolve => {
-        addScoreForm.style.display = 'none';
-        game.s.resetSubmissionForm();
-      }).catch(error => {
+    validate(game.s)
+      .then((validationResolve, validationReject) => {
+        return pushIt(game.s)
+          .then((pushResolve) => {
+            addScoreForm.style.display = 'none';
+            game.s.resetSubmissionForm();
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
         console.log(error);
+        const errorMessage =
+          error === 'empty'
+            ? 'Your name is required'
+            : 'Your name is not valid';
+        playerName.classList.add('invalid');
+        playerNameError.classList.add('show');
+        playerNameError.textContent = errorMessage;
+        return;
       });
-    }).catch(error => {
-      console.log(error);
-      const errorMessage = error === 'empty' ? 'Your name is required' : 'Your name is not valid';
-      playerName.classList.add('invalid');
-      playerNameError.classList.add('show');
-      playerNameError.textContent = errorMessage;
-      return;
-    });
   });
 
   function validate(score) {
     return new Promise((resolve, reject) => {
       const allowedLetters = /^[a-zA-Z0-9@ ]*$/gm;
       const allowedNumbers = /^[0-9]*$/gm;
-      const validScore = String(score.currentScore).match(allowedNumbers) || false;
+      const validScore =
+        String(score.currentScore).match(allowedNumbers) || false;
       const playerNameValue = playerName.value.trim();
       const matched = playerNameValue.match(allowedLetters);
       const validPlayerName = matched ? matched.shift() : false;
@@ -89,7 +104,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
         playerName.value = '';
         playerName.focus();
         reject('empty');
-      } else if (!validScore || !validPlayerName || playerNameValue.length > 20) {
+      } else if (
+        !validScore ||
+        !validPlayerName ||
+        playerNameValue.length > 20
+      ) {
         reject('invalid');
       } else {
         resolve('success');
@@ -97,29 +116,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
   }
 
-
   function pushIt(score) {
     return new Promise((resolve, reject) => {
-      counter = Math.max(...users.map(user => user.id), 0) + 1;
+      counter = Math.max(...users.map((user) => user.id), 0) + 1;
       const formData = {
         secret: `${name}${window.num}!`,
         id: counter,
         user_name: escape(playerName.value),
-        score: Number(escape(score.currentScore)),
-      }
+        score: Number(escape(score.currentScore))
+      };
       return fetch(addScoreUrl, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
-      }).then(result => {
-        getScores();
-        resolve('Score added successfully');
-      }).catch(err => {
-        reject('Error: score not added');
-      });
+      })
+        .then((result) => {
+          getScores();
+          resolve('Score added successfully');
+        })
+        .catch((err) => {
+          reject('Error: score not added');
+        });
     });
   }
-
 });

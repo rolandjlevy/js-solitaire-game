@@ -154,14 +154,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   const renderAllScores = (data) => {
     $('#leader-board').innerText = '';
-    data.forEach((item, index) => {
+    let counter = 0;
+    data.forEach((item) => {
       const userName = item.user_name;
       const score = item.score;
       if (userName && Number(score) < MAX_SCORE) {
         const num = create('span', {
-          textContent: `${index + 1}. `,
+          textContent: `${counter + 1}. `,
           style: 'color: #aaa; font-size: 1rem'
         });
+        counter++;
         const scoreContent = `${userName}: ${score}`;
         const scoreElement = create('span', { textContent: scoreContent });
         const pTag = document.createElement('p');

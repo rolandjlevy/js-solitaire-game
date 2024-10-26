@@ -158,7 +158,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     data.forEach((item) => {
       const userName = item.user_name;
       const score = item.score;
-      if (userName && Number(score) < MAX_SCORE) {
+      if (userName && Number(score) < MAX_SCORE && counter < leaderBoardLimit) {
         const num = create('span', {
           textContent: `${counter + 1}. `,
           style: 'color: #aaa; font-size: 1rem'

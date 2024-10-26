@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   let totalChildren;
   const leaderBoardLimit = 200;
   const scoreLimit = 3800;
+  const MAX_SCORE = 4000;
   const name = 'Kadampa';
 
   const basApiUrl = 'https://node-api-serverless.vercel.app';

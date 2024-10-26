@@ -23,6 +23,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         throw new Error('Failed to fetch scores');
       }
       const result = await response.json();
+      console.log('#####', { result });
       return result;
     } catch (error) {
       console.error('Error fetching scores:', error.message);
@@ -35,7 +36,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     renderAllScores(scores.data);
   })();
 
-  function renderAllScores(score) {
+  function renderAllScoresOld(scores) {
+    console.log('renderAllScores(score)', scores);
     leaderBoard.innerText = '';
     const topUsers = users
       .sort((a, b) => b.score - a.score)
@@ -141,4 +143,30 @@ window.addEventListener('DOMContentLoaded', (event) => {
         });
     });
   }
+
+  const renderAllScores = (data) => {
+    $('#leader-board').innerText = '';
+    data.forEach((item, index) => {
+      const userName = item.user_name;
+      const score = item.score;
+      if (userName && Number(score) < MAX_SCORE) {
+        const num = create('span', {
+          textContent: `${index + 1}. `,
+          style: 'color: #aaa; font-size: 1rem'
+        });
+        const scoreContent = `${userName}: ${score}`;
+        const scoreElement = create('span', { textContent: scoreContent });
+        const pTag = document.createElement('p');
+        pTag.appendChild(num);
+        pTag.appendChild(scoreElement);
+        $('#leader-board').appendChild(pTag);
+      }
+    });
+  };
+
+  (async () => {
+    const scores = await getScores();
+    // animateClock($('.clock-display'));
+    renderAllScores(scores.data);
+  })();
 });

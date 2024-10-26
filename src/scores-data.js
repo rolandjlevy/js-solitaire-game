@@ -18,6 +18,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   const $ = (elem) => document.querySelector(elem);
 
+  const create = (tagName, props = {}) => {
+    const el = document.createElement(tagName);
+    return Object.assign(el, props);
+  };
+
   const getScores = async () => {
     try {
       const response = await fetch(getScoresUrl);
@@ -39,34 +44,34 @@ window.addEventListener('DOMContentLoaded', (event) => {
     renderAllScores(scores.data);
   })();
 
-  function renderAllScoresOld(scores) {
-    console.log('renderAllScores(score)', scores);
-    leaderBoard.innerText = '';
-    const topUsers = users
-      .sort((a, b) => b.score - a.score)
-      .filter((item, index) => item.score < scoreLimit);
-    topUsers.forEach((item, index) => {
-      const p = document.createElement('p');
-      const nameStr = unescape(item.user_name)
-        .replace(/</g, '&lt;')
-        .replace(/>/g, 'gt;')
-        .trim();
-      const score = Number(item.score).toLocaleString();
-      const scoreStr = String(score).replace(/</g, '&lt;').replace(/>/g, 'gt;');
-      const validPattern = /^[a-zA-Z0-9@, ]*$/gm;
-      const validInput =
-        (nameStr.match(validPattern) || false) &&
-        (scoreStr.match(validPattern) || false);
+  // function renderAllScoresOld(scores) {
+  //   console.log('renderAllScores(score)', scores);
+  //   leaderBoard.innerText = '';
+  //   const topUsers = users
+  //     .sort((a, b) => b.score - a.score)
+  //     .filter((item, index) => item.score < scoreLimit);
+  //   topUsers.forEach((item, index) => {
+  //     const p = document.createElement('p');
+  //     const nameStr = unescape(item.user_name)
+  //       .replace(/</g, '&lt;')
+  //       .replace(/>/g, 'gt;')
+  //       .trim();
+  //     const score = Number(item.score).toLocaleString();
+  //     const scoreStr = String(score).replace(/</g, '&lt;').replace(/>/g, 'gt;');
+  //     const validPattern = /^[a-zA-Z0-9@, ]*$/gm;
+  //     const validInput =
+  //       (nameStr.match(validPattern) || false) &&
+  //       (scoreStr.match(validPattern) || false);
 
-      if (validInput && index < leaderBoardLimit) {
-        const textContent = document.createTextNode(
-          `${index + 1}. ${unescape(nameStr)}: ${unescape(scoreStr)}`
-        );
-        p.appendChild(textContent);
-        leaderBoard.appendChild(p);
-      }
-    });
-  }
+  //     if (validInput && index < leaderBoardLimit) {
+  //       const textContent = document.createTextNode(
+  //         `${index + 1}. ${unescape(nameStr)}: ${unescape(scoreStr)}`
+  //       );
+  //       p.appendChild(textContent);
+  //       leaderBoard.appendChild(p);
+  //     }
+  //   });
+  // }
 
   addScoreButton.addEventListener('click', (event) => {
     event.preventDefault();

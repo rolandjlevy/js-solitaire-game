@@ -4,8 +4,7 @@ A game of speed, logic and skill: start with 33 marbles and try to finish with j
 
 ### Links 🔗
 
-- [Play the game](https://js-solitaire-game.rjlevy.repl.co/)
-- [View the source code](https://repl.it/@rjlevy/js-solitaire-game)
+- [Play the game](https://js-solitaire-game.vercel.app/)
 - [Explore the Github repo](https://github.com/rolandjlevy/js-solitaire-game)
 
 ### Demo 🏁

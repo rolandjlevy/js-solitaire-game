@@ -7,13 +7,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
   let users = [];
   let counter = 0;
   let totalChildren;
-  const leaderBoardLimit = 200;
+  const leaderBoardLimit = 100;
   const scoreLimit = 3800;
   const MAX_SCORE = 4000;
   const name = 'Kadampa';
 
   const basApiUrl = 'https://node-api-serverless.vercel.app';
-  const getScoresUrl = `${basApiUrl}/api/solitaire/view?page=1&orderBy=score&sortBy=desc&limit=100`;
+  const getScoresUrl = `${basApiUrl}/api/solitaire/view?page=1&orderBy=score&sortBy=desc&limit=150`;
   const addScoreUrl = `${basApiUrl}/api/solitaire/add`;
 
   const $ = (elem) => document.querySelector(elem);

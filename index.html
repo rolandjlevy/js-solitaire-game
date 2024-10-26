@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
     <title>⚡ Solitaire ⚡</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&Poppins:wght@500;600;700&Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700;800&Poppins:wght@500;600;700&Open+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" type="images/favicon.ico" href="images/favicon.ico" />  
+    <link
+      rel="shortcut icon"
+      type="images/favicon.ico"
+      href="images/favicon.ico"
+    />
   </head>
   <body>
     <article class="game">
       <h2>Solitaire</h2>
-      <h5 class="text-center m-t-10 m-b-30">A game of speed, logic &amp; skill</h5>
+      <h5 class="text-center m-t-10 m-b-30">
+        A game of speed, logic &amp; skill
+      </h5>
       <section class="h-block">
         <p class="v-block">
           <span class="moves-label">Taken</span>
@@ -37,36 +52,82 @@
       </section>
       <main class="container"></main>
       <section class="help-section btn-group m-t-10">
-        <button class="btn m-r-10 m-b-10" name="new-game" onclick="startGame()">New game <i class="fas fa-redo-alt"></i></button>
-        <button class="btn m-r-10 m-b-10" name="submit-score" onclick="game.add()">Submit <i class="fas fa-share"></i></button>
-        <button class="btn m-b-10" name="toggle-help" onclick="game.toggleHelp('toggle')">Help <i class="fas fa-question-circle"></i></button>
+        <button class="btn m-r-10 m-b-10" name="new-game" onclick="startGame()">
+          New game <i class="fas fa-redo-alt"></i>
+        </button>
+        <button
+          class="btn m-r-10 m-b-10"
+          name="submit-score"
+          onclick="game.add()"
+        >
+          Submit <i class="fas fa-share"></i>
+        </button>
+        <button
+          class="btn m-b-10"
+          name="toggle-help"
+          onclick="game.toggleHelp('toggle')"
+        >
+          Help <i class="fas fa-question-circle"></i>
+        </button>
       </section>
       <section class="text-center max-w-350">
         <div class="help">
-          <h3 class="m-t-0 m-b-10">How to play</h3><button class="btn close-btn"  name="remove-help" onclick="game.toggleHelp('remove')">&times;</button><br>
+          <h3 class="m-t-0 m-b-10">How to play</h3>
+          <button
+            class="btn close-btn"
+            name="remove-help"
+            onclick="game.toggleHelp('remove')"
+          >
+            &times;</button
+          ><br />
           <ul>
-            <li><h4>Aim of the game</h4>
-              Take away as many marbles as possible in the 100 seconds countdown.</li>
-            <li><h4>How to take away marbles</h4>
-              Select a marble so it turns blue then place it over an adjacent marble into an empty space. The marble you move over will be taken. To deselect a marble, click on it again so it turns from blue to gold.</li>
-            <li><h4>Scoring</h4>
-              Each marble removed updates the score by the total marbles taken multiplied by the total seconds remaining. Eg, 20 marbles taken in 40 seconds scores 800. Finish the game at any time to submit your score to the Leader Board.</li>
-            <li><h4>Bonus points</h4>
-              If you finish with just one marble remaining, which is 'Solitaire', you get a bonus 500 points, and if your last marble finishes in the centre of the board the bonus is 1,000 points!</li>
+            <li>
+              <h4>Aim of the game</h4>
+              Take away as many marbles as possible in the 100 seconds
+              countdown.
+            </li>
+            <li>
+              <h4>How to take away marbles</h4>
+              Select a marble so it turns blue then place it over an adjacent
+              marble into an empty space. The marble you move over will be
+              taken. To deselect a marble, click on it again so it turns from
+              blue to gold.
+            </li>
+            <li>
+              <h4>Scoring</h4>
+              Each marble removed updates the score by the total marbles taken
+              multiplied by the total seconds remaining. Eg, 20 marbles taken in
+              40 seconds scores 800. Finish the game at any time to submit your
+              score to the Leader Board.
+            </li>
+            <li>
+              <h4>Bonus points</h4>
+              If you finish with just one marble remaining, which is
+              'Solitaire', you get a bonus 500 points, and if your last marble
+              finishes in the centre of the board the bonus is 1,000 points!
+            </li>
           </ul>
         </div>
         <form id="add-score-form">
           <p class="win-display m-t-10"></p>
           <p>
-            <span class="player-name-wrapper"></span><button class="btn m-l-10" type="submit" id="add-score-button">Add</button>
+            <span class="player-name-wrapper"></span
+            ><button class="btn m-l-10" type="submit" id="add-score-button">
+              Add
+            </button>
           </p>
         </form>
-        <h3 class="m-t-20 m-b-20">Leader Board <sup>top 200</sup></h3>
+        <h3 class="m-t-20 m-b-20">Leader Board <sup>top 100</sup></h3>
         <div id="leader-board">Loading scores...</div>
       </section>
-      <footer class="text-center m-t-30">&copy; Roland Levy <span id="year"></span> <a href="https://rolandlevy.co.uk" class="new-tab-icon" target="_blank">see more of my projects</a></footer>
+      <footer class="text-center m-t-30">
+        &copy; Roland Levy <span id="year"></span>
+        <a href="https://rolandlevy.co.uk" class="new-tab-icon" target="_blank"
+          >see more of my projects</a
+        >
+      </footer>
     </article>
-    
+
     <script src="src/scores-data.js" defer></script>
     <script type="module" src="script.js" defer></script>
   </body>

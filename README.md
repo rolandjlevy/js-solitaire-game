@@ -1,6 +1,6 @@
-# ⚡ Solitaire ⚡
+# ⚡ Marble Solitaire ⚡
 
-A game of speed, logic and skill: start with 33 marbles and try to finish with just one marble left in the middle of the board to achieve 'Solitaire'.
+A fast-paced, JavaScript logic game where players try to clear the board within a 100-second countdown. Featuring a responsive design and a MongoDB-powered leaderboard. A game of speed, logic and skill: start with 33 marbles and try to finish with just one marble left in the middle of the board to achieve 'Solitaire'. 
 
 ### Links 🔗
 

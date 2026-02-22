@@ -9,7 +9,7 @@ export class Score {
     this.resetSubmissionForm();
     this.countdown({ inc: 0 });
     this.clearAllIntervals();
-    this.timerID = null; // timer only starts on first valid move
+    this.timerID = null; // timer only starts from first valid move
   }
   resetSubmissionForm() {
     this.addScoreForm.style.display = 'none';
@@ -76,6 +76,17 @@ export class Score {
     let id = window.setInterval(function () {}, 0);
     while (id--) {
       window.clearInterval(id);
+    }
+  }
+  registerMove() {
+    this.moves++;
+    this.movesDisplay.textContent = this.moves;
+    this.score = this.moves * this.timer;
+    this.scoreDisplay.textContent = this.score.toLocaleString();
+    if (this.moves === 1 && !this.timerID) {
+      this.timerID = setInterval(() => {
+        this.countdown({ inc: 1 });
+      }, 1000);
     }
   }
 }

@@ -23,18 +23,27 @@ window.addEventListener('DOMContentLoaded', (event) => {
     return Object.assign(el, props);
   };
 
+  const spinner = document.getElementById('spinner');
+  const showSpinner = () => {
+    if (spinner) spinner.style.display = 'block';
+  };
+  const hideSpinner = () => {
+    if (spinner) spinner.style.display = 'none';
+  };
+
   const getScores = async () => {
+    showSpinner();
     try {
       const response = await fetch(getScoresUrl);
-      console.log('#####', { response });
       if (!response.ok) {
         throw new Error('Failed to fetch scores');
       }
       const result = await response.json();
-      console.log('#####', { result });
       return result;
     } catch (error) {
       console.error('Error fetching scores:', error.message);
+    } finally {
+      hideSpinner();
     }
   };
 
@@ -43,35 +52,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     console.log({ scores });
     renderAllScores(scores.data);
   })();
-
-  // function renderAllScoresOld(scores) {
-  //   console.log('renderAllScores(score)', scores);
-  //   leaderBoard.innerText = '';
-  //   const topUsers = users
-  //     .sort((a, b) => b.score - a.score)
-  //     .filter((item, index) => item.score < scoreLimit);
-  //   topUsers.forEach((item, index) => {
-  //     const p = document.createElement('p');
-  //     const nameStr = unescape(item.user_name)
-  //       .replace(/</g, '&lt;')
-  //       .replace(/>/g, 'gt;')
-  //       .trim();
-  //     const score = Number(item.score).toLocaleString();
-  //     const scoreStr = String(score).replace(/</g, '&lt;').replace(/>/g, 'gt;');
-  //     const validPattern = /^[a-zA-Z0-9@, ]*$/gm;
-  //     const validInput =
-  //       (nameStr.match(validPattern) || false) &&
-  //       (scoreStr.match(validPattern) || false);
-
-  //     if (validInput && index < leaderBoardLimit) {
-  //       const textContent = document.createTextNode(
-  //         `${index + 1}. ${unescape(nameStr)}: ${unescape(scoreStr)}`
-  //       );
-  //       p.appendChild(textContent);
-  //       leaderBoard.appendChild(p);
-  //     }
-  //   });
-  // }
 
   addScoreButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -127,6 +107,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   }
 
   function pushIt(score) {
+    showSpinner();
     return new Promise((resolve, reject) => {
       counter = Math.max(...users.map((user) => user.id), 0) + 1;
       const formData = {
@@ -148,6 +129,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         })
         .catch((err) => {
           reject('Error: score not added');
+        })
+        .finally(() => {
+          hideSpinner();
         });
     });
   }

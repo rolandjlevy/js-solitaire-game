@@ -1,0 +1,25 @@
+{
+  "name": "js-solitaire-game",
+  "version": "1.0.0",
+  "description": "A fast-paced, JavaScript logic game where players try to clear the board within a 100-second countdown. Featuring a responsive design and a MongoDB-powered leaderboard. A game of speed, logic and skill: start with 33 marbles and try to finish with just one marble left in the middle of the board to achieve 'Solitaire'.",
+  "main": "script.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolandjlevy/js-solitaire-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/rolandjlevy/js-solitaire-game/issues"
+  },
+  "homepage": "https://github.com/rolandjlevy/js-solitaire-game#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "http-proxy-middleware": "^3.0.5"
+  }
+}

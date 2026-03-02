@@ -12,7 +12,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const MAX_SCORE = 4000;
   const name = 'Kadampa';
 
-  const basApiUrl = 'https://node-api-serverless.vercel.app';
+  const isLocal = ['localhost', '127.0.0.1', '.app.github.dev'].some((h) =>
+    window.location.origin.includes(h)
+  );
+  const basApiUrl = isLocal ? '' : 'https://node-api-serverless.vercel.app';
   const getScoresUrl = `${basApiUrl}/api/solitaire/view?page=1&orderBy=score&sortBy=desc&limit=150`;
   const addScoreUrl = `${basApiUrl}/api/solitaire/add`;
 

@@ -40,6 +40,7 @@ export class Block {
           game.origin = null;
           sound.init('sounds/whoosh.mp3');
           score.registerMove();
+          score.checkForNoMoreMovesPossible();
         }
       }
     } else {

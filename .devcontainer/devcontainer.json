@@ -22,11 +22,8 @@
           "**/.git/subtree-cache/**": true,
           "**/node_modules/**": true
         }
-      },
-      "features": {
-        "ghcr.io/devcontainers-contrib/features/live-server:1": {}
-      },
-      "postCreateCommand": "echo 'Environment ready!'"
+      }
     }
-  }
+  },
+  "postCreateCommand": "npm install"
 }

@@ -28,7 +28,7 @@ export class Score {
     this.clearAllIntervals();
     this.addScoreForm.style.display = 'initial';
     this.checkForBonus();
-    this.winDisplay.innerHTML = `<span>Well done! you got a score of <span class="moves">${this.currentScore}</span>. ${this.bonusMessage()}Please add your name or Repl username to the Leader Board:</span>`;
+    this.winDisplay.innerHTML = `<span>Well done! you got a score of <span class="moves">${this.currentScore}</span>. ${this.bonusMessage()}Please add your name to the Leader Board:</span>`;
     this.playerNameWrapper.innerHTML = `<input id="player-name" type="text" class="m-b-10" required placeholder="Your name..." maxlength="20"><label for="player-name" class="error-message"></label>`;
     const playerName = document.querySelector('#player-name');
     playerName.focus();

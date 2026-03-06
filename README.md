@@ -1,6 +1,6 @@
 # ⚡ Marble Solitaire ⚡
 
-A fast-paced, JavaScript logic game where players try to clear the board within a 100-second countdown. Featuring a responsive design and a MongoDB-powered leaderboard. A game of speed, logic and skill: start with 33 marbles and try to finish with just one marble left in the middle of the board to achieve 'Solitaire'. 
+A fast-paced, JavaScript logic game where players try to clear the board within a 100-second countdown. Featuring a responsive design and a MongoDB-powered leaderboard. A game of speed, logic and skill: start with 33 marbles and try to finish with just one marble left in the middle of the board to achieve 'Solitaire'.
 
 ### Links 🔗
 
@@ -29,14 +29,20 @@ A fast-paced, JavaScript logic game where players try to clear the board within 
 - Includes Help section and Leader board
 - Scores are saved on the back-end using MongoDB Atlas
 
-### How to run this app in Github CodeSpaces
+### Running this app locally in Github CodeSpaces
 
-- Run http-server with nodemon
+- Install dependencies and start the dev server
 
 ```bash
-npm i -g http-server nodemon
+npm install
 ```
 
 ```bash
-nodemon --exec http-server
+npm run dev
 ```
+
+### Local dev server with API proxy
+
+- The Vercel API only allows requests from https://js-solitaire-game.vercel.app
+- When running locally (e.g., in a Codespace), the origin is different, so the browser blocks the request due to CORS
+- The local proxy forwards API requests from the origin to the Vercel API server-side, bypassing the browser's CORS restriction

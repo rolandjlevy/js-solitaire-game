@@ -43,6 +43,38 @@ export class Score {
     this.score += this.bonusAmount;
     this.scoreDisplay.textContent = this.currentScore.toLocaleString();
   }
+  isFilled(index) {
+    return this.marbles.some(
+      (item) => item.div.id == index + 1 && item.state == 'filled'
+    );
+  }
+  isEmpty(index) {
+    return this.marbles.some(
+      (item) => item.div.id == index + 1 && item.state == 'empty'
+    );
+  }
+  checkForNoMoreMovesPossible() {
+    const possibleMoves = this.marbles
+      .filter((item) => item.state == 'filled')
+      .filter((marble) => {
+        const i = Number(marble.div.id) - 1,
+          rl = this.rowLength;
+        return (
+          (i % rl >= 2 && this.isFilled(i - 1) && this.isEmpty(i - 2)) ||
+          (i % rl < rl - 2 && this.isFilled(i + 1) && this.isEmpty(i + 2)) ||
+          (Math.floor(i / rl) >= 2 &&
+            this.isFilled(i - rl) &&
+            this.isEmpty(i - 2 * rl)) ||
+          (Math.floor(i / rl) < rl - 2 &&
+            this.isFilled(i + rl) &&
+            this.isEmpty(i + 2 * rl))
+        );
+      });
+    if (!possibleMoves.length) {
+      console.log('No more moves possible');
+      this.add();
+    }
+  }
   bonusMessage() {
     if (!this.bonusAmount) return '';
     const boardCentre =

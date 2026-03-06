@@ -29,9 +29,9 @@ A fast-paced, JavaScript logic game where players try to clear the board within 
 - Includes Help section and Leader board
 - Scores are saved on the back-end using MongoDB Atlas
 
-### Running this app locally in Github CodeSpaces
+### Running this app locally in GitHub Codespaces
 
-- Install dependencies and start the dev server
+Install dependencies and start the dev server:
 
 ```bash
 npm install
@@ -41,8 +41,17 @@ npm install
 npm run dev
 ```
 
+Then open the Forwarded Address shown in the **PORTS** tab (port 8080).
+
 ### Local dev server with API proxy
 
-- The Vercel API only allows requests from https://js-solitaire-game.vercel.app
-- When running locally (e.g., in a Codespace), the origin is different, so the browser blocks the request due to CORS
-- The local proxy forwards API requests from the origin to the Vercel API server-side, bypassing the browser's CORS restriction
+The upstream Vercel API (`js-solitaire-game.vercel.app`) only accepts requests from `https://js-solitaire-game.vercel.app`. Any other origin — such as a Codespace URL — is blocked by the browser's CORS policy.
+
+To work around this, a small Express server (`server.js`) acts as a local proxy:
+
+1. The game's JavaScript always calls relative URLs (e.g. `/api/solitaire/view`).
+2. In development, those requests hit the local Express server on port 8080.
+3. The Express server forwards them to the upstream Vercel API, spoofing the `Origin` header as `https://js-solitaire-game.vercel.app` so the API accepts them.
+4. The response is returned to the browser — no CORS restriction, because the request never leaves the same origin as far as the browser is concerned.
+
+In production (deployed on Vercel) the same relative URLs are handled by Vercel serverless functions in the `api/` folder (`api/game/start.js` and `api/solitaire/[...path].js`), which perform the same proxying logic — injecting the correct `Origin` and `Authorization` headers before forwarding to the upstream API.

@@ -1,26 +1,72 @@
 const express = require('express');
 const path = require('path');
+require('dotenv').config();
+const {
+  createGameToken,
+  validateScoreSubmission,
+  proxyToUpstream
+} = require('./src/proxy-utils');
 
 const app = express();
 const PORT = 8080;
-const API_TARGET = 'https://node-api-serverless.vercel.app';
+const API_BASE_URL = process.env.API_BASE_URL;
+const BASE_URL = 'https://js-solitaire-game.vercel.app';
+
+// Set GAME_SECRET in your environment for production. Without it a random
+// secret is generated at startup, making all tokens expire on server restart.
+if (!process.env.GAME_SECRET) {
+  process.env.GAME_SECRET = require('crypto').randomBytes(32).toString('hex');
+}
 
 // Parse JSON bodies for POST requests
 app.use(express.json());
 
-// Proxy all /api requests
+// Allowed origins for this local dev proxy.
+const ALLOWED_ORIGINS = new Set(['http://localhost:8080', BASE_URL]);
+
+// Issues a signed token so the server can later verify the submitted score.
+app.post('/api/game/start', (req, res) => {
+  const size = parseInt(req.body?.size, 10);
+  if (!Number.isInteger(size) || size < 1) {
+    return res.status(400).json({ error: 'Invalid size' });
+  }
+  res.json({ gameToken: createGameToken(size) });
+});
+
+// Proxy all /api requests to the upstream Vercel API.
 app.use('/api', async (req, res) => {
-  const url = `${API_TARGET}${req.originalUrl}`;
+  // Restrict CORS to known origins instead of reflecting whatever Origin is sent.
+  const requestOrigin = req.headers.origin;
+  if (requestOrigin && ALLOWED_ORIGINS.has(requestOrigin)) {
+    res.set('Access-Control-Allow-Origin', requestOrigin);
+  }
+  res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
+  // Server-side input validation for score submissions.
+  if (
+    req.method === 'POST' &&
+    req.originalUrl.startsWith('/api/solitaire/add')
+  ) {
+    const err = validateScoreSubmission(req.body);
+    if (err) return res.status(err.status).json(err.body);
+  }
+
+  const url = `${API_BASE_URL}${req.originalUrl}`;
+
   try {
-    const response = await fetch(url, {
-      method: req.method,
-      headers: {
-        'Content-Type': 'application/json',
-        Origin: 'https://js-solitaire-game.vercel.app',
-      },
-      ...(req.method === 'POST' ? { body: JSON.stringify(req.body) } : {}),
-    });
+    const response = await proxyToUpstream(url, req.method, req.body);
     const data = await response.text();
+    if (!response.ok) {
+      console.error(
+        `Upstream error ${response.status} for ${req.originalUrl}:`,
+        data
+      );
+    }
     res.status(response.status);
     const ct = response.headers.get('content-type');
     if (ct) res.set('Content-Type', ct);

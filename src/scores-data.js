@@ -12,9 +12,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
   const MAX_SCORE = 4000;
   const name = 'Kadampa';
 
-  const basApiUrl = 'https://node-api-serverless.vercel.app';
-  const getScoresUrl = `${basApiUrl}/api/solitaire/view?page=1&orderBy=score&sortBy=desc&limit=150`;
-  const addScoreUrl = `${basApiUrl}/api/solitaire/add`;
+  const getScoresUrl =
+    '/api/solitaire/view?page=1&orderBy=score&sortBy=desc&limit=150';
+  const addScoreUrl = '/api/solitaire/add';
 
   const $ = (elem) => document.querySelector(elem);
 
@@ -114,7 +114,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         secret: `${name}${window.num}!`,
         id: counter,
         user_name: escape(playerName.value),
-        score: Number(escape(score.currentScore))
+        score: Number(escape(score.currentScore)),
+        gameToken: window.currentGameToken
       };
       return fetch(addScoreUrl, {
         method: 'POST',

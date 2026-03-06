@@ -8,9 +8,16 @@ const rowLength = 7; // Unreliable way of getting rowLength: Number(getComputedS
 
 document.querySelector('#year').textContent = new Date().getFullYear();
 
-window.startGame = function() {
+window.startGame = async function() {
   window.blocks = [];
   window.sound = new Sound();
+  // Fetch a signed token from the server so the server can verify the score.
+  const { gameToken } = await fetch('/api/game/start', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ size: rowLength })
+  }).then((r) => r.json());
+  window.currentGameToken = gameToken;
   const score = new Score({rowLength, maxTime:100});
   window.num = 13;
   window.game = new Game(rowLength, score);

@@ -29,29 +29,45 @@ A fast-paced, JavaScript logic game where players try to clear the board within 
 - Includes Help section and Leader board
 - Scores are saved on the back-end using MongoDB Atlas
 
-### Running this app locally in GitHub Codespaces
+## Running locally with Vercel CLI
 
-Install dependencies and start the dev server:
+The upstream Vercel API (`node-api-serverless.vercel.app`) only accepts requests from `https://js-solitaire-game.vercel.app`.  
+Running locally with `vercel dev` handles this transparently — the serverless functions in the `api/` folder proxy requests server-side, injecting the correct `Origin` and `Authorization` headers before forwarding to the upstream API.
+
+This gives you a close-to-production environment, with static files served from the project root and `/api/*` routes handled by the same serverless functions used in production.
+
+### 1. Install dependencies (once)
 
 ```bash
 npm install
 ```
 
+This includes the Vercel CLI as a dev dependency — no global install required.
+
+### 2. Link this project to your Vercel project (once)
+
 ```bash
-npm run dev
+npx vercel link
 ```
 
-Then open the Forwarded Address shown in the **PORTS** tab (port 8080).
+Follow the prompts to connect to the `js-solitaire-game` project on your Vercel account.
 
-### Local dev server with API proxy
+### 3. Pull environment variables
 
-The upstream Vercel API (`js-solitaire-game.vercel.app`) only accepts requests from `https://js-solitaire-game.vercel.app`. Any other origin — such as a Codespace URL — is blocked by the browser's CORS policy.
+```bash
+npx vercel env pull
+```
 
-To work around this, a small Express server (`server.js`) acts as a local proxy:
+This writes `GAME_SECRET`, `API_KEY`, and `API_BASE_URL` to a `.env.local` file in the project root (already listed in `.gitignore`, so it will not be committed).
 
-1. The game's JavaScript always calls relative URLs (e.g. `/api/solitaire/view`).
-2. In development, those requests hit the local Express server on port 8080.
-3. The Express server forwards them to the upstream Vercel API, spoofing the `Origin` header as `https://js-solitaire-game.vercel.app` so the API accepts them.
-4. The response is returned to the browser — no CORS restriction, because the request never leaves the same origin as far as the browser is concerned.
+### 4. Start the dev server
 
-In production (deployed on Vercel) the same relative URLs are handled by Vercel serverless functions in the `api/` folder (`api/game/start.js` and `api/solitaire/[...path].js`), which perform the same proxying logic — injecting the correct `Origin` and `Authorization` headers before forwarding to the upstream API.
+```bash
+npm run vercel-dev
+```
+
+### 5. Open in browser
+
+```bash
+"$BROWSER" http://localhost:8080
+```

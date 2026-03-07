@@ -4,7 +4,7 @@
   "description": "A fast-paced, JavaScript logic game where players try to clear as quickly as possible. Featuring a responsive design and a MongoDB-powered leaderboard. A game of speed, logic and skill: start with 33 marbles and try to finish with just one marble left in the middle of the board to achieve 'Solitaire'.",
   "main": "script.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "vercel-dev": "vercel dev"
   },
   "repository": {
     "type": "git",
@@ -20,11 +20,9 @@
   "homepage": "https://github.com/rolandjlevy/js-solitaire-game#readme",
   "dependencies": {
     "dotenv": "^17.3.1",
-    "express": "^5.2.1",
-    "jsonwebtoken": "^9.0.3",
-    "http-proxy-middleware": "^3.0.5"
+    "jsonwebtoken": "^9.0.3"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "vercel": "^50.28.0"
   }
 }

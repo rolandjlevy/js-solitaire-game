@@ -40,3 +40,4 @@ yarn-error.log*
 # Other
 README-original.md
 notes.md
+.env*.local
